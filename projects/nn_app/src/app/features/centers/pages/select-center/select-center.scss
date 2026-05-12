@@ -9,7 +9,7 @@
   width: 100%;
   min-height: 100dvh;
   flex-direction: column;
-  background-color: $primary;
+  background: linear-gradient(108deg, #bbd2c5 0%, #536976 100%);
   justify-content: center;
   align-items: center;
   & .card-container {
@@ -20,7 +20,8 @@
       justify-content: flex-start;
       align-items: flex-start;
       flex-direction: column;
-      gap: pxToRem(32);
+      gap: pxToRem(20);
+      padding: pxToRem(16);
       .image-container {
         display: flex;
         justify-content: center;

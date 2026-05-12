@@ -4,6 +4,17 @@ import {
   UkCardPadding,
   UkCardRadius,
 } from './ui-kit/components/basic-card/_/basic-card-type';
+import {
+  UkButtonBgColor,
+  UkButtonBorderColor,
+  UkButtonCursor,
+  UkButtonDisplay,
+  UkButtonHeight,
+  UkButtonPadding,
+  UkButtonStyle,
+  UkButtonType,
+  UkButtonUkType,
+} from './ui-kit/components/button/_/button.type';
 import { UkIconColor } from './ui-kit/components/icon/_/icon-color';
 import { UkIconSize } from './ui-kit/components/icon/_/icon-size';
 import {
@@ -19,6 +30,7 @@ import {
   UkLabelSize,
   UkLabelTextWrap,
   UkLabelType,
+  UkLabelTypography,
   UkLabelWeight,
   UkLineHeight,
 } from './ui-kit/components/label/_/label.type';
@@ -51,5 +63,20 @@ export const UK_TYPE = {
     horizontalAlignment: UkLabelHorizontalAlignment,
     TEXT_WRAP: UkLabelTextWrap,
     BG_COLOR: UkLabelBgColor,
+  },
+  BUTTON: {
+    bgColor: UkButtonBgColor,
+    display: UkButtonDisplay,
+    style: UkButtonStyle,
+    borderColor: UkButtonBorderColor,
+    padding: UkButtonPadding,
+    type: UkButtonType,
+    cursor: UkButtonCursor,
+    ukType: UkButtonUkType,
+    height: UkButtonHeight,
+    // label
+    typography: UkLabelTypography,
+    fgColor: UkLabelFgColor,
+    horizontalAlignment: UkLabelHorizontalAlignment,
   },
 };

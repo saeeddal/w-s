@@ -1,0 +1,147 @@
+@use '../../../../../styles/index.scss' as *;
+
+$height: pxToRem(40);
+$lr-padding: pxToRem(8);
+$inner-margin: pxToRem(5);
+$lr-small-padding: pxToRem(7);
+$lr-medium-padding: pxToRem(14);
+:host {
+  &.is-blocked {
+    display: block;
+    width: 100%;
+  }
+}
+
+.uk.button {
+  height: $height;
+  padding-left: $lr-padding;
+  padding-right: $lr-padding;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  //gap: pxToRem(6);
+  border-width: 1px;
+
+  uk-icon {
+    margin-left: $inner-margin;
+
+    &.just-icon {
+      margin-left: 0;
+    }
+  }
+  &.uk-button {
+    &-cursor {
+      &-NORMAL {
+      }
+
+      &-POINTER {
+        @include pointerOverlay();
+      }
+    }
+  }
+
+  // bg-color
+  &.uk-button-bg-color-RED {
+    background-color: $error-normal;
+  }
+  &.uk-button-bg-color-TRANSPARENT {
+    background-color: transparent;
+  }
+  &.uk-button-bg-color-BUTTON-PRIMARY {
+    background-color: $primary;
+  }
+
+  // display
+  &.uk-button-display-INLINE {
+    display: inline;
+  }
+  &.uk-button-display-BLOCK {
+    width: 100%;
+  }
+
+  // fg-color
+  &.uk-button-fg-color-WHITE {
+    color: $bg-white;
+
+    uk-icon {
+      ::ng-deep {
+        span {
+          color: $bg-white;
+        }
+      }
+    }
+  }
+
+  &.disabled {
+    background-color: $disable-normal;
+    color: $mute-normale;
+    uk-icon {
+      ::ng-deep {
+        span {
+          color: $mute-normale;
+        }
+      }
+    }
+  }
+
+  // height
+  &.uk-button-height {
+    &-H-48 {
+      height: pxToRem(48);
+    }
+    &-H-32 {
+      height: pxToRem(32);
+    }
+    &-H-36 {
+      height: pxToRem(36);
+    }
+    &-H-40 {
+      height: 40px;
+    }
+    &-H-36 {
+      height: 36px;
+    }
+  }
+
+  // uk-button-border-color-RED
+  // border-color
+  &.uk-button-border-color {
+    &-TRANSPARENT {
+      border-color: transparent;
+    }
+    // &-COLOR-BUTTON-OUTLINE {
+    //   border-color: $color-button-outline;
+    // }
+    // &-COLOR-BUTTON-ERROR-FILL {
+    //   border-color: $color-button-error-fill;
+    // }
+    // &-COLOR-BUTTON-PRIMARY {
+    //   border-color: $color-button-primary;
+    // }
+    // &-COLOR-BUTTON-SECONDARY {
+    //   border-color: $color-button-secondary;
+    // }
+    // &-RED {
+    //   border-color: $color-bg-red;
+    //   border: 1px solid $color-bg-red;
+    // }
+    // &-WHITE {
+    //   border: 1px solid $color-bg-white;
+    // }
+  }
+
+  &.uk-button-padding {
+    &-SMALL {
+      padding-left: $lr-small-padding;
+      padding-right: $lr-small-padding;
+    }
+    &-MEDIUM {
+      padding-left: $lr-medium-padding;
+      padding-right: $lr-medium-padding;
+    }
+  }
+
+  .start-wrapper:not(:empty) {
+    margin-left: pxToRem(8);
+  }
+}

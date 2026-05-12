@@ -19,6 +19,8 @@ export type LabelDisplay = `${UkLabelDisplay}`;
 
 export enum UkLabelFgColor {
   BASE_TONAL = 'BASE-TONAL',
+  WHITE = 'WHITE',
+  BLACK = 'BLACK',
 }
 export type LabelFgColor = `${UkLabelFgColor}`;
 

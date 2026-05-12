@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import {
   PtBasicCard,
+  PtButton,
   PtImage,
   PtLabel,
   PtSelect,
@@ -13,7 +14,16 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IMedicalCenter } from '@app/shared/models/dto/medical-center';
 @Component({
   selector: 'app-select-center',
-  imports: [FormsModule, CommonModule, RouterModule, PtImage, PtBasicCard, PtLabel, PtSelect],
+  imports: [
+    FormsModule,
+    CommonModule,
+    RouterModule,
+    PtImage,
+    PtBasicCard,
+    PtLabel,
+    PtSelect,
+    PtButton,
+  ],
   templateUrl: './select-center.html',
   styleUrl: './select-center.scss',
 })

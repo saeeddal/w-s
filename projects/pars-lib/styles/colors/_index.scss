@@ -167,6 +167,9 @@ $darkColors: (
   --text-tonal: #{getRootLightColor(base, text_tonal)};
   --text-light: #{getRootLightColor(base, text_light)};
   --error-normal: #{getRootLightColor(error, normal)};
+
+  --disable-normal: #{getRootLightColor(disable, normal)};
+  --mute-normale: #{getRootLightColor(mute, normal)};
 }
 .dark-theme {
   // Existing
@@ -185,6 +188,9 @@ $darkColors: (
   --text-tonal: #{getRootDarkColor(base, text_tonal)};
   --text-light: #{getRootDarkColor(base, text_light)};
   --error-normal: #{getRootDarkColor(error, normal)};
+
+  --disable-normal: #{getRootDarkColor(disable, normal)};
+  --mute-normale: #{getRootDarkColor(mute, normal)};
 }
 
 $base-background_normal: var(--bg-normal);
@@ -202,3 +208,5 @@ $text-tonal: var(--text-tonal);
 $text-light: var(--text-light);
 $bg-white: var(--white);
 $error-normal: var(--error-normal);
+$disable-normal: var(--disable-normal);
+$mute-normale: var(--mute-normale);
