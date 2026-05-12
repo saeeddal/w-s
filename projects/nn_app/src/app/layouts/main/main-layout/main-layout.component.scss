@@ -1,0 +1,171 @@
+@use 'core' as *;
+
+:host {
+  @include fullHeightBlock();
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.comp.main-layout {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: $bg-normal;
+  border: 1px solid $stroke-normal;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Header */
+.layout-header {
+  flex: 0 0 auto;
+  background: $card-bg;
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid $stroke-light;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+
+  .header-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h1 {
+      margin: 0;
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: $text-normal;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+
+      a {
+        color: $text-tonal;
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition:
+          color 0.25s ease,
+          background 0.25s ease;
+        padding: 0.5rem 0.75rem;
+        border-radius: 6px;
+
+        &:hover {
+          color: $primary;
+          background: $primary-tonal;
+        }
+
+        &.active {
+          color: $primary;
+          background: $primary-tonal;
+        }
+      }
+    }
+
+    .theme-toggle {
+      background: $card-bg;
+      color: $text-normal;
+      border: 1px solid $stroke-normal;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.25s ease;
+
+      &:hover {
+        background: $primary-tonal;
+        border-color: $primary;
+        color: $primary;
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    padding: 0.75rem 1rem;
+
+    .header-content {
+      flex-direction: column;
+      gap: 0.6rem;
+
+      nav {
+        gap: 1rem;
+      }
+    }
+  }
+}
+
+/* Main scroll area */
+.layout-main {
+  flex: 1 auto;
+  overflow-y: auto;
+  padding: 2rem;
+  min-height: 0;
+  background: $bg-normal;
+
+  .content-wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+    background: $card-bg;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    border: 1px solid $stroke-light;
+
+    h2 {
+      color: $text-normal;
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin: 0 0 1rem 0;
+    }
+
+    p {
+      color: $text-tonal;
+      line-height: 1.6;
+      margin: 0 0 1rem 0;
+      font-size: 1rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+
+    .content-wrapper {
+      padding: 1.5rem;
+    }
+  }
+}
+
+/* Footer */
+.layout-footer {
+  flex: 0 0 auto;
+  background: $card-bg;
+  border-top: 1px solid $stroke-light;
+  padding: 1rem 1.5rem;
+  transition: all 0.3s ease;
+
+  .footer-content {
+    // max-width: 1280px;
+    margin: 0 auto;
+    text-align: center;
+
+    p {
+      color: $text-normal;
+      margin: 0;
+      font-size: 0.9rem;
+    }
+  }
+}

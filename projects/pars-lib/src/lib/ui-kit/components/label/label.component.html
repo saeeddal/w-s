@@ -1,0 +1,25 @@
+<div
+  class="uk label"
+  [ngClass]="[
+    'uk-label-horizontal-alignment-' + horizontalAlignment,
+    'uk-label-bg-color-' + bgColor,
+    'uk-label-fg-color-' + fgColor,
+    'uk-label-typography-' + typography,
+    'uk-label-type-' + labelType,
+    'uk-label-display-' + display,
+    'uk-label-padding-' + padding,
+    'uk-label-border-radius-' + borderRadius,
+    'uk-label-numeric-' + numeric,
+    'uk-label-text-wrap-' + textWrap,
+    'uk-label-weight-' + weight,
+    'uk-label-size-' + size,
+    'uk-label-line-height-' + lineHeight,
+  ]"
+>
+  <label>
+    <ng-content />
+    @if (isRequired) {
+      <span style="color: red"> * </span>
+    }
+  </label>
+</div>

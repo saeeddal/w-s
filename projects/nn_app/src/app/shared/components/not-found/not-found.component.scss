@@ -1,0 +1,19 @@
+@use 'core' as *;
+
+.comp.not-found {
+  width: 100%;
+  height: 100%;
+  .main-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: pxToRem(16);
+    align-items: center;
+
+    .image-container {
+      width: pxToRem(320);
+      height: pxToRem(160);
+      margin: pxToRem(64) auto pxToRem(16);
+    }
+  }
+}

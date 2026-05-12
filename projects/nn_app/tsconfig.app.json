@@ -1,0 +1,56 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../out-tsc/app",
+    "types": [],
+    "paths": {
+      "@environments/*": [
+        "./src/environments/*"
+      ],
+      "@app/*": [
+        "./src/app/*"
+      ],
+      "@layouts/*": [
+        "./src/app/layouts/*"
+      ],
+      "@pages/*": [
+        "./src/app/pages/*"
+      ],
+      "@settings/*": [
+        "./src/app/settings/*"
+      ],
+      "@config/*": [
+        "./src/app/settings/config/*"
+      ],
+      "@shared/*": [
+        "./src/app/shared/*"
+      ],
+      "@services/*": [
+        "./src/app/shared/services/*"
+      ],
+      "@helpers/*": [
+        "./src/app/shared/helpers/*"
+      ],
+      "@store/*": [
+        "./src/app/shared/store/*"
+      ],
+      "@ui-kit/*": [
+        "./src/app/ui-kit/*"
+      ],
+      "@assets/*": [
+        "./src/assets/*"
+      ],
+      "@pars-lib-style/*": [
+        "../pars-lib/styles/*"
+      ],
+    },
+    "sourceMap": false
+  },
+  "include": [
+    "./src/**/*.ts",
+    "./src/**/*.d.ts"
+  ],
+  "exclude": [
+    "./src/**/*.spec.ts"
+  ],
+}

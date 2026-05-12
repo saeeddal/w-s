@@ -1,0 +1,24 @@
+@use '../tokens' as *;
+
+@function pxToRem($value) {
+  $remValue: #{calc($value / 16) + rem};
+  @return $remValue;
+}
+
+@function space($key) {
+  $value: pxToRem(map-get($spacing, $key));
+
+  @if $value == null {
+    @error "Spacing token `#{$key}` not found.";
+  }
+
+  @return $value;
+}
+
+@function shadow($key) {
+  @return var(--shadow-#{$key});
+}
+// .card {
+//   padding: space(4); // 16px
+//   margin-bottom: space(6); // 24px
+// }

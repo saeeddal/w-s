@@ -1,0 +1,117 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "cli": {
+    "packageManager": "npm"
+  },
+  "newProjectRoot": "projects",
+  "projects": {
+    "nn_app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/nn_app",
+      "sourceRoot": "projects/nn_app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "projects/nn_app/src/main.ts",
+            "tsConfig": "projects/nn_app/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/nn_app/src/favicon.ico",
+              "projects/nn_app/src/assets",
+              {
+                "glob": "**/*",
+                "input": "dist/pars-lib/assets",
+                "output": "assets/pars-lib"
+              }
+            ],
+            "styles": [
+              "projects/nn_app/src/styles.scss",
+              "node_modules/@ng-select/ng-select/themes/default.theme.css"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["projects/nn_app/src/assets/styles/_core"]
+            }
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "nn_app:build:production"
+            },
+            "development": {
+              "buildTarget": "nn_app:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test"
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": ["projects/nn_app/src/**/*.ts", "projects/nn_app/src/**/*.html"]
+          }
+        }
+      }
+    },
+    "pars-lib": {
+      "projectType": "library",
+      "root": "projects/pars-lib",
+      "sourceRoot": "projects/pars-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/pars-lib/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/pars-lib/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/pars-lib/tsconfig.spec.json"
+          }
+        }
+      }
+    }
+  }
+}

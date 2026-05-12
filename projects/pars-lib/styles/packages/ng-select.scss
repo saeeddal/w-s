@@ -1,0 +1,248 @@
+@use 'core' as *;
+@import '@ng-select/ng-select/themes/default.theme.css';
+
+$fontSize: pxToRem(11);
+$fontWeight: 600;
+$fontSizeOptions: pxToRem(13);
+$ngOptionBorderRadius: pxToRem(6);
+$radius: pxToRem(8);
+$bt-padding: pxToRem(8);
+$rl-padding: pxToRem(16);
+$bt-margin: pxToRem(5);
+$rl-margin: pxToRem(10);
+$n-r-margin: pxToRem(-2);
+$r-margin-ng-value-container: pxToRem(10);
+$l-margin-ng-narrow: pxToRem(20);
+$outline: pxToRem(2);
+
+.uk.select {
+    outline: none !important;
+    outline: $outline;
+    box-shadow: none !important;
+    height: 100%;
+    line-height: pxToRem(16);
+    // @include typography-subtitle-strong();
+    box-shadow: none !important;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 8px;
+
+    ng-select.ng-select {
+        box-shadow: none !important;
+        // border: 1px solid $color-border-grade-2;
+        border-radius: 8px;
+
+        .ng-select-container {
+            outline: none !important;
+            box-shadow: none !important;
+            border: none !important;
+            height: pxToRem(38);
+
+            border: solid 2px var(--border-gay-medium);
+
+            font-size: pxToRem(12);
+            .ng-clear-wrapper {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-left: pxToRem(-16) !important;
+            }
+        }
+
+        .ng-arrow-wrapper .ng-arrow {
+            border-width: 0 !important;
+            border-style: none !important;
+            border-color: none !important;
+        }
+
+        .ng-arrow-wrapper {
+            width: 17px;
+
+            .ng-arrow {
+                display: flex;
+                top: 0;
+                justify-content: center;
+                align-items: center;
+                margin-left: $l-margin-ng-narrow;
+
+                &::before {
+                    content: '\e909';
+                    color: #424750;
+                    font-size: pxToRem(15);
+                    font-family: 'app-icon';
+                }
+            }
+        }
+
+        .ng-value-label {
+            font-size: $fontSize;
+        }
+
+        .ng-option {
+            margin-top: $bt-margin;
+            margin-right: $rl-margin;
+            margin-left: $rl-margin;
+            //color: $color-fg-milk-800;
+            border-radius: $ngOptionBorderRadius;
+            background-color: $color-background-surface-00;
+            padding: $bt-padding, $rl-padding;
+            font-weight: $fontWeight;
+            font-size: $fontSizeOptions;
+            text-align: right;
+
+            &:last-child {
+                margin-bottom: $bt-margin;
+            }
+
+            &-marked {
+                background: rgb(255, 255, 255) !important;
+                color: rgb(54, 54, 54) !important;
+            }
+
+            &-selected {
+                background: $color-button-secondary !important;
+                color: rgb(255, 255, 255) !important;
+            }
+        }
+
+        .ng-dropdown-panel {
+        }
+
+        .ng-value-container {
+            // height: pxToRem(46);
+
+            & .ng-placeholder {
+                color: #c7c6c6;
+                font-weight: 400;
+                font-size: 0.75rem;
+                text-align: left;
+            }
+
+            & .ng-input {
+                padding: 0px pxToRem(32) !important;
+            }
+        }
+
+        .has-icon-before {
+            .ng-select-container {
+                &::before {
+                    margin-right: pxToRem(12);
+                    content: '\e945';
+                    color: #424750;
+                    font-size: pxToRem(20);
+                    font-family: 'app-icon';
+                }
+            }
+        }
+
+        .has-icon-before {
+            .ng-select-container {
+                &::before {
+                    margin-right: pxToRem(12);
+                    content: '\e904';
+                    color: black;
+                    font-size: pxToRem(16);
+                    font-family: 'app-icon';
+                }
+            }
+        }
+
+        .show-modal {
+            .ng-dropdown-panel {
+                display: none;
+            }
+        }
+
+        .show-modal.ng-select-opened {
+            .ng-dropdown-panel {
+                display: none;
+            }
+
+            .ng-select-container {
+                z-index: 0;
+            }
+        }
+
+        .ng-select-container {
+            box-shadow: none !important;
+        }
+    }
+
+    &.uk-select {
+        &-bg-color {
+            &-BACKGROUND-PRIMARY {
+                background-color: $color-button-primary;
+            }
+
+            &-BACKGROUND-SECONDARY {
+                background-color: $color-button-secondary;
+            }
+        }
+
+        &-border-color {
+            &-GRADE-2 {
+                border-color: $color-border-gay-medium;
+            }
+        }
+
+        &-is-disabled {
+            &-FALSE {
+            }
+
+            &-TRUE {
+                .ng-arrow-wrapper {
+                    .ng-arrow {
+                        &:before {
+                            color: $color-content-disabled !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        &-crud-mode {
+            &-EDIT {
+                //
+            }
+            &-VIEW {
+                border-color: transparent;
+
+                .ng-arrow {
+                    display: none !important;
+                }
+            }
+        }
+
+        &-items-appearance {
+            &-DROP-DOWN {
+                //
+            }
+            &-MODAL {
+                ng-select.ng-select {
+                    overflow: hidden;
+                }
+
+                .ng-select-opened .ng-select-container {
+                    z-index: 101;
+                }
+
+                .ng-dropdown-panel {
+                    z-index: 105;
+                }
+            }
+        }
+
+        &-margin-right {
+            &-NONE {
+                .ng-value-container {
+                    margin-right: none;
+                }
+            }
+            &-M10 {
+                .ng-value-container {
+                    margin-right: $r-margin-ng-value-container;
+                }
+            }
+        }
+    }
+}

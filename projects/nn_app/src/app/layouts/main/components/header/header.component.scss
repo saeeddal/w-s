@@ -1,0 +1,18 @@
+@use 'core' as *;
+
+$height: $layoutHeaderHeight;
+$paddingX: pxToRem(15);
+$paddingY: pxToRem(30);
+.image-container {
+  width: pxToRem(120);
+  height: pxToRem(120);
+}
+
+.comp.tabs {
+  > .wrapper {
+    width: 100%;
+    height: $layoutHeaderHeight;
+    background-color: $bg-normal;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+  }
+}

@@ -1,0 +1,38 @@
+<div class="comp select-center">
+  <div class="card-container">
+    <pt-basic-card
+      [bgColor]="UK_TYPE.CARD.BG_COLOR.NORMAL"
+      [padding]="UK_TYPE.CARD.PADDING.MEDIUM"
+      [radius]="UK_TYPE.CARD.RADIUS.MEDIUM"
+    >
+      <article class="main-container-card">
+        <div class="image-container">
+          <div>
+            <pt-image
+              [source]="'assets/images/logo/logo_select_center.png'"
+              [objectFit]="UK_TYPE.IMAGE.OBJECT_FIT.FILL"
+            />
+          </div>
+        </div>
+        <div>
+          <pt-label
+            [horizontalAlignment]="UK_TYPE.LABEL.horizontalAlignment.START"
+            [fgColor]="UK_TYPE.LABEL.FG_COLOR.BASE_TONAL"
+            [size]="UK_TYPE.LABEL.SIZE.SMALL"
+            [weight]="UK_TYPE.LABEL.WEIGHT.BOLD"
+            >لطفا نام مرکز درمانی خود را انتخاب نمایید :</pt-label
+          >
+        </div>
+        <pt-select
+          [(ngModel)]="selectedCenter"
+          [items]="medicalCenters"
+          bindLabel="title"
+          bindValue="id"
+          placeholder="انتخاب مرکز درمان"
+        />
+      </article>
+    </pt-basic-card>
+  </div>
+
+  <!-- <pt-icon src="assets/images/icons/profile-circle.svg" [size]="UK_TYPE.ICON.SIZE.LARGER"></pt-icon> -->
+</div>

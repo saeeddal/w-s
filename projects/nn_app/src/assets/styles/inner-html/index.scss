@@ -1,0 +1,28 @@
+.ql-direction-rtl {
+  direction: rtl;
+  /* Right-to-left text direction */
+  text-align: justify;
+  /* Justify the text */
+  text-justify: inter-word;
+
+  /* Optional: fine-tune justification */
+  > strong {
+    font-weight: bold;
+    font-size: 14px !important;
+    padding: 16px 0;
+    color: #667085;
+    margin-top: 14px;
+  }
+}
+
+p.ql-align-justify {
+  margin-top: 16px;
+  direction: rtl;
+  /* Right-to-left text direction */
+  text-align: justify;
+  /* Justify the text */
+  text-justify: inter-word;
+  font-size: 12px !important;
+  color: #667085;
+  line-height: 1.5rem;
+}

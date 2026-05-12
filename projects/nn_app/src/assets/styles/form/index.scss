@@ -1,0 +1,41 @@
+@use 'core' as *;
+
+uk-form {
+  > .uk.form {
+    > uk-form-header {
+      > .uk.form-header {
+      }
+    }
+    > uk-form-body {
+      > .uk.form-body {
+        padding: 8px 0;
+
+        > uk-form-part {
+          > .uk.form-part {
+            padding: 8px 0;
+
+            > uk-form-row {
+              > .uk.form-row {
+                > uk-form-controller {
+                  > .uk.form-controller {
+                    > uk-input {
+                      width: 100%;
+                      border: solid 1px $stroke-normal;
+                      height: 40px;
+                      border-radius: 8px;
+                      overflow: hidden;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    uk-form-footer {
+      .uk.form-footer {
+      }
+    }
+  }
+}

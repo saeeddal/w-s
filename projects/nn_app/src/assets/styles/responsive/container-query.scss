@@ -1,0 +1,43 @@
+// Container queries are an alternative to media queries,
+// which apply styles to elements based on viewport size or other device characteristics.
+
+._container_query_parent {
+  &.preview {
+    container-name: preview;
+    container-type: inline-size;
+
+    > ._container_query_child {
+      display: grid;
+    }
+  }
+}
+
+@container preview (max-width: 9999px) {
+  ._container_query_child {
+    grid-template-columns: 20% 20% 20% 20% 20%;
+  }
+}
+
+@container preview (max-width: 1200px) {
+  ._container_query_child {
+    grid-template-columns: 25% 25% 25% 25%;
+  }
+}
+
+@container preview (max-width: 900px) {
+  ._container_query_child {
+    grid-template-columns: 33.333% 33.333% 33.333%;
+  }
+}
+
+@container preview (max-width: 600px) {
+  ._container_query_child {
+    grid-template-columns: 50% 50%;
+  }
+}
+
+@container preview (max-width: 400px) {
+  ._container_query_child {
+    grid-template-columns: 100%;
+  }
+}

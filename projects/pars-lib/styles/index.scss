@@ -1,0 +1,8 @@
+@forward './colors';
+@forward './mixins';
+@forward './functions';
+
+.ng-select .ng-select-container .ng-value-container {
+  padding-left: 10px;
+  padding-right: 10px;
+}

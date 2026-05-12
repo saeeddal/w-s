@@ -1,0 +1,22 @@
+$typography: (
+  h1: (
+    font-size: pxToRem(28),
+    font-weight: 700,
+    line-height: normal,
+  ),
+  h2: (
+    font-size: pxToRem(20),
+    font-weight: 700,
+    line-height: normal,
+  ),
+  h3: (
+    font-size: pxToRem(16),
+    font-weight: 700,
+    line-height: normal,
+  ),
+  h4: (
+    font-size: pxToRem(14),
+    font-weight: 700,
+    line-height: normal,
+  ),
+);

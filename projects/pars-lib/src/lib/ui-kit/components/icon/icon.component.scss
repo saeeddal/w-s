@@ -1,0 +1,69 @@
+@use '../../../../../styles/index.scss' as *;
+
+.uk.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // color
+
+  &.uk-icon-color-WHITE {
+    color: $white;
+  }
+
+  &.uk-icon-color-DARK {
+    color: $black;
+  }
+
+  // size
+
+  &.uk-icon-cursor {
+    &-POINTER {
+      @include pointerOverlay();
+    }
+  }
+
+  .icon {
+    display: inline-flex;
+    width: 100%;
+    height: 100%;
+  }
+
+  .icon svg {
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+  }
+
+  img.uk-icon-size-LARGEST {
+    font-size: pxToRem(24);
+  }
+  .uk-icon-size-LARGER {
+    font-size: pxToRem(20);
+  }
+  .uk-icon-size-MEDIUM {
+    font-size: pxToRem(16);
+  }
+  .uk-icon-size-SMALLER {
+    font-size: pxToRem(12);
+  }
+
+  img.uk-icon-size {
+    &-LARGEST {
+      width: pxToRem(24);
+      height: pxToRem(24);
+    }
+    &-LARGER {
+      width: pxToRem(20);
+      height: pxToRem(20);
+    }
+    &-MEDIUM {
+      width: pxToRem(16);
+      height: pxToRem(16);
+    }
+    &-SMALLER {
+      width: pxToRem(12);
+      height: pxToRem(12);
+    }
+  }
+}

@@ -1,0 +1,57 @@
+@use '../../../../../styles/index.scss' as *;
+
+.uk.card {
+  width: 100%;
+
+  &.uk-basic-card-padding {
+    &-MEDIUM {
+      padding: 16px;
+    }
+
+    &-SMALL {
+      padding: 8px;
+    }
+
+    &-NONE {
+      padding: 0;
+    }
+
+    &-SMALLER {
+      padding: 3px;
+    }
+  }
+
+  // bgColor
+  &.uk-basic-card-bg-color {
+    &-TRANSPARENT {
+      background-color: transparent;
+    }
+
+    &-NORMAL {
+      background-color: $base-background_normal;
+    }
+
+    &-PURPLE {
+      background-color: #e8def4;
+    }
+
+    &-GRAY {
+      background-color: gray;
+    }
+  }
+
+  // radius
+  &.uk-basic-card-radius {
+    &-LARGEST {
+      border-radius: 16px;
+    }
+
+    &-MEDIUM {
+      border-radius: 8px;
+    }
+
+    &-LARGE {
+      border-radius: 12px;
+    }
+  }
+}

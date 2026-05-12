@@ -1,0 +1,71 @@
+
+@use '../../../../../styles/index.scss' as *;
+
+:host {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.uk.picture {
+    width: 100%;
+    height: 100%;
+    // background-color: white;
+    // padding: 10px;
+
+    &.uk-picture-object-fit {
+        &-COVER {
+            img {
+                width: 100%;
+                height: 100%;
+                display: block;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+
+        &-FILL {
+            img {
+                width: 100%;
+                height: 100%;
+                display: block;
+                object-fit: fill;
+                object-position: center;
+            }
+        }
+
+        &-SCALE-DOWN {
+            img {
+                width: 100%;
+                height: 100%;
+                display: block;
+                object-fit: scale-down;
+                object-position: center;
+            }
+        }
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    &.uk-picture-bg-color-WHITE {
+        background-color: $bg-white;
+    }
+
+    &.uk-picture-bg-color-TRANSPARENT {
+        background-color: transparent;
+    }
+
+    &.uk-picture-padding {
+        &-MEDIUM {
+            padding: pxToRem(10);
+        }
+
+
+    }
+}

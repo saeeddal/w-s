@@ -1,0 +1,133 @@
+@use '../../../../../styles/index.scss' as *;
+
+:host {
+  display: flex;
+  align-items: center;
+}
+
+.uk.label {
+  // Background Colors
+  // &.uk-label-bg-color {
+  //   &-PURPLE_MEDIUM {
+  //     background-color: $color-bg-purple-medium;
+  //   }
+  //   &-CONTENT-LOW-EMPHASIS {
+  //     background-color: $color-content-low-emphasis;
+  //   }
+  // }
+
+  // Text Colors
+  &.uk-label-fg-color {
+    &-CONTENT-LIGHT {
+      color: $text-light;
+    }
+
+    &-CONTENT-DARK {
+      color: $black;
+    }
+    &-BASE-TONAL {
+      color: $text-tonal;
+    }
+  }
+
+  // Sizes
+  &.uk-label-size {
+    &-LARGEST {
+      font-size: pxToRem(24);
+      line-height: pxToRem(30);
+    }
+
+    &-LARGER {
+      font-size: pxToRem(20);
+      line-height: pxToRem(26);
+    }
+
+    &-MEDIUM {
+      font-size: pxToRem(16);
+      line-height: pxToRem(20);
+    }
+
+    &-SMALL {
+      font-size: pxToRem(14);
+      line-height: pxToRem(18);
+    }
+
+    &-SMALLER {
+      font-size: pxToRem(12);
+      line-height: pxToRem(16);
+    }
+
+    &-SMALLEST {
+      font-size: pxToRem(10);
+      line-height: pxToRem(14);
+    }
+  }
+
+  // Weights
+  &.uk-label-weight {
+    &-BOLD {
+      font-weight: bold;
+    }
+
+    &-NORMAL {
+      font-weight: normal;
+    }
+  }
+
+  // Line Heights
+  &.uk-label-line-height {
+    &-MEDIUM {
+      line-height: pxToRem(24);
+    }
+
+    &-LARGE {
+      line-height: pxToRem(32);
+    }
+  }
+
+  // Alignments
+  &.uk-label-horizontal-alignment {
+    &-START,
+    &-CENTER,
+    &-END,
+    &-JUSTIFY {
+      width: 100%;
+    }
+
+    &-START {
+      text-align: start;
+
+      > label {
+        text-align: right;
+      }
+    }
+
+    &-CENTER {
+      text-align: center;
+
+      > label {
+        text-align: center;
+      }
+    }
+
+    &-END {
+      text-align: end;
+
+      > label {
+        text-align: left;
+      }
+    }
+
+    &-JUSTIFY {
+      justify-content: space-between;
+
+      > label {
+        text-align: justify;
+      }
+    }
+  }
+
+  .span {
+    color: $error-normal;
+  }
+}
