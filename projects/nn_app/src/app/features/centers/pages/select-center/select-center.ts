@@ -10,7 +10,6 @@ import {
   PtSelect,
   UK_TYPE,
 } from '../../../../../../../pars-lib/src/public-api';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IMedicalCenter } from '@app/shared/models/dto/medical-center';
 @Component({
   selector: 'app-select-center',

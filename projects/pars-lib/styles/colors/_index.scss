@@ -52,7 +52,9 @@ $lightColors: (
   ),
   base: (
     white: #ffffff,
-    black: #000,
+    black: #000000,
+    light: #ffffff,
+    dark: #000,
     background_normal: #f9fafc,
     card_background: #fff,
     text_normal: #1e1f23,
@@ -118,6 +120,8 @@ $darkColors: (
   base: (
     white: #ffffff,
     black: #000000,
+    dark: #ffffff,
+    light: #000000,
     background_normal: #121317,
     card_background: #1b1c21,
     text_normal: #e7e7e9,
@@ -170,6 +174,14 @@ $darkColors: (
 
   --disable-normal: #{getRootLightColor(disable, normal)};
   --mute-normale: #{getRootLightColor(mute, normal)};
+
+  --base-white: #{getRootLightColor(base, white)};
+  --base-light: #{getRootLightColor(base, light)};
+  --base-dark: #{getRootLightColor(base, dark)};
+
+  --base-stroke_normal: #{getRootLightColor(base, stroke_normal)};
+
+  --mute-tonal: #{getRootLightColor(mute, tonal)};
 }
 .dark-theme {
   // Existing
@@ -191,6 +203,12 @@ $darkColors: (
 
   --disable-normal: #{getRootDarkColor(disable, normal)};
   --mute-normale: #{getRootDarkColor(mute, normal)};
+  --base-white: #{getRootDarkColor(base, white)};
+
+  --base-light: #{getRootDarkColor(base, light)};
+  --base-dark: #{getRootDarkColor(base, dark)};
+  --base-stroke_normal: #{getRootDarkColor(base, stroke_normal)};
+  --mute-tonal: #{getRootDarkColor(mute, tonal)};
 }
 
 $base-background_normal: var(--bg-normal);
@@ -210,3 +228,9 @@ $bg-white: var(--white);
 $error-normal: var(--error-normal);
 $disable-normal: var(--disable-normal);
 $mute-normale: var(--mute-normale);
+$base-white: var(--base-white);
+
+$base-light: var(--base-light);
+$base-dark: var(--base-dark);
+$base-stroke_normal: var(--base-stroke_normal);
+$mute-tonal: var(--mute-tonal);

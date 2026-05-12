@@ -11,15 +11,36 @@ import { ActivatedRoute, NavigationEnd, Router, RouterOutlet } from '@angular/ro
 import { filter } from 'rxjs';
 import { AppFacade } from '@app/core/app.facade';
 import { Themes } from '@app/core/base-services/models/themes.enum';
+import { FormsModule } from '@angular/forms';
+import {
+  PtBasicCard,
+  PtButton,
+  PtImage,
+  PtLabel,
+  PtSelect,
+  UK_TYPE,
+} from '../../../../../../pars-lib/src/public-api';
 
 @Component({
   selector: 'app-main-layout',
-  imports: [RouterOutlet, CommonModule],
+  imports: [
+    RouterOutlet,
+    CommonModule,
+    FormsModule,
+    CommonModule,
+    PtImage,
+    PtBasicCard,
+    PtLabel,
+    PtSelect,
+    PtButton,
+    PtBasicCard,
+  ],
   templateUrl: './main-layout.component.html',
   styleUrl: './main-layout.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BmnMainLayoutComponent {
+  public readonly UK_TYPE = UK_TYPE;
   public reduceHeightForPwaIphone = signal(200);
   public isOnline = signal(true);
   public showHeader = signal(true);
