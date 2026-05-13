@@ -1,0 +1,60 @@
+<div class="sidebar" [class.collapsed]="collapsed()">
+  <div class="sidebar-header">
+    @if (!collapsed()) {
+    <h2>My App</h2>
+    }
+  </div>
+
+  <div class="menu-container">
+    @for (item of menuItems; track item.title) {
+
+    <div class="menu-group">
+      <!-- MAIN MENU ITEM -->
+
+      <div
+        class="menu-item"
+        [routerLink]="item.route"
+        routerLinkActive="active"
+        (click)="hasChildren(item) && toggleMenu(item.title)"
+      >
+        <div class="menu-start">
+          <!-- <span class="material-icons icon"> {{ item.icon }} </span> -->
+
+          @if (!collapsed()) {
+          <span class="title"> {{ item.title }} </span>
+          }
+        </div>
+
+        @if (hasChildren(item) && !collapsed()) {
+
+        <!-- <span class="material-icons toggle-icon">
+          {{ openMenu() === item.title ? 'expand_less' : 'expand_more' }}
+        </span> -->
+
+        }
+      </div>
+
+      <!-- SUB MENU -->
+
+      @if ( hasChildren(item) && openMenu() === item.title && !collapsed() ) {
+
+      <div class="submenu">
+        @for (child of item.children; track child.title) {
+
+        <a class="submenu-item" [routerLink]="child.route" routerLinkActive="active">
+          <div class="menu-start">
+            <!-- <span class="material-icons icon"> {{ child.icon }} </span> -->
+
+            <span class="title"> {{ child.title }} </span>
+          </div>
+        </a>
+
+        }
+      </div>
+
+      }
+    </div>
+
+    }
+  </div>
+</div>

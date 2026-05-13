@@ -1,4 +1,5 @@
 import { BmnConstConfig } from './_/const-config.interface';
+import { SidebarMenuItem } from './_/sidebar-menu-item.interface';
 
 export const CONST_CONFIG: BmnConstConfig = {
   image: {
@@ -36,3 +37,38 @@ export const CONST_CONFIG: BmnConstConfig = {
     transactionList: '',
   },
 };
+
+export const SIDEBAR_MENU: SidebarMenuItem[] = [
+  {
+    title: 'Users',
+    icon: 'group',
+    children: [
+      {
+        title: 'User List',
+        icon: 'list',
+        route: '/users/list',
+      },
+      {
+        title: 'Create User',
+        icon: 'person_add',
+        route: '/users/create',
+      },
+    ],
+  },
+  {
+    title: 'Settings',
+    icon: 'settings',
+    children: [
+      {
+        title: 'Profile',
+        icon: 'account_circle',
+        route: '/settings/profile',
+      },
+      {
+        title: 'Security',
+        icon: 'security',
+        route: '/settings/security',
+      },
+    ],
+  },
+];

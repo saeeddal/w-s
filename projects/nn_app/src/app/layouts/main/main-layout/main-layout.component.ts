@@ -23,7 +23,7 @@ import {
   UK_TYPE,
 } from '../../../../../../pars-lib/src/public-api';
 import { MEDICAL_CENTERS } from '../helper/mock-data';
-import { Sidebar } from '../components/side-menu/side-menu';
+import { Sidebar } from '../components/sidebar/sidebar';
 
 @Component({
   selector: 'app-main-layout',
