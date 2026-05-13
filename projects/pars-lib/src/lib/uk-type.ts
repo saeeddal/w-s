@@ -27,6 +27,7 @@ import {
   UkLabelFgColor,
   UkLabelHorizontalAlignment,
   UkLabelNumeric,
+  UkLabelPadding,
   UkLabelSize,
   UkLabelTextWrap,
   UkLabelType,
@@ -34,6 +35,8 @@ import {
   UkLabelWeight,
   UkLineHeight,
 } from './ui-kit/components/label/_/label.type';
+import { UkSelectBorderColor } from './ui-kit/components/select/_/select.type';
+import { UkBooleanType } from './ui-kit/definitions/uk.type';
 
 export const UK_TYPE = {
   IMAGE: {
@@ -63,6 +66,7 @@ export const UK_TYPE = {
     horizontalAlignment: UkLabelHorizontalAlignment,
     TEXT_WRAP: UkLabelTextWrap,
     BG_COLOR: UkLabelBgColor,
+    padding: UkLabelPadding,
   },
   BUTTON: {
     bgColor: UkButtonBgColor,
@@ -79,4 +83,8 @@ export const UK_TYPE = {
     fgColor: UkLabelFgColor,
     horizontalAlignment: UkLabelHorizontalAlignment,
   },
+  SELECT: {
+    borderColor: UkSelectBorderColor,
+  },
+  BOOLEAN_TYPE: UkBooleanType,
 };

@@ -7,11 +7,11 @@ export const MAIN_LAYOUT_ROUTES: Routes = [
     path: '',
     component: BmnMainLayoutComponent,
     children: [
-      { path: '', redirectTo: 'loans', pathMatch: 'full' },
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
       {
-        path: 'loans',
+        path: 'home',
         loadChildren: async () =>
-          import('../../features/loans/loans.routes').then((s) => s.LOANS_ROUTES),
+          import('../../features/home/home.routes').then((s) => s.HOME_ROUTES),
       },
       {
         path: '**',

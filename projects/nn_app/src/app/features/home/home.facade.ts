@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { HOME_STORE } from './loans.store.ts.js';
+import { HOME_STORE } from './home.store.ts.js';
 import { ICreateUserDto, IUpdateUserDto } from '@app/shared/models/common/mock.interface.js';
 
 @Injectable({ providedIn: 'root' })

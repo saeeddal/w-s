@@ -11,22 +11,51 @@
   flex-direction: column;
   overflow: hidden;
   background-color: $base-light;
+  width: 100%;
   /* Header */
   .layout-header {
     flex: 0 0 auto;
-    padding: 0.2rem 2rem;
+    padding: 0.2rem 0.5rem;
 
     transition: all 0.3s ease;
     height: pxToRem(65);
-
+    background-color: $mute-tonal;
     .header-content {
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      width: 100%;
       .image-container {
-        height: pxToRem(60);
-        width: pxToRem(183);
+        max-height: pxToRem(60);
+        max-width: pxToRem(183);
+        min-height: pxToRem(40);
+        min-width: pxToRem(100);
+      }
+      .second-part {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: pxToRem(8);
+        width: 100%;
+        .select-center-container {
+          background-color: $base-light;
+          padding: pxToRem(4) pxToRem(8) pxToRem(4) pxToRem(0);
+          border-radius: pxToRem(8);
+          gap: pxToRem(8);
+          width: clamp(12rem, 50vw, 15rem);
+          height: clamp(2.5rem, 5vw, 3rem);
+          display: flex;
+          align-items: center;
+          .icon-label {
+            width: 30%;
+            display: flex;
+            gap: pxToRem(4);
+          }
+          .select-center {
+            width: 60%;
+          }
+        }
       }
     }
   }
@@ -35,12 +64,12 @@
 
   .content-wrapper {
     border-radius: pxToRem(24);
-    padding: pxToRem(16);
+    padding: pxToRem(10) pxToRem(1);
     display: flex;
     justify-content: space-between;
     border-radius: pxToRem(24);
-    margin: pxToRem(16);
-    background-color: #f0eeef;
+    margin: pxToRem(0) pxToRem(8);
+    background-color: $base-light;
     overflow-y: auto;
     .sidebar {
       width: 17%; /* 1/4 width */
@@ -49,7 +78,7 @@
     }
 
     .content {
-      width: 80%;
+      width: 81%;
     }
   }
 }

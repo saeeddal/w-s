@@ -1,0 +1,49 @@
+.sidebar {
+  width: 240px;
+  background: #fff;
+  transition: width 0.3s;
+}
+
+.sidebar.collapsed {
+  width: 70px;
+}
+
+.menu-item,
+.submenu-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.menu-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 12px;
+  gap: 12px;
+}
+
+.icon {
+  min-width: 24px;
+  text-align: center;
+}
+
+.label {
+  flex: 1;
+}
+
+.arrow {
+  margin-left: auto;
+}
+
+.submenu {
+  padding-left: 20px;
+}
+
+.sidebar.collapsed .submenu {
+  padding-left: 0;
+}
+
+.sidebar.collapsed .submenu-item {
+  justify-content: center;
+}

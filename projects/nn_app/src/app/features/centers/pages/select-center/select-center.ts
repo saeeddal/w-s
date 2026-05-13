@@ -9,6 +9,7 @@ import {
   PtLabel,
   PtSelect,
   UK_TYPE,
+  PtIcon,
 } from '../../../../../../../pars-lib/src/public-api';
 import { IMedicalCenter } from '@app/shared/models/dto/medical-center';
 @Component({
@@ -22,6 +23,7 @@ import { IMedicalCenter } from '@app/shared/models/dto/medical-center';
     PtLabel,
     PtSelect,
     PtButton,
+    PtIcon,
   ],
   templateUrl: './select-center.html',
   styleUrl: './select-center.scss',

@@ -14,6 +14,7 @@
   <ng-select
     notFoundText="ایتمی یافت نشد"
     class="form-element uk-single-select"
+    [ngClass]="{ 'NO-BORDER': noBorder === UK_TYPE.BOOLEAN_TYPE.TRUE }"
     [bindLabel]="bindLabel"
     [bindValue]="bindValue"
     [clearable]="false"
@@ -27,6 +28,7 @@
     [(ngModel)]="innerValue"
     (blur)="onTouche()"
     (change)="onChange(innerValue)"
+    appendTo="body"
   />
   <div class="label-space" [ngClass]="['uk-bg-color-' + bgColor]"></div>
 </div>

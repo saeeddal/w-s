@@ -50,6 +50,12 @@ $lr-medium-padding: pxToRem(14);
   &.uk-button-bg-color-BUTTON-PRIMARY {
     background-color: $primary;
   }
+  &.uk-button-bg-color-ERROR-FILL {
+    background-color: $error-normal;
+  }
+  &.uk-button-bg-color-ERROR-TONAL {
+    background-color: $error-tonal;
+  }
 
   // display
   &.uk-button-display-INLINE {

@@ -182,6 +182,9 @@ $darkColors: (
   --base-stroke_normal: #{getRootLightColor(base, stroke_normal)};
 
   --mute-tonal: #{getRootLightColor(mute, tonal)};
+  --error-tonal: #{getRootLightColor(error, tonal)};
+  --select-bg: #fff;
+  --select-text: #000;
 }
 .dark-theme {
   // Existing
@@ -209,6 +212,9 @@ $darkColors: (
   --base-dark: #{getRootDarkColor(base, dark)};
   --base-stroke_normal: #{getRootDarkColor(base, stroke_normal)};
   --mute-tonal: #{getRootDarkColor(mute, tonal)};
+  --error-tonal: #{getRootDarkColor(error, tonal)};
+  --select-bg: #1e1e1e;
+  --select-text: #fff;
 }
 
 $base-background_normal: var(--bg-normal);
@@ -226,6 +232,7 @@ $text-tonal: var(--text-tonal);
 $text-light: var(--text-light);
 $bg-white: var(--white);
 $error-normal: var(--error-normal);
+$error-tonal: var(--error-tonal);
 $disable-normal: var(--disable-normal);
 $mute-normale: var(--mute-normale);
 $base-white: var(--base-white);
@@ -234,3 +241,6 @@ $base-light: var(--base-light);
 $base-dark: var(--base-dark);
 $base-stroke_normal: var(--base-stroke_normal);
 $mute-tonal: var(--mute-tonal);
+
+$select-bg: var(--select-bg);
+$select-text: var(--select-text);

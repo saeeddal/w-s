@@ -27,7 +27,7 @@ import {
   SelectMarginRight,
 } from './_/select.type';
 import DEFAULT from '../../prepared-config';
-import { BooleanType, CrudMode } from '../../definitions/uk.type';
+import { BooleanType, CrudMode, UkBooleanType } from '../../definitions/uk.type';
 import { UK_TYPE } from '../../../uk-type';
 import {
   UIKIT_EMPTY_FUNCTION,
@@ -83,9 +83,6 @@ export class PtSelect implements ControlValueAccessor {
   public isSilentDisabled = false;
 
   @Input()
-  public hasBorder = true;
-
-  @Input()
   public hasFocus = false;
 
   @Input()
@@ -120,6 +117,9 @@ export class PtSelect implements ControlValueAccessor {
 
   @Input()
   public marginRight: SelectMarginRight = DEFAULT.select.marginRight;
+
+  @Input()
+  public noBorder: BooleanType = UkBooleanType.FALSE;
 
   public readonly UK_TYPE = UK_TYPE;
 

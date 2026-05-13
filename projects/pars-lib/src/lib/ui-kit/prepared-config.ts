@@ -61,7 +61,7 @@ const SIMPLE = {
     horizontalAlignment: UkLabelHorizontalAlignment.START,
     verticalAlignment: UkLabelVerticalAlignment.CENTER,
     bgColor: UkLabelBgColor.TRANSPARENT,
-    fgColor: UkLabelFgColor.BASE_TONAL,
+    fgColor: UkLabelFgColor.TEXT_NORMAL,
     typography: UkLabelTypography.BUTTON_1,
     type: UkLabelType.NONE,
     display: UkLabelDisplay.INLINE_FLEX,

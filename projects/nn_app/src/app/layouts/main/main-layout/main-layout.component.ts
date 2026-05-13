@@ -3,6 +3,7 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  HostListener,
   inject,
   signal,
 } from '@angular/core';
@@ -15,11 +16,14 @@ import { FormsModule } from '@angular/forms';
 import {
   PtBasicCard,
   PtButton,
+  PtIcon,
   PtImage,
   PtLabel,
   PtSelect,
   UK_TYPE,
 } from '../../../../../../pars-lib/src/public-api';
+import { MEDICAL_CENTERS } from '../helper/mock-data';
+import { Sidebar } from '../components/side-menu/side-menu';
 
 @Component({
   selector: 'app-main-layout',
@@ -34,6 +38,8 @@ import {
     PtSelect,
     PtButton,
     PtBasicCard,
+    PtIcon,
+    Sidebar,
   ],
   templateUrl: './main-layout.component.html',
   styleUrl: './main-layout.component.scss',
@@ -57,6 +63,14 @@ export class BmnMainLayoutComponent {
   public readonly ROUTER = inject(Router);
 
   public readonly Themes = Themes;
+  public readonly MEDICAL_CENTERS = MEDICAL_CENTERS;
+  public readonly selectedCenter = this.MEDICAL_CENTERS[0];
+  public isMobile = signal(window.innerWidth < 600);
+  @HostListener('window:resize')
+  onResize() {
+    this.isMobile.set(window.innerWidth < 600);
+  }
+
   constructor() {
     this.ROUTER.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
       this.updateRouteData();
