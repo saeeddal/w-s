@@ -4,25 +4,29 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SidebarMenuItem } from '@app/settings/const-config/_/sidebar-menu-item.interface';
 import { SIDEBAR_MENU } from '@app/settings/const-config/const-config.setting';
+import {
+  PtBasicCard,
+  PtIcon,
+  PtImage,
+  PtLabel,
+  UK_TYPE,
+} from '../../../../../../../pars-lib/src/public-api';
 
 @Component({
   selector: 'sidebar',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, PtBasicCard, PtLabel, PtIcon, PtImage],
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.scss',
 })
 export class Sidebar {
   menuItems: SidebarMenuItem[] = SIDEBAR_MENU;
-
+  public readonly UK_TYPE = UK_TYPE;
   collapsed = signal(false);
-
   openMenu = signal<string | null>(null);
-
   constructor() {
     this.checkScreenSize();
   }
-
   @HostListener('window:resize')
   onResize(): void {
     this.checkScreenSize();

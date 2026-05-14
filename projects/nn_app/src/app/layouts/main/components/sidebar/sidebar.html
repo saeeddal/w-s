@@ -1,15 +1,29 @@
-<div class="sidebar" [class.collapsed]="collapsed()">
-  <div class="sidebar-header">
-    @if (!collapsed()) {
-    <h2>My App</h2>
-    }
-  </div>
+<pt-basic-card
+  [bgColor]="UK_TYPE.CARD.BG_COLOR.NORMAL"
+  [padding]="UK_TYPE.CARD.PADDING.MEDIUM"
+  [radius]="UK_TYPE.CARD.RADIUS.MEDIUM"
+>
+  <div class="sidebar" [class.collapsed]="collapsed()">
+    <div class="sidebar-header">
+      <div class="image-container">
+        <div>
+          <pt-image
+            [source]="'assets/images/icons/profile-circle.svg'"
+            [objectFit]="UK_TYPE.IMAGE.OBJECT_FIT.FILL"
+          />
+        </div>
+      </div>
+      <div>
+        <pt-label [size]="UK_TYPE.LABEL.SIZE.SMALLEST"> کاربر:</pt-label>
+        <pt-label [size]="UK_TYPE.LABEL.SIZE.SMALLER" [weight]="UK_TYPE.LABEL.WEIGHT.BOLD"
+          >سعید دالوند</pt-label
+        >
+      </div>
+      <pt-icon [src]="'assets/images/icons/hospital.svg'" [size]="UK_TYPE.ICON.SIZE.LARGEST" />
+    </div>
 
-  <div class="menu-container">
-    @for (item of menuItems; track item.title) {
-
-    <div class="menu-group">
-      <!-- MAIN MENU ITEM -->
+    <div class="menu-container">
+      @for (item of menuItems; track item.title) {
 
       <div
         class="menu-item"
@@ -17,44 +31,33 @@
         routerLinkActive="active"
         (click)="hasChildren(item) && toggleMenu(item.title)"
       >
-        <div class="menu-start">
-          <!-- <span class="material-icons icon"> {{ item.icon }} </span> -->
+        <pt-icon [src]="'assets/images/icons/hospital.svg'" [size]="UK_TYPE.ICON.SIZE.LARGEST" />
+        <pt-label [weight]="UK_TYPE.LABEL.WEIGHT.BOLD" [size]="UK_TYPE.LABEL.SIZE.SMALL">
+          {{ item.title }}
+        </pt-label>
 
-          @if (!collapsed()) {
-          <span class="title"> {{ item.title }} </span>
-          }
-        </div>
-
-        @if (hasChildren(item) && !collapsed()) {
-
-        <!-- <span class="material-icons toggle-icon">
-          {{ openMenu() === item.title ? 'expand_less' : 'expand_more' }}
-        </span> -->
-
+        @if (hasChildren(item)) {
+        <pt-icon
+          class="chevron-down"
+          [ngClass]="{open:openMenu() === item.title}"
+          [src]="'assets/images/icons/chevron-down.svg'"
+          [size]="UK_TYPE.ICON.SIZE.LARGEST"
+        />
         }
       </div>
-
       <!-- SUB MENU -->
-
-      @if ( hasChildren(item) && openMenu() === item.title && !collapsed() ) {
-
-      <div class="submenu">
+      <div class="submenu" [class.open]="openMenu() === item.title">
         @for (child of item.children; track child.title) {
-
-        <a class="submenu-item" [routerLink]="child.route" routerLinkActive="active">
+        <div class="submenu-item" [routerLink]="child.route" routerLinkActive="active">
           <div class="menu-start">
-            <!-- <span class="material-icons icon"> {{ child.icon }} </span> -->
-
-            <span class="title"> {{ child.title }} </span>
+            <pt-label [weight]="UK_TYPE.LABEL.WEIGHT.BOLD" [size]="UK_TYPE.LABEL.SIZE.SMALLER">
+              {{ child.title }}
+            </pt-label>
           </div>
-        </a>
-
+        </div>
         }
       </div>
-
       }
     </div>
-
-    }
   </div>
-</div>
+</pt-basic-card>

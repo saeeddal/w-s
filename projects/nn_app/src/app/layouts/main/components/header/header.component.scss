@@ -1,18 +1,51 @@
 @use 'core' as *;
-
-$height: $layoutHeaderHeight;
-$paddingX: pxToRem(15);
-$paddingY: pxToRem(30);
-.image-container {
-  width: pxToRem(120);
-  height: pxToRem(120);
+:host {
+  width: 100%;
 }
 
-.comp.tabs {
-  > .wrapper {
+.comp.header {
+  display: flex;
+  flex: 0 0 auto;
+  padding: 0.2rem 0.5rem;
+  transition: all 0.3s ease;
+  height: pxToRem(65);
+  background-color: $mute-tonal;
+  .header-content {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
-    height: $layoutHeaderHeight;
-    background-color: $bg-normal;
-    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+    .image-container {
+      max-height: pxToRem(60);
+      max-width: pxToRem(183);
+      min-height: pxToRem(40);
+      min-width: pxToRem(100);
+    }
+    .second-part {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: pxToRem(8);
+      width: 100%;
+      .select-center-container {
+        background-color: $base-light;
+        padding: pxToRem(4) pxToRem(8) pxToRem(4) pxToRem(0);
+        border-radius: pxToRem(8);
+        gap: pxToRem(8);
+        width: clamp(12rem, 50vw, 15rem);
+        height: clamp(2.5rem, 5vw, 3rem);
+        display: flex;
+        align-items: center;
+        .icon-label {
+          width: 30%;
+          display: flex;
+          gap: pxToRem(4);
+        }
+        .select-center {
+          width: 60%;
+        }
+      }
+    }
   }
 }

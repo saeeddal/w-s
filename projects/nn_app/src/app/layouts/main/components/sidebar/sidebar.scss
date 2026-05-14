@@ -1,108 +1,74 @@
+@use 'core' as *;
+
 :host {
-  display: block;
+  width: 100%;
+  height: 100vh;
 }
 
 .sidebar {
-  width: 260px;
-  height: 100vh;
-  background: #1f2937;
-  color: #fff;
-  transition: width 0.3s ease;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-.sidebar.collapsed {
-  width: 72px;
-}
-
-.sidebar-header {
-  height: 70px;
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-
-  h2 {
-    margin: 0;
-    font-size: 20px;
-  }
-}
-
-.menu-container {
-  padding: 12px;
-}
-
-.menu-group {
-  margin-bottom: 6px;
-}
-
-.menu-item,
-.submenu-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 48px;
-  padding: 0 12px;
-  border-radius: 10px;
-  cursor: pointer;
-  color: white;
-  text-decoration: none;
-  transition: background 0.2s ease;
-}
-
-.menu-item:hover,
-.submenu-item:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.menu-start {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.icon {
-  font-size: 22px;
-  min-width: 22px;
-}
-
-.title {
-  white-space: nowrap;
-}
-
-.toggle-icon {
-  font-size: 20px;
-}
-
-.submenu {
-  margin-top: 4px;
-  padding-left: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.submenu-item {
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.active {
-  background: #374151;
-}
-
-.sidebar.collapsed {
-  .menu-item,
-  .submenu-item {
-    justify-content: center;
-    padding: 0;
+  > .sidebar-header {
+    background-color: $base-light;
+    display: flex;
+    max-height: pxToRem(60);
+    padding: pxToRem(6);
+    border-radius: pxToRem(4);
+    justify-content: start;
+    align-items: center;
+    gap: pxToRem(4);
+    .image-container {
+      width: pxToRem(32);
+      height: pxToRem(32);
+    }
+    pt-icon {
+      margin-right: auto;
+    }
   }
 
-  .menu-start {
-    justify-content: center;
-  }
+  .menu-container {
+    display: flex;
+    flex-direction: column;
+    gap: pxToRem(1);
 
-  .toggle-icon {
-    display: none;
+    .menu-item {
+      display: flex;
+      justify-content: flex-start;
+      padding: pxToRem(8);
+      border-radius: pxToRem(4);
+      gap: pxToRem(6);
+
+      .chevron-down {
+        margin-right: auto;
+        transition: transform 0.2s ease;
+
+        &.open {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    .submenu {
+      display: flex;
+      flex-direction: column;
+      gap: pxToRem(12);
+
+      overflow: hidden;
+
+      max-height: 0;
+      opacity: 0;
+
+      margin-right: pxToRem(30);
+      padding: 0 pxToRem(8);
+
+      transition:
+        max-height 0.2s ease,
+        opacity 0.2s ease,
+        padding 0.2s ease;
+
+      &.open {
+        max-height: 500px; // large enough value
+        opacity: 1;
+        padding: pxToRem(8);
+      }
+    }
   }
 }

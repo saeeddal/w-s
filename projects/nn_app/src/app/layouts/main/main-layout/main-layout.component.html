@@ -1,62 +1,8 @@
 <div class="comp main-layout">
-  <header class="layout-header">
-    <div class="header-content">
-      <div class="image-container">
-        <div>
-          <pt-image
-            [source]="'assets/images/logo/logo_select_center.png'"
-            [objectFit]="UK_TYPE.IMAGE.OBJECT_FIT.FILL"
-          />
-        </div>
-      </div>
-      <div class="second-part">
-        <div class="select-center-container">
-          <div class="icon-label">
-            <pt-icon
-              [src]="'assets/images/icons/hospital.svg'"
-              [size]="UK_TYPE.ICON.SIZE.LARGEST"
-            />
-            <pt-label
-              [horizontalAlignment]="UK_TYPE.LABEL.horizontalAlignment.START"
-              [fgColor]="UK_TYPE.LABEL.FG_COLOR.BASE_TONAL"
-              [size]="UK_TYPE.LABEL.SIZE.SMALLEST"
-              [weight]="UK_TYPE.LABEL.WEIGHT.BOLD"
-              [padding]="UK_TYPE.LABEL.padding.NONE"
-            >
-              مرکز :
-            </pt-label>
-          </div>
-          <div class="select-center">
-            <pt-select
-              [(ngModel)]="selectedCenter"
-              [items]="MEDICAL_CENTERS"
-              bindLabel="title"
-              bindValue="id"
-              [borderColor]="UK_TYPE.SELECT.borderColor.TRANSPARENT"
-              [noBorder]="UK_TYPE.BOOLEAN_TYPE.TRUE"
-            />
-          </div>
-        </div>
-        <pt-button
-          class="theme-toggle"
-          (click)="toggleTheme()"
-          [height]="UK_TYPE.BUTTON.height.H_32"
-        >
-          {{ APP_FACADE.theme() === Themes.DARK_THEME ? '☀️' : '🌙' }}
-        </pt-button>
-      </div>
-    </div>
-  </header>
-
+  <nn-header />
   <div class="content-wrapper">
-    <aside class="sidebar">
-      <pt-basic-card
-        [bgColor]="UK_TYPE.CARD.BG_COLOR.NORMAL"
-        [padding]="UK_TYPE.CARD.PADDING.MEDIUM"
-        [radius]="UK_TYPE.CARD.RADIUS.MEDIUM"
-      >
-        <sidebar></sidebar>
-      </pt-basic-card>
+    <aside class="sidebar-content">
+      <sidebar></sidebar>
     </aside>
     <main class="content">
       <pt-basic-card
@@ -65,28 +11,6 @@
         [radius]="UK_TYPE.CARD.RADIUS.MEDIUM"
       >
         <pt-label>
-          متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی
-          متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی
-          متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی
-          متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی
-          متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی
-          متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی
-          متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی
-          متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی
-          متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی
-          متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی
-          متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی
-          متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی
-          متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی
-          متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی
-          متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی
-          متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی
-          متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی
-          متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی
-          متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی
-          متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی
-          متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی
-          متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی
           متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی
           متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی
           متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی متن اصلی

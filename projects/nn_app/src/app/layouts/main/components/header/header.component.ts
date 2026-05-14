@@ -1,77 +1,62 @@
 import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
-  computed,
-  EventEmitter,
+  HostListener,
   inject,
-  input,
+  signal,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-import { CONST_CONFIG } from '@app/settings/const-config/const-config.setting';
+import { Router } from '@angular/router';
 import { AppFacade } from '@app/core/app.facade';
-import { UserRule } from '@app/shared/models/common/enums';
-type Button = {
-  name: string;
-  icon: string;
-  iconFilled: string;
-  slug: string;
-};
+import {
+  PtButton,
+  PtIcon,
+  PtImage,
+  PtLabel,
+  PtSelect,
+  UK_TYPE,
+} from '../../../../../../../pars-lib/src/public-api';
+import { Themes } from '@app/core/base-services/models/themes.enum';
+import { MEDICAL_CENTERS } from '../../helper/mock-data';
+
 @Component({
-  selector: 'bmn-header',
-  imports: [RouterModule, FormsModule, CommonModule],
+  selector: 'nn-header',
+  imports: [CommonModule, FormsModule, CommonModule, PtImage, PtLabel, PtSelect, PtButton, PtIcon],
   templateUrl: './header.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './header.component.scss',
 })
-export class BmnHeaderComponent {
-  public headerTitle = input('');
+export class Header {
+  public readonly UK_TYPE = UK_TYPE;
+  public reduceHeightForPwaIphone = signal(200);
+  public isOnline = signal(true);
+  public showHeader = signal(true);
+  public showFooter = signal(true);
 
-  public showBack = input(false);
+  public hideFooter = signal(false);
+  public showBack = signal(false);
+  public hideLoginButton = signal(false);
+  public headerTitle = signal('');
+  public backAddress = signal('');
+  public headerHasBackGround = signal(false);
 
-  public hideLoginButton = input(false);
+  public readonly APP_FACADE = inject(AppFacade);
+  public readonly ROUTER = inject(Router);
 
-  public readonly GO_PREVIOUS_ROUTE = new EventEmitter();
+  public readonly Themes = Themes;
+  public readonly MEDICAL_CENTERS = MEDICAL_CENTERS;
+  public readonly selectedCenter = this.MEDICAL_CENTERS[0];
+  public isMobile = signal(window.innerWidth < 600);
+  private cdr = inject(ChangeDetectorRef);
+  @HostListener('window:resize')
+  onResize() {
+    this.isMobile.set(window.innerWidth < 600);
+  }
 
-  public readonly APP_FECAD = inject(AppFacade);
-  public headerHeight = CONST_CONFIG.appSetting.header.headerHeight;
-
-  public buttons: Button[] = [
-    {
-      name: 'سازمان‌ها و کاربران',
-      icon: '',
-      iconFilled: '',
-      slug: 'organs',
-    },
-    {
-      name: 'دوره‌ها',
-      icon: '',
-      iconFilled: '',
-      slug: 'loans',
-    },
-  ];
-
-  public buttonsForUser = computed(() => {
-    switch (this.APP_FECAD.userRoule()) {
-      case UserRule.EXPERT:
-        return this.buttons.filter((x) => x.slug === 'requests' || x.slug === 'createRequest');
-      case UserRule.MANAGER:
-        return this.buttons.filter(
-          (x) => x.slug === 'loans' || x.slug === 'createLoan' || x.slug === 'bankFeadback'
-        );
-
-      case UserRule.SETAD:
-        return this.buttons.filter(
-          (x) => x.slug === 'loans' || x.slug === 'createLoan' || x.slug === 'bankFeadback'
-        );
-
-      default:
-        return this.buttons.filter((x) => x.slug === 'loagout');
-    }
-  });
-
-  public goBack(): void {
-    this.GO_PREVIOUS_ROUTE.emit();
+  public toggleTheme() {
+    this.APP_FACADE.toggleTheme();
+    this.cdr.markForCheck();
   }
 }
