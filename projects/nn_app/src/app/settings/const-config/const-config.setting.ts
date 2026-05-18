@@ -40,32 +40,37 @@ export const CONST_CONFIG: BmnConstConfig = {
 
 export const SIDEBAR_MENU: SidebarMenuItem[] = [
   {
-    title: 'Users',
+    title: 'خانه',
+    icon: 'group',
+    route: '/',
+  },
+  {
+    title: 'کاربران',
     icon: 'group',
     children: [
       {
-        title: 'User List',
+        title: 'لیست کاربران',
         icon: 'list',
         route: '/users/list',
       },
       {
-        title: 'Create User',
+        title: 'ایجاد کاربر',
         icon: 'person_add',
         route: '/users/create',
       },
     ],
   },
   {
-    title: 'Settings',
+    title: 'تنظیمات',
     icon: 'settings',
     children: [
       {
-        title: 'Profile',
+        title: 'پروفایل',
         icon: 'account_circle',
         route: '/settings/profile',
       },
       {
-        title: 'Security',
+        title: 'امنیت',
         icon: 'security',
         route: '/settings/security',
       },

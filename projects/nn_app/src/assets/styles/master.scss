@@ -45,3 +45,7 @@ body {
   overscroll-behavior: none;
   touch-action: none;
 }
+
+html {
+  font-size: clamp(12px, 1vw + 10px, 16px); // example
+}

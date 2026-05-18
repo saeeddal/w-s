@@ -3,33 +3,20 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  HostListener,
   inject,
   signal,
 } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 
-import { filter } from 'rxjs';
 import { AppFacade } from '@app/core/app.facade';
-import { Themes } from '@app/core/base-services/models/themes.enum';
 import { FormsModule } from '@angular/forms';
-import { PtBasicCard, PtLabel, UK_TYPE } from '../../../../../../pars-lib/src/public-api';
-import { MEDICAL_CENTERS } from '../helper/mock-data';
+import { PtBasicCard, UK_TYPE } from '../../../../../../pars-lib/src/public-api';
 import { Sidebar } from '../components/sidebar/sidebar';
 import { Header } from '../components/header/header.component';
 
 @Component({
   selector: 'app-main-layout',
-  imports: [
-    RouterOutlet,
-    CommonModule,
-    FormsModule,
-    CommonModule,
-    PtBasicCard,
-    PtLabel,
-    Sidebar,
-    Header,
-  ],
+  imports: [RouterOutlet, CommonModule, FormsModule, CommonModule, PtBasicCard, Sidebar, Header],
   templateUrl: './main-layout.component.html',
   styleUrl: './main-layout.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -48,4 +35,9 @@ export class BmnMainLayoutComponent {
   public backAddress = signal('');
   public headerHasBackGround = signal(false);
   public readonly APP_FACADE = inject(AppFacade);
+  private cdr = inject(ChangeDetectorRef);
+  public toggleSidebar() {
+    this.APP_FACADE.toggleSidebar();
+    this.cdr.markForCheck();
+  }
 }

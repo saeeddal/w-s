@@ -11,6 +11,7 @@ export class AppFacade {
   public dynanicHeaderTitle = this.store.dynamicHeaderTitle;
   public userRoule = this.store.userRoule;
   public theme = this.store.theme;
+  public sidebar = this.store.sideBar;
 
   public setDynamicHeaderTitle(dynamicHeaderTitle: string) {
     this.store.setDynamicHeaderTitle(dynamicHeaderTitle);
@@ -19,5 +20,9 @@ export class AppFacade {
     const body = document.body;
     body.classList.toggle('dark-theme');
     this.store.toggleTheme();
+  }
+
+  public toggleSidebar() {
+    this.store.toggleSidebar();
   }
 }

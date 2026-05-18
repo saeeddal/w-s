@@ -7,19 +7,19 @@ export const HOME_ROUTES: Routes = [
     path: '',
     component: HomeLayout,
     children: [
-      {
-        path: 'details/:id',
-        loadComponent: async () =>
-          import('./pages/loans-detail/loans-detail').then((C) => C.LoanDetail),
-      },
-      {
-        path: 'create',
-        loadComponent: async () =>
-          import('./pages/loans-create/loans-create').then((C) => C.LoansCreate),
-      },
+      // {
+      //   path: 'details/:id',
+      //   loadComponent: async () =>
+      //     import('./pages/loans-detail/loans-detail').then((C) => C.LoanDetail),
+      // },
+      // {
+      //   path: 'create',
+      //   loadComponent: async () =>
+      //     import('./pages/loans-create/loans-create').then((C) => C.LoansCreate),
+      // },
       {
         path: '',
-        loadComponent: async () => import('./pages/loans-list/loans-list').then((C) => C.LoansList),
+        loadComponent: async () => import('./pages/home-main/home-main').then((C) => C.HomeMain),
       },
       {
         path: '**',

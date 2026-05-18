@@ -59,4 +59,9 @@ export class Header {
     this.APP_FACADE.toggleTheme();
     this.cdr.markForCheck();
   }
+
+  public toggleSidebar() {
+    this.APP_FACADE.toggleSidebar();
+    this.cdr.markForCheck();
+  }
 }

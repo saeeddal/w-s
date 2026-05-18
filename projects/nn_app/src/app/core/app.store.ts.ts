@@ -8,6 +8,7 @@ type AppState = {
   error: string | null;
   userRoule: UserRule;
   theme: Themes;
+  sideBar: boolean;
 };
 
 const initialState: AppState = {
@@ -16,6 +17,7 @@ const initialState: AppState = {
   dynamicHeaderTitle: '',
   userRoule: UserRule.MANAGER,
   theme: Themes.LIGHT_THEME,
+  sideBar: true,
 };
 
 export const APP_STORE = signalStore(
@@ -31,6 +33,11 @@ export const APP_STORE = signalStore(
     toggleTheme() {
       patchState(store, {
         theme: store.theme() === Themes.LIGHT_THEME ? Themes.DARK_THEME : Themes.LIGHT_THEME,
+      });
+    },
+    toggleSidebar() {
+      patchState(store, {
+        sideBar: !store.sideBar(),
       });
     },
   }))

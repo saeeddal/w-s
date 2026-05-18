@@ -32,7 +32,7 @@
         (click)="hasChildren(item) && toggleMenu(item.title)"
       >
         <pt-icon [src]="'assets/images/icons/hospital.svg'" [size]="UK_TYPE.ICON.SIZE.LARGEST" />
-        <pt-label [weight]="UK_TYPE.LABEL.WEIGHT.BOLD" [size]="UK_TYPE.LABEL.SIZE.SMALL">
+        <pt-label [weight]="UK_TYPE.LABEL.WEIGHT.NORMAL" [size]="UK_TYPE.LABEL.SIZE.SMALL">
           {{ item.title }}
         </pt-label>
 
@@ -50,7 +50,7 @@
         @for (child of item.children; track child.title) {
         <div class="submenu-item" [routerLink]="child.route" routerLinkActive="active">
           <div class="menu-start">
-            <pt-label [weight]="UK_TYPE.LABEL.WEIGHT.BOLD" [size]="UK_TYPE.LABEL.SIZE.SMALLER">
+            <pt-label [weight]="UK_TYPE.LABEL.WEIGHT.NORMAL" [size]="UK_TYPE.LABEL.SIZE.SMALLER">
               {{ child.title }}
             </pt-label>
           </div>

@@ -14,21 +14,105 @@
   width: 100%;
 
   .content-wrapper {
-    border-radius: pxToRem(24);
-    padding: pxToRem(10) pxToRem(1);
+    position: relative;
     display: flex;
-    justify-content: space-between;
-    border-radius: pxToRem(24);
-    margin: pxToRem(0) pxToRem(8);
+    flex: 1; /* ← fills remaining height */
+    min-height: 0; /* ← allows shrinking */
+    width: 100%;
+    padding: pxToRem(10) pxToRem(8);
+    margin: 0 pxToRem(8);
     background-color: $base-light;
-    overflow-y: auto;
+    border-radius: pxToRem(24);
+    overflow: hidden;
+    transition: all 1s ease;
+    gap: pxToRem(12);
+
     .sidebar-content {
-      width: 17%; /* 1/4 width */
-      height: 100%;
+      flex: 0 0 20%;
+      width: 20%;
+      height: 100%; /* ← fill wrapper height */
+      overflow: hidden;
+      transition:
+        width 1s ease,
+        flex-basis 1s ease,
+        opacity 1s ease;
+      opacity: 1;
     }
 
     .content {
-      width: 81%;
+      flex: 1;
+      min-width: 0;
+      height: 100%; /* ← fill wrapper height */
+      transition: all 1s ease;
     }
+
+    &.sidebar-collapsed {
+      .sidebar-content {
+        width: 0;
+        flex-basis: 0;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .content {
+        flex: 1 1 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .comp.main-layout {
+    .content-wrapper {
+      .sidebar-content {
+        width: 0;
+        flex-basis: 0;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      // 1. Ensure the container doesn't restrict the sidebar
+      &.sidebar-collapsed {
+        .sidebar-content {
+          // 2. Use fixed to break out of the parent's overflow: hidden
+          position: absolute !important;
+          top: pxToRem(10);
+          right: 0;
+          width: pxToRem(300);
+          height: 100dvh;
+          z-index: 9999;
+
+          // Force visibility
+          opacity: 1 !important;
+          pointer-events: auto !important;
+          flex: none !important;
+
+          // Visuals
+          background-color: $base-light;
+          box-shadow: pxToRem(2) 0 pxToRem(10) $primary-tonal;
+
+          // Optional: Add a fade-in animation
+          animation: slideIn 0.3s ease-out;
+        }
+
+        .content {
+          // 3. Force content to stay full width
+          flex: 1 1 100% !important;
+        }
+      }
+      .content {
+        // 3. Force content to stay full width
+        flex: 1 1 100% !important;
+      }
+    }
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
   }
 }
