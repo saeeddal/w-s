@@ -1,0 +1,32 @@
+<div
+    class="uk input"
+    [ngClass]="[
+        'uk-input-border-color-' + borderColor,
+        'hasRedBorderWhenActive-' + hasRedBorderWhenActive,
+        'isDisabled-' + isDisabled,
+    ]"
+>
+    <div class="icon-wrapper">
+        <ng-content select="[START]" />
+    </div>
+    <input
+        appConvertPersianDigits
+        [attr.maxlength]="maxLength !== null ? maxLength : null"
+        [placeholder]="placeholder"
+        [type]="inputType === 'NUMBER' ? 'number' : 'text'"
+        [value]="value"
+        [(ngModel)]="val"
+        (blur)="onBlur()"
+        (focus)="onFocus()"
+        (input)="onChange()"
+    />
+
+    <ng-content select="[END-TEXT]" />
+
+    <div
+        *ngIf="val"
+        (click)="clearValue()"
+    >
+        <ng-content select="[END]" />
+    </div>
+</div>

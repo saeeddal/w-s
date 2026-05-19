@@ -1,0 +1,27 @@
+<div class="uk key-val">
+  <div class="wrapper">
+    <div class="key">
+      <pt-label [weight]="UK_TYPE.LABEL.WEIGHT.BOLD" [fgColor]="UK_TYPE.LABEL.FG_COLOR.BASE_TONAL">
+        <ng-content select="[KEY]" />
+      </pt-label>
+    </div>
+    <div class="colon">
+      <pt-label>:</pt-label>
+    </div>
+    <div class="val">
+      <pt-label [fgColor]="UK_TYPE.LABEL.FG_COLOR.BASE_TONAL">
+        <ng-content select="[VAL]" />
+      </pt-label>
+    </div>
+  </div>
+</div>
+
+<!--
+usage:
+<uk-key-val>
+    <ng-container KEY>
+    </ng-container>
+    <ng-container VAL>
+    </ng-container>
+</uk-key-val> 
+-->

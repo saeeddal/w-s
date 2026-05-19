@@ -25,10 +25,9 @@
     min-height: 0; /* ← allows shrinking */
     width: 100%;
     padding: pxToRem(10) pxToRem(8);
-    margin: 0 pxToRem(8);
     background-color: $base-light;
     border-radius: pxToRem(24);
-    overflow: hidden;
+    overflow: auto;
     transition: all 1s ease;
     gap: pxToRem(12);
 

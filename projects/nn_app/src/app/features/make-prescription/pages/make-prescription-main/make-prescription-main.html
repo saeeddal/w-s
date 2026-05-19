@@ -1,0 +1,47 @@
+<div class="comp make-prescription">
+  <pt-label [padding]="UK_TYPE.LABEL.padding.P4"> پذیرش نسخه نویسی </pt-label>
+  <pt-basic-card [bgColor]="UK_TYPE.CARD.BG_COLOR.ACTIVE">
+    <div class="search-box">
+      <pt-input
+        placeholder="کدملی"
+        [inputType]="UK_TYPE.INPUT.TYPE.TEXT"
+        [maxLength]="11"
+        (ON_BLUR)="onInputBlur($event)"
+      >
+        <pt-icon
+          END
+          src="assets/images/icons/close_icon.svg"
+          [size]="UK_TYPE.ICON.SIZE.LARGER"
+          [size]="UK_TYPE.ICON.SIZE.MEDIUM"
+        ></pt-icon>
+      </pt-input>
+      <pt-button
+        [fgColor]="UK_TYPE.LABEL.FG_COLOR.WHITE"
+        [height]="UK_TYPE.BUTTON.height.H_32"
+        [bgColor]="UK_TYPE.BUTTON.bgColor.BUTTON_PRIMARY"
+        >جستوجو</pt-button
+      >
+      <pt-button
+        [fgColor]="UK_TYPE.LABEL.FG_COLOR.PRIMARY"
+        [height]="UK_TYPE.BUTTON.height.H_32"
+        [bgColor]="UK_TYPE.BUTTON.bgColor.TRANSPARENT"
+        [borderColor]="UK_TYPE.BUTTON.borderColor.PRIMARY"
+        >جستوجو</pt-button
+      >
+    </div>
+  </pt-basic-card>
+  <pt-basic-card [bgColor]="UK_TYPE.CARD.BG_COLOR.WHITE">
+    <article class="pation-information">
+      <div class="image-container">
+        <div>
+          <pt-image
+            [source]="'assets/images/logo/logo_select_center.png'"
+            [objectFit]="UK_TYPE.IMAGE.OBJECT_FIT.FILL"
+          />
+        </div>
+      </div>
+      <insurance-identify title="هویتی"></insurance-identify>
+      <insurance-identify title="بیمه ای"></insurance-identify>
+    </article>
+  </pt-basic-card>
+</div>

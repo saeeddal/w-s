@@ -51,7 +51,7 @@ export const SIDEBAR_MENU: SidebarMenuItem[] = [
       {
         title: 'پذیرش',
         icon: 'list',
-        route: '/users/list',
+        route: '/make-prescription',
       },
       {
         title: 'مراجعین',

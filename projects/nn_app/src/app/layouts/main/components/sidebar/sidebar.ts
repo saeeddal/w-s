@@ -1,4 +1,4 @@
-import { Component, HostListener, signal } from '@angular/core';
+import { ChangeDetectorRef, Component, HostListener, inject, signal } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -11,6 +11,7 @@ import {
   PtLabel,
   UK_TYPE,
 } from '../../../../../../../pars-lib/src/public-api';
+import { AppFacade } from '@app/core/app.facade';
 
 @Component({
   selector: 'sidebar',
@@ -24,6 +25,8 @@ export class Sidebar {
   public readonly UK_TYPE = UK_TYPE;
   collapsed = signal(false);
   openMenu = signal<string | null>(null);
+  public readonly APP_FACADE = inject(AppFacade);
+  private cdr = inject(ChangeDetectorRef);
   constructor() {
     this.checkScreenSize();
   }

@@ -42,6 +42,9 @@
     &-GRAY {
       background-color: gray;
     }
+    &-ACTIVE {
+      background-color: $base-background-active;
+    }
   }
 
   // radius

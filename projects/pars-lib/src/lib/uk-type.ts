@@ -23,6 +23,11 @@ import {
   UkImagePadding,
 } from './ui-kit/components/image/_/image.type';
 import {
+  PtInputBorderColor,
+  PtInputNumeric,
+  PtInputType,
+} from './ui-kit/components/input/_/input.type';
+import {
   UkLabelBgColor,
   UkLabelFgColor,
   UkLabelHorizontalAlignment,
@@ -87,4 +92,9 @@ export const UK_TYPE = {
     borderColor: UkSelectBorderColor,
   },
   BOOLEAN_TYPE: UkBooleanType,
+  INPUT: {
+    TYPE: PtInputType,
+    BORDER_COLOR: PtInputBorderColor,
+    NUMERIC: PtInputNumeric,
+  },
 };

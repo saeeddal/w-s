@@ -1,0 +1,131 @@
+@use '../../../../../styles/index.scss' as *;
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: $base-white;
+  border-radius: pxToRem(8);
+}
+
+.uk.input {
+  &.isDisabled-true {
+    pointer-events: none; // Disables all interactions
+    opacity: 0.5; // Makes it visually faded
+  }
+
+  @include persian-number;
+
+  display: flex;
+  // align-items: center;
+  outline: none;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: pxToRem(8);
+  padding: pxToRem(8);
+  width: 100%;
+  height: 100%;
+  //min-height: 42px;
+  align-items: center;
+
+  &.uk-input {
+    &-border-color {
+      &-TRANSPARENT {
+        border-color: transparent;
+      }
+
+      &-GRADE-1 {
+        border-color: $border-gray-medium;
+      }
+
+      &-GRADE-2 {
+        border-color: $border-gray-medium;
+      }
+
+      &-REFERENCE-PRIMARY-MAIN {
+        border-color: $border-gray-medium;
+      }
+
+      &-CONTENT-ERROR {
+        border-color: red;
+      }
+    }
+
+    &-numeric {
+      &-DEFAULT {
+        input {
+          //
+        }
+      }
+
+      &-PERSIAN {
+        input {
+          @include persian-number;
+        }
+      }
+    }
+
+    // crud-mode
+    &-crud-mode {
+      &-EDIT {
+        //
+      }
+
+      &-VIEW {
+        border-color: transparent;
+      }
+    }
+  }
+
+  &.hasRedBorderWhenActive {
+    &-TRUE {
+      &:focus-within {
+        border: 1px solid $color-border-red-medium;
+      }
+    }
+  }
+
+  > .icon-wrapper {
+    display: none;
+    &:not(:empty) {
+      width: pxToRem(24);
+      height: pxToRem(24);
+      display: block;
+      margin: auto pxToRem(5);
+    }
+  }
+
+  > input {
+    display: block;
+    border: none;
+    width: 100%;
+    height: 100%;
+    font-size: pxToRem(12);
+    line-height: pxToRem(16);
+
+    &:focus {
+      outline: none;
+    }
+
+    &:disabled {
+      background-color: $disable-normal;
+    }
+
+    &::placeholder {
+      // color: $color-place-holder-smoke-600;
+      opacity: 0.5;
+    }
+  }
+}

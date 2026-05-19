@@ -5,6 +5,7 @@ export enum UkCardBgColor {
   GRAY = 'GRAY',
   BACKGROUND_PRIMARY_01 = 'BACKGROUND-PRIMARY-01',
   NORMAL = 'NORMAL',
+  ACTIVE = 'ACTIVE',
 }
 export type CardBgColor = `${UkCardBgColor}`;
 

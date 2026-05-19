@@ -115,6 +115,10 @@ $lr-medium-padding: pxToRem(14);
     &-TRANSPARENT {
       border-color: transparent;
     }
+    &-PRIMARY {
+      border: 1px solid $primary;
+    }
+
     // &-COLOR-BUTTON-OUTLINE {
     //   border-color: $color-button-outline;
     // }

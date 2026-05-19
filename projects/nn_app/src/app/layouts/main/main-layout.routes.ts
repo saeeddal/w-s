@@ -14,6 +14,14 @@ export const MAIN_LAYOUT_ROUTES: Routes = [
           import('../../features/home/home.routes').then((s) => s.HOME_ROUTES),
       },
       {
+        path: 'make-prescription',
+        loadChildren: async () =>
+          import('../../features/make-prescription/make-prescription.routes').then(
+            (s) => s.MAKE_PRESCRIPTION_ROUTES
+          ),
+      },
+
+      {
         path: '**',
         component: BmnNotFoundComponent,
       },

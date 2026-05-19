@@ -53,6 +53,7 @@ export enum UkButtonBorderColor {
   COLOR_BUTTON_BORDER_GRAY_MEDIUM = 'COLOR-BUTTON-BORDER-GRAY-MEDIUM',
   RED = 'RED',
   WHITE = 'WHITE',
+  PRIMARY = 'PRIMARY',
 }
 export type ButtonBorderColor = `${UkButtonBorderColor}`;
 

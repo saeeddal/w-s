@@ -12,6 +12,7 @@ import {
 import { UkIconColor } from './components/icon/_/icon-color';
 import { UkIconName } from './components/icon/_/icon-name';
 import { UkIconSize } from './components/icon/_/icon-size';
+import { PtInputBorderColor, PtInputNumeric, PtInputType } from './components/input/_/input.type';
 import {
   UkLabelBgColor,
   UkLabelBorderRadius,
@@ -82,6 +83,9 @@ const SIMPLE = {
     marginRight: UkSelectMarginRight.M10,
   },
   input: {
+    type: PtInputType.TEXT,
+    borderColor: PtInputBorderColor.GRADE_2,
+    numeric: PtInputNumeric.DEFAULT,
     crudMode: UkCrudMode.EDIT,
   },
 };

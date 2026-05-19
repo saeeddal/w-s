@@ -1,0 +1,14 @@
+@use '../../../../../styles/index.scss' as *;
+
+:host {
+}
+
+.uk.key-val {
+  > .wrapper {
+    display: flex;
+
+    > .colon {
+      padding-left: pxToRem(4);
+    }
+  }
+}

@@ -1,0 +1,34 @@
+@use 'core' as *;
+h1 {
+  color: $text-normal;
+}
+
+%border-setting {
+  border: pxToRem(3) solid $primary-tonal;
+  border-radius: pxToRem(10);
+}
+
+.comp.make-prescription {
+  .search-box {
+    display: flex;
+    gap: pxToRem(16);
+    max-width: clamp(pxToRem(300), 30vw, 20%);
+  }
+  .pation-information {
+    display: flex;
+    justify-content: flex-start;
+    gap: pxToRem(32);
+    flex-wrap: wrap;
+    align-items: center;
+
+    .image-container {
+      width: pxToRem(120);
+      height: pxToRem(120);
+      border-radius: 60%;
+      border: 1px solid $primary;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

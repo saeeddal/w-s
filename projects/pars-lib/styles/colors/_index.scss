@@ -64,6 +64,13 @@ $lightColors: (
     stroke_normal: #e1e1e1,
     stroke_hover: #898b98,
     stroke_acvite: #474752,
+    background-active: #f2f4f8,
+  ),
+  border: (
+    gray-medium: #d0d5dd,
+    red-medium: #c8335b,
+    accent-medium: #3b7ac7,
+    purple-medium: #7a42c1,
   ),
 );
 
@@ -131,6 +138,13 @@ $darkColors: (
     stroke_normal: #3a3b42,
     stroke_hover: #5d5f6c,
     stroke_acvite: #8b8c97,
+    background-active: #0d0b07,
+  ),
+  border: (
+    --border-gray-medium: #344054,
+    --border-red-medium: #f9a8d4,
+    --border-accent-medium: #60a5fa,
+    --border-purple-medium: #a78bfa,
   ),
 );
 
@@ -185,6 +199,11 @@ $darkColors: (
   --error-tonal: #{getRootLightColor(error, tonal)};
   --select-bg: #fff;
   --select-text: #000;
+  --base-background-active: #{getRootLightColor(base, background-active)};
+  --border-gray-medium: #{getRootLightColor(border, gray-medium)};
+  --border-red-medium: #{getRootLightColor(border, red-medium)};
+  --border-accent-medium: #{getRootLightColor(border, accent-medium)};
+  --border-purple-medium: #{getRootLightColor(border, purple-medium)};
 }
 .dark-theme {
   // Existing
@@ -215,6 +234,11 @@ $darkColors: (
   --error-tonal: #{getRootDarkColor(error, tonal)};
   --select-bg: #1e1e1e;
   --select-text: #fff;
+  --base-background-active: #{getRootDarkColor(base, background-active)};
+  --border-gray-medium: #{getRootLightColor(border, gray-medium)};
+  --border-red-medium: #{getRootLightColor(border, red-medium)};
+  --border-accent-medium: #{getRootLightColor(border, accent-medium)};
+  --border-purple-medium: #{getRootLightColor(border, purple-medium)};
 }
 
 $primary-normal: var(--primary-normal);
@@ -243,3 +267,9 @@ $mute-tonal: var(--mute-tonal);
 
 $select-bg: var(--select-bg);
 $select-text: var(--select-text);
+$base-background-active: var(--base-background-active);
+
+$border-gray-medium: var(--border-gray-medium);
+$color-border-red-medium: var(--border-red-medium);
+$color-border-accent-medium: var(--border-accent-medium);
+$color-border-purple-medium: var(--border-purple-medium);
