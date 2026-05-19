@@ -11,6 +11,7 @@
     display: flex;
     max-height: pxToRem(60);
     padding: pxToRem(6);
+    border: pxToRem(2) solid $primary-tonal;
     border-radius: pxToRem(4);
     justify-content: start;
     align-items: center;
@@ -49,7 +50,8 @@
     .submenu {
       display: flex;
       flex-direction: column;
-      gap: pxToRem(12);
+      gap: pxToRem(4);
+      position: relative;
 
       overflow: hidden;
 
@@ -65,9 +67,26 @@
         padding 0.2s ease;
 
       &.open {
-        max-height: 500px; // large enough value
+        max-height: 500px;
         opacity: 1;
         padding: 0 pxToRem(8);
+      }
+      &-item {
+        padding: pxToRem(4) pxToRem(10);
+        border-radius: pxToRem(4);
+        background-color: $base-light;
+        &:hover {
+          background-color: $primary-normal;
+        }
+        &::before {
+          content: '*';
+          padding: pxToRem(4);
+          position: absolute;
+          right: 0;
+          color: $base-dark;
+
+          font-weight: bold;
+        }
       }
     }
   }

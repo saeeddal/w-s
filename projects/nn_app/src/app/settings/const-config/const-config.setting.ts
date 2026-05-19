@@ -45,23 +45,33 @@ export const SIDEBAR_MENU: SidebarMenuItem[] = [
     route: '/',
   },
   {
-    title: 'کاربران',
+    title: 'نسخه نویسی',
     icon: 'group',
     children: [
       {
-        title: 'لیست کاربران',
+        title: 'پذیرش',
         icon: 'list',
         route: '/users/list',
       },
       {
-        title: 'ایجاد کاربر',
+        title: 'مراجعین',
+        icon: 'person_add',
+        route: '/users/create',
+      },
+      {
+        title: 'تاریخچه تجویز',
+        icon: 'person_add',
+        route: '/users/create',
+      },
+      {
+        title: 'نسخه بیمار',
         icon: 'person_add',
         route: '/users/create',
       },
     ],
   },
   {
-    title: 'تنظیمات',
+    title: 'نسخه‌پیچی',
     icon: 'settings',
     children: [
       {
@@ -69,10 +79,27 @@ export const SIDEBAR_MENU: SidebarMenuItem[] = [
         icon: 'account_circle',
         route: '/settings/profile',
       },
+    ],
+  },
+  {
+    title: 'استحقاق‌سنجی/ معرفی‌نامه',
+    icon: 'settings',
+    children: [
       {
-        title: 'امنیت',
-        icon: 'security',
-        route: '/settings/security',
+        title: 'پروفایل',
+        icon: 'account_circle',
+        route: '/settings/profile',
+      },
+    ],
+  },
+  {
+    title: '2 استحقاق‌سنجی/ معرفی‌نامه',
+    icon: 'settings2',
+    children: [
+      {
+        title: 'پروفایل',
+        icon: 'account_circle2',
+        route: '/settings/profile2',
       },
     ],
   },
