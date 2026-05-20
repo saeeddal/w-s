@@ -4,30 +4,63 @@ h1 {
 }
 
 %border-setting {
-  border: pxToRem(3) solid $primary-tonal;
-  border-radius: pxToRem(10);
+  border: none;
+  border: pxToRem(1) solid $border-gray-medium;
+  border-radius: pxToRem(5);
+  padding: pxToRem(8) pxToRem(4);
 }
 
 .comp.make-prescription {
   .search-box {
     display: flex;
-    gap: pxToRem(16);
-    max-width: clamp(pxToRem(300), 30vw, 20%);
+    gap: pxToRem(10);
+    max-width: clamp(pxToRem(300), 35vw, 30%);
+    flex-wrap: nowrap;
   }
-  .pation-information {
+  .patient-information {
     display: flex;
     justify-content: flex-start;
-    gap: pxToRem(32);
+    gap: pxToRem(12);
     flex-wrap: wrap;
-    align-items: center;
+    align-items: start;
 
     .image-container {
       width: pxToRem(120);
       height: pxToRem(120);
-      border-radius: 60%;
-      border: 1px solid $primary;
       display: flex;
       justify-content: center;
+      align-items: center;
+    }
+    .doctor-patientNumber {
+      display: flex;
+      width: 100%;
+      gap: pxToRem(16);
+      align-items: end;
+      flex-wrap: wrap;
+      & .doctor-part,
+      .mobile-part {
+        display: flex;
+        flex-direction: column;
+        gap: pxToRem(8);
+      }
+      & .actions {
+        display: flex;
+        flex-direction: row;
+        gap: pxToRem(8);
+        width: 100%;
+        flex: 1;
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    .patient-information {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: pxToRem(16);
+      flex-wrap: wrap;
       align-items: center;
     }
   }

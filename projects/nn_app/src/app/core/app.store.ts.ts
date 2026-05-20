@@ -40,5 +40,10 @@ export const APP_STORE = signalStore(
         sideBar: !store.sideBar(),
       });
     },
+    closeSidebar() {
+      patchState(store, {
+        sideBar: false,
+      });
+    },
   }))
 );

@@ -3,6 +3,7 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  HostListener,
   inject,
   signal,
 } from '@angular/core';
@@ -39,5 +40,12 @@ export class BmnMainLayoutComponent {
   public toggleSidebar() {
     this.APP_FACADE.toggleSidebar();
     this.cdr.markForCheck();
+  }
+
+  public closeMenuIfOpen() {
+    if (this.APP_FACADE.sidebar()) {
+      this.APP_FACADE.closeSidebar();
+      this.cdr.markForCheck();
+    }
   }
 }

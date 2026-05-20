@@ -1,12 +1,11 @@
 <div class="comp main-layout">
   <nn-header />
 
-  <div class="content-wrapper" [class.sidebar-collapsed]="APP_FACADE.sidebar()">
+  <div class="content-wrapper" [class.sidebar-collapsed]="!APP_FACADE.sidebar()">
     <aside class="sidebar-content">
       <sidebar></sidebar>
     </aside>
-
-    <main class="content">
+    <main class="content" (click)="closeMenuIfOpen()">
       <pt-basic-card
         [bgColor]="UK_TYPE.CARD.BG_COLOR.NORMAL"
         [padding]="UK_TYPE.CARD.PADDING.MEDIUM"

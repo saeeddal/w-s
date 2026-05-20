@@ -25,4 +25,7 @@ export class AppFacade {
   public toggleSidebar() {
     this.store.toggleSidebar();
   }
+  public closeSidebar() {
+    this.store.closeSidebar();
+  }
 }

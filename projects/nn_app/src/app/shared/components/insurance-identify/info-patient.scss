@@ -1,0 +1,13 @@
+@use 'core' as *;
+%border-setting {
+  border: none;
+  border: pxToRem(1) solid $border-gray-medium;
+  border-radius: pxToRem(5);
+}
+
+.comp.insurance-identify {
+  @extend %border-setting;
+  .key-value-conytainer {
+    padding: pxToRem(8) pxToRem(4);
+  }
+}

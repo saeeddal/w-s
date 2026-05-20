@@ -29,6 +29,11 @@ export interface BmnKeyTitle {
   title: string;
 }
 
+export interface IdTitle {
+  id: number;
+  title: string;
+}
+
 export enum BmnAlertPosition {
   TOAST_TOP_RIGHT = 'toast-top-right',
   TOAST_TOP_CENTER = 'toast-top-center',

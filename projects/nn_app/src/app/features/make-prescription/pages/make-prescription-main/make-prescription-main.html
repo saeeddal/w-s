@@ -1,5 +1,6 @@
 <div class="comp make-prescription">
   <pt-label [padding]="UK_TYPE.LABEL.padding.P4"> پذیرش نسخه نویسی </pt-label>
+  @if(showSearch()){
   <pt-basic-card [bgColor]="UK_TYPE.CARD.BG_COLOR.ACTIVE">
     <div class="search-box">
       <pt-input
@@ -19,29 +20,109 @@
         [fgColor]="UK_TYPE.LABEL.FG_COLOR.WHITE"
         [height]="UK_TYPE.BUTTON.height.H_32"
         [bgColor]="UK_TYPE.BUTTON.bgColor.BUTTON_PRIMARY"
-        >جستوجو</pt-button
-      >
-      <pt-button
-        [fgColor]="UK_TYPE.LABEL.FG_COLOR.PRIMARY"
-        [height]="UK_TYPE.BUTTON.height.H_32"
-        [bgColor]="UK_TYPE.BUTTON.bgColor.TRANSPARENT"
-        [borderColor]="UK_TYPE.BUTTON.borderColor.PRIMARY"
+        (click)="showSearch.set(false)"
         >جستوجو</pt-button
       >
     </div>
   </pt-basic-card>
+
+  } @else {
+
   <pt-basic-card [bgColor]="UK_TYPE.CARD.BG_COLOR.WHITE">
-    <article class="pation-information">
+    <article class="patient-information">
       <div class="image-container">
         <div>
           <pt-image
-            [source]="'assets/images/logo/logo_select_center.png'"
+            [source]="'assets/images/mini/patient-photo.svg'"
             [objectFit]="UK_TYPE.IMAGE.OBJECT_FIT.FILL"
           />
         </div>
       </div>
-      <insurance-identify title="هویتی"></insurance-identify>
-      <insurance-identify title="بیمه ای"></insurance-identify>
+      <info-patient title="هویتی" [details]="identifyInfo"></info-patient>
+      <info-patient title="بیمه ای" [details]="insuranceInfo"></info-patient>
+      @if(isDoctor()){
+
+      <section class="doctor-details">
+        <pt-label [weight]="UK_TYPE.LABEL.WEIGHT.BOLD" [fgColor]="UK_TYPE.LABEL.FG_COLOR.PRIMARY">
+          {{doctorInfo()}}
+        </pt-label>
+      </section>
+      }
+
+      <section class="doctor-patientNumber">
+        @if(!isDoctor()){
+        <div class="doctor-part">
+          <pt-label
+            [horizontalAlignment]="UK_TYPE.LABEL.horizontalAlignment.START"
+            [fgColor]="UK_TYPE.LABEL.FG_COLOR.BASE_TONAL"
+            [size]="UK_TYPE.LABEL.SIZE.SMALL"
+          >
+            انتخاب پزشک:
+          </pt-label>
+          <pt-select
+            [(ngModel)]="selectedCenter"
+            [items]="medicalCenters"
+            bindLabel="title"
+            bindValue="id"
+            placeholder="انتخاب مرکز درمان"
+          />
+        </div>
+        }
+
+        <div class="mobile-part">
+          <pt-label
+            [horizontalAlignment]="UK_TYPE.LABEL.horizontalAlignment.START"
+            [fgColor]="UK_TYPE.LABEL.FG_COLOR.BASE_TONAL"
+            [size]="UK_TYPE.LABEL.SIZE.SMALL"
+          >
+            شماره تماس :
+          </pt-label>
+          <div>
+            <pt-input
+              [inputType]="UK_TYPE.INPUT.TYPE.TEXT"
+              [maxLength]="11"
+              (ON_BLUR)="onInputBlur($event)"
+              [(ngModel)]="patientPhoneNumber"
+              placeholder="شماره تماس جدید"
+            >
+              <pt-icon
+                END
+                src="assets/images/icons/close_icon.svg"
+                [size]="UK_TYPE.ICON.SIZE.LARGER"
+                [size]="UK_TYPE.ICON.SIZE.MEDIUM"
+              ></pt-icon>
+            </pt-input>
+          </div>
+        </div>
+
+        <div class="actions">
+          <pt-button
+            [fgColor]="UK_TYPE.LABEL.FG_COLOR.WHITE"
+            [height]="UK_TYPE.BUTTON.height.H_32"
+            [bgColor]="UK_TYPE.BUTTON.bgColor.BUTTON_PRIMARY"
+            >دریافت نوبت</pt-button
+          >
+          <pt-button
+            [fgColor]="UK_TYPE.LABEL.FG_COLOR.PRIMARY"
+            [height]="UK_TYPE.BUTTON.height.H_32"
+            [bgColor]="UK_TYPE.BUTTON.bgColor.TRANSPARENT"
+            [borderColor]="UK_TYPE.BUTTON.borderColor.PRIMARY"
+          >
+            تجویز نسخه</pt-button
+          >
+          <pt-button
+            [fgColor]="UK_TYPE.LABEL.FG_COLOR.PRIMARY"
+            [height]="UK_TYPE.BUTTON.height.H_32"
+            [bgColor]="UK_TYPE.BUTTON.bgColor.TRANSPARENT"
+            [borderColor]="UK_TYPE.BUTTON.borderColor.PRIMARY"
+            (click)="showSearch.set(true)"
+          >
+            بازگشت</pt-button
+          >
+        </div>
+      </section>
     </article>
+    <section class="buttons-container"></section>
   </pt-basic-card>
+  }
 </div>
