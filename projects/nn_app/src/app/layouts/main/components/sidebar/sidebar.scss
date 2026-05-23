@@ -34,7 +34,7 @@
       display: flex;
       justify-content: flex-start;
       padding: pxToRem(8);
-      border-radius: pxToRem(4);
+      border-radius: pxToRem(8);
       gap: pxToRem(6);
 
       .chevron-down {
@@ -44,6 +44,9 @@
         &.open {
           transform: rotate(180deg);
         }
+      }
+      &.active {
+        background-color: $primary;
       }
     }
 
@@ -72,20 +75,17 @@
         padding: 0 pxToRem(8);
       }
       &-item {
-        padding: pxToRem(4) pxToRem(10);
+        padding: pxToRem(4) pxToRem(10) pxToRem(4) 0;
         border-radius: pxToRem(4);
-        background-color: $base-light;
         &:hover {
-          background-color: $primary-normal;
+          background-color: $primary-tonal-hover;
         }
         &::before {
-          content: '*';
-          padding: pxToRem(4);
+          content: '-';
+          padding: pxToRem(0);
           position: absolute;
           right: 0;
           color: $base-dark;
-
-          font-weight: bold;
         }
       }
     }

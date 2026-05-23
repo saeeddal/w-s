@@ -141,10 +141,10 @@ $darkColors: (
     background-active: #0d0b07,
   ),
   border: (
-    --border-gray-medium: #344054,
-    --border-red-medium: #f9a8d4,
-    --border-accent-medium: #60a5fa,
-    --border-purple-medium: #a78bfa,
+    gray-medium: #344054,
+    red-medium: #f9a8d4,
+    accent-medium: #60a5fa,
+    purple-medium: #a78bfa,
   ),
 );
 
@@ -204,6 +204,8 @@ $darkColors: (
   --border-red-medium: #{getRootLightColor(border, red-medium)};
   --border-accent-medium: #{getRootLightColor(border, accent-medium)};
   --border-purple-medium: #{getRootLightColor(border, purple-medium)};
+
+  --primary-tonal-hover: #{getRootLightColor(primary, tonal_hover)};
 }
 .dark-theme {
   // Existing
@@ -235,10 +237,12 @@ $darkColors: (
   --select-bg: #1e1e1e;
   --select-text: #fff;
   --base-background-active: #{getRootDarkColor(base, background-active)};
-  --border-gray-medium: #{getRootLightColor(border, gray-medium)};
-  --border-red-medium: #{getRootLightColor(border, red-medium)};
-  --border-accent-medium: #{getRootLightColor(border, accent-medium)};
-  --border-purple-medium: #{getRootLightColor(border, purple-medium)};
+  --border-gray-medium: #{getRootDarkColor(border, gray-medium)};
+  --border-red-medium: #{getRootDarkColor(border, red-medium)};
+  --border-accent-medium: #{getRootDarkColor(border, accent-medium)};
+  --border-purple-medium: #{getRootDarkColor(border, purple-medium)};
+
+  --primary-tonal-hover: #{getRootDarkColor(primary, tonal_hover)};
 }
 
 $primary-normal: var(--primary-normal);
@@ -273,3 +277,5 @@ $border-gray-medium: var(--border-gray-medium);
 $color-border-red-medium: var(--border-red-medium);
 $color-border-accent-medium: var(--border-accent-medium);
 $color-border-purple-medium: var(--border-purple-medium);
+
+$primary-tonal-hover: var(--primary-tonal-hover);

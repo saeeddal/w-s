@@ -7,7 +7,15 @@
         [height]="UK_TYPE.BUTTON.height.H_32"
         [bgColor]="UK_TYPE.BUTTON.bgColor.TRANSPARENT"
       >
-        منو
+        <pt-icon
+          START
+          [src]="
+            APP_FACADE.sidebar()
+              ? 'assets/images/icons/menu_close.svg'
+              : 'assets/images/icons/menu_open.svg'
+          "
+          [size]="UK_TYPE.ICON.SIZE.LARGER"
+        ></pt-icon>
       </pt-button>
     </div>
     <div class="image-container">

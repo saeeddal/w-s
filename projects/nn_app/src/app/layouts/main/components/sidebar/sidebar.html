@@ -24,15 +24,18 @@
 
     <div class="menu-container">
       @for (item of menuItems; track item.title) {
-
       <div
         class="menu-item"
         [routerLink]="item.route"
-        routerLinkActive="active"
-        (click)="hasChildren(item) && toggleMenu(item.title)"
+        (click)="toggleMenu(item.title)"
+        [ngClass]="{active:openMenu() === item.title}"
       >
         <pt-icon [src]="'assets/images/icons/hospital.svg'" [size]="UK_TYPE.ICON.SIZE.LARGEST" />
-        <pt-label [weight]="UK_TYPE.LABEL.WEIGHT.NORMAL" [size]="UK_TYPE.LABEL.SIZE.SMALLER">
+        <pt-label
+          [size]="UK_TYPE.LABEL.SIZE.SMALLER"
+          [fgColor]="openMenu() === item.title ? UK_TYPE.LABEL.FG_COLOR.WHITE : UK_TYPE.LABEL.FG_COLOR.TEXT_NORMAL"
+          [weight]="openMenu() === item.title ? UK_TYPE.LABEL.WEIGHT.BOLD : UK_TYPE.LABEL.WEIGHT.NORMAL"
+        >
           {{ item.title }}
         </pt-label>
 
@@ -42,6 +45,7 @@
           [ngClass]="{open:openMenu() === item.title}"
           [src]="'assets/images/icons/chevron-down.svg'"
           [size]="UK_TYPE.ICON.SIZE.LARGEST"
+          [color]="openMenu() === item.title ?UK_TYPE.ICON.COLOR.WHITE :UK_TYPE.ICON.COLOR.DARK"
         />
         }
       </div>
@@ -51,11 +55,15 @@
         <div
           class="submenu-item"
           [routerLink]="child.route"
-          routerLinkActive="active"
+          routerLinkActive="active-child"
           (click)="APP_FACADE.toggleSidebar()"
         >
           <div class="menu-start">
-            <pt-label [weight]="UK_TYPE.LABEL.WEIGHT.NORMAL" [size]="UK_TYPE.LABEL.SIZE.SMALLER">
+            <pt-label
+              [size]="UK_TYPE.LABEL.SIZE.SMALLER"
+              [weight]="childRoute() === child.route ? UK_TYPE.LABEL.WEIGHT.BOLD : UK_TYPE.LABEL.WEIGHT.NORMAL"
+              [fgColor]="childRoute() === child.route  ? UK_TYPE.LABEL.FG_COLOR.PRIMARY : UK_TYPE.LABEL.FG_COLOR.TEXT_NORMAL"
+            >
               {{ child.title }}
             </pt-label>
           </div>

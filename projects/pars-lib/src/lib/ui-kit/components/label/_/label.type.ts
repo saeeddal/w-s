@@ -24,6 +24,7 @@ export enum UkLabelFgColor {
   ERROR_NORMAL = 'ERROR-NORMAL',
   TEXT_NORMAL = 'TEXT-NORMAL',
   PRIMARY = 'PRIMARY',
+  CONTENT_LIGHT = 'CONTENT-LIGHT',
 }
 export type LabelFgColor = `${UkLabelFgColor}`;
 
