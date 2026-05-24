@@ -1,4 +1,4 @@
-import type { OnInit} from '@angular/core';
+import type { OnInit } from '@angular/core';
 import { ChangeDetectorRef, Component, HostListener, inject, signal } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
@@ -30,7 +30,6 @@ export class Sidebar implements OnInit {
   public collapsed = signal(false);
   public openMenu = signal<string | null>(null);
   public childRoute = signal('');
-  private cdr = inject(ChangeDetectorRef);
 
   public constructor() {
     this.cdr.markForCheck();
@@ -65,4 +64,5 @@ export class Sidebar implements OnInit {
         this.childRoute.set(url);
       });
   }
+  private cdr = inject(ChangeDetectorRef);
 }

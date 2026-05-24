@@ -59,7 +59,25 @@ module.exports = [
           style: 'camelCase',
         },
       ],
-      '@typescript-eslint/member-ordering': 'error',
+      '@typescript-eslint/member-ordering': [
+        'error',
+        {
+          default: [
+            'public-static-field',
+            'public-instance-field',
+            'public-constructor',
+            'public-method',
+            'protected-static-field',
+            'protected-instance-field',
+            'protected-constructor',
+            'protected-method',
+            'private-static-field',
+            'private-instance-field',
+            'private-constructor',
+            'private-method',
+          ],
+        },
+      ],
       '@typescript-eslint/consistent-type-imports': [
         'error',
         {

@@ -35,7 +35,6 @@ export class MainLayout {
   public backAddress = signal('');
   public headerHasBackGround = signal(false);
   public readonly APP_FACADE = inject(AppFacade);
-  private cdr = inject(ChangeDetectorRef);
   public toggleSidebar() {
     this.APP_FACADE.toggleSidebar();
     this.cdr.markForCheck();
@@ -47,4 +46,5 @@ export class MainLayout {
       this.cdr.markForCheck();
     }
   }
+  private cdr = inject(ChangeDetectorRef);
 }

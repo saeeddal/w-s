@@ -48,8 +48,8 @@ export class MakePrescriptionMain {
     { id: 1, title: 'دکتر بالتازار' },
     { id: 2, title: 'دکتر معین' },
   ];
-  private readonly ROUTER = inject(Router);
   public onInputBlur(statusOfBlur: boolean): void {
     this.phoneNumberBlurred = statusOfBlur;
   }
+  private readonly ROUTER = inject(Router);
 }

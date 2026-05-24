@@ -18,10 +18,7 @@ export interface IApiRequest<TBody = unknown, TParams = Record<string, unknown>>
 export class ApiHttpService {
   public isLoading = signal(false);
   public lastError: WritableSignal<unknown> = signal(null);
-  private readonly HTTP = inject(HttpClient);
-  private readonly BASE_URL = 'https://jsonplaceholder.typicode.com/';
 
-  // ← NEW: Observable version – perfect for rxMethod / switchMap
   public post$<TResponse = unknown>(req: IApiRequest): Observable<TResponse> {
     const url = this.getUrl(req.endpoint);
 
@@ -40,6 +37,11 @@ export class ApiHttpService {
       // optional: catchError(err => { this.lastError.set(err); throw err; })
       ();
   }
+
+  private readonly HTTP = inject(HttpClient);
+  private readonly BASE_URL = 'https://jsonplaceholder.typicode.com/';
+
+  // ← NEW: Observable version – perfect for rxMethod / switchMap
 
   private getUrl(endpoint: string): string {
     return `${this.BASE_URL.replace(/\/$/, '')}/${endpoint.replace(/^\//, '')}`;

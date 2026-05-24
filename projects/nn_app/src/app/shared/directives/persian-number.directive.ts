@@ -5,8 +5,6 @@ import { NgControl } from '@angular/forms';
   selector: '[appConvertPersianDigits]',
 })
 export class BmnConvertPersianDigitsDirective {
-  private readonly NG_CONTROL = inject(NgControl);
-
   @HostListener('input', ['$event'])
   protected onInput(event: Event): void {
     const input = (event?.target as HTMLInputElement).value;
@@ -14,6 +12,7 @@ export class BmnConvertPersianDigitsDirective {
 
     this.NG_CONTROL.control?.setValue(converted, { emitEvent: false });
   }
+  private readonly NG_CONTROL = inject(NgControl);
 
   private convertPersianToEnglishDigits(input: string): string {
     const persianDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];

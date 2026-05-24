@@ -9,9 +9,9 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.scss',
 })
 export class App {
-  protected readonly TITLE = signal('ng20-2');
   public toggleTheme() {
     const body = document.body;
     body.classList.toggle('dark-theme');
   }
+  protected readonly TITLE = signal('ng20-2');
 }

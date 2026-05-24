@@ -48,7 +48,6 @@ export class Header {
   public headerHasBackGround = signal(false);
 
   public isMobile = signal(window.innerWidth < 600);
-  private cdr = inject(ChangeDetectorRef);
   @HostListener('window:resize')
   public onResize() {
     this.isMobile.set(window.innerWidth < 600);
@@ -63,4 +62,5 @@ export class Header {
     this.APP_FACADE.toggleSidebar();
     this.cdr.markForCheck();
   }
+  private cdr = inject(ChangeDetectorRef);
 }
