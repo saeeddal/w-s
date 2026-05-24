@@ -1,16 +1,16 @@
 import type { Routes } from '@angular/router';
 
-import { BmnBaseLayoutComponent } from './base-layout/base-layout.component';
-import { BmnNotFoundComponent } from '@app/shared/components/not-found/not-found.component';
+import { BaseLayout } from './base-layout/base-layout.component';
+import { NotFound } from '@app/shared/components/not-found/not-found.component';
 
 export const BASE_LAYOUT_ROUTES: Routes = [
   {
     path: '',
-    component: BmnBaseLayoutComponent,
+    component: BaseLayout,
     children: [
       {
         path: 'steps',
-        component: BmnBaseLayoutComponent,
+        component: BaseLayout,
         children: [
           {
             path: '',
@@ -21,7 +21,7 @@ export const BASE_LAYOUT_ROUTES: Routes = [
       },
       {
         path: '',
-        component: BmnBaseLayoutComponent,
+        component: BaseLayout,
         children: [
           {
             path: '',
@@ -35,6 +35,6 @@ export const BASE_LAYOUT_ROUTES: Routes = [
 
   {
     path: '**',
-    component: BmnNotFoundComponent,
+    component: NotFound,
   },
 ];

@@ -1,4 +1,4 @@
-export const IdentifyInfo = <Record<string, string>>{
+export const IDENTIFY_INFO = <Record<string, string>>{
   نام: 'saeed',
   خانوادگی: 'dalvand',
   موبایل: '09108582385',
@@ -6,7 +6,7 @@ export const IdentifyInfo = <Record<string, string>>{
   موباdssdsیل: '09108582385',
 };
 
-export const InsuranceInfo = <Record<string, string>>{
+export const INSURANCE_INFO = <Record<string, string>>{
   بیمه: 'بیمه ایران ',
   شماره: '10212545485',
   موبایل: '09108582385',
@@ -15,5 +15,5 @@ export const InsuranceInfo = <Record<string, string>>{
   تستی: '09108582385',
 };
 
-export const DoctorInfo =
+export const DOCTOR_INFO =
   'محمد قاسمي : دكتراي حرفه اي پزشكي عمومي با مدرك مديريت بحران - تمام وقت جغرافيايي';

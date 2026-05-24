@@ -8,4 +8,4 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './general-layout.component.scss',
   imports: [RouterOutlet, CommonModule],
 })
-export class BmnGeneralLayoutComponent {}
+export class GeneralLayout {}

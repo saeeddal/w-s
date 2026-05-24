@@ -1,4 +1,4 @@
-export interface BmnBuyGoodResponse {
+export interface IBuyGoodResponse {
   hasAddress: boolean;
   id: string;
 }

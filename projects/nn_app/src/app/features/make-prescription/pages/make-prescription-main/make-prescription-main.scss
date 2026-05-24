@@ -1,4 +1,5 @@
 @use 'core' as *;
+
 h1 {
   color: $text-normal;
 }
@@ -17,6 +18,7 @@ h1 {
     max-width: clamp(pxToRem(300), 35vw, 30%);
     flex-wrap: nowrap;
   }
+
   .patient-information {
     display: flex;
     justify-content: flex-start;
@@ -31,18 +33,21 @@ h1 {
       justify-content: center;
       align-items: center;
     }
+
     .doctor-patientNumber {
       display: flex;
       width: 100%;
       gap: pxToRem(16);
       align-items: end;
       flex-wrap: wrap;
+
       & .doctor-part,
       .mobile-part {
         display: flex;
         flex-direction: column;
         gap: pxToRem(8);
       }
+
       & .actions {
         display: flex;
         flex-direction: row;

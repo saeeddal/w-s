@@ -1,19 +1,19 @@
-import { BmnGateway } from './app-gateway.interface';
-import { BmnAppSetting } from './app-setting.interface';
-import { BmnConfigImage } from './config-image.interface';
-import { BmnRelevantPath } from './relavant-path.interface';
+import { IGateway } from './app-gateway.interface';
+import { IAppSetting } from './app-setting.interface';
+import { IConfigImage } from './config-image.interface';
+import { IRelevantPath } from './relevant-path.interface';
 
-export interface BmnCommonSettings {
+export interface ICommonSettings {
   maxMobileWidth: number;
   maxMobileWidthPadded: number;
   maxDesktopWidth: number;
   maxDesktopWidthPadded: number;
 }
 
-export interface BmnConstConfig {
-  image: BmnConfigImage;
-  appSetting: BmnAppSetting;
-  common: BmnCommonSettings;
-  gateway: BmnGateway;
-  relevantPath: BmnRelevantPath;
+export interface IConstConfig {
+  image: IConfigImage;
+  appSetting: IAppSetting;
+  common: ICommonSettings;
+  gateway: IGateway;
+  relevantPath: IRelevantPath;
 }

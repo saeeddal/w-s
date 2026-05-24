@@ -1,4 +1,4 @@
-export interface BmnImageInfo {
+export interface IImageInfo {
   width: number;
   height: number;
   averageColor: string;
@@ -7,29 +7,29 @@ export interface BmnImageInfo {
   mimeType: string;
 }
 
-export interface BmnLocation {
+export interface ILocation {
   latitude: number;
   longitude: number;
 }
 
-export enum BmnPermission {
+export enum IPermission {
   POST_NOTIFICATIONS = 'POST_NOTIFICATIONS',
   ACCESS_FINE_LOCATION = 'ACCESS_FINE_LOCATION',
   WRITE_EXTERNAL_STORAGE = 'WRITE_EXTERNAL_STORAGE',
   CAMERA = 'CAMERA',
 }
 
-export interface BmnKeyValue {
+export interface IBmnKeyValue {
   key: string;
   value: string;
 }
 
-export interface BmnKeyTitle {
+export interface IKeyTitle {
   key: number;
   title: string;
 }
 
-export interface IdTitle {
+export interface IIdTitle {
   id: number;
   title: string;
 }

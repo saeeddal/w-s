@@ -42,7 +42,7 @@
         </div>
         <div class="select-center">
           <pt-select
-            [(ngModel)]="selectedCenter"
+            [(ngModel)]="SELECTED_CENTER"
             [items]="MEDICAL_CENTERS"
             bindLabel="title"
             bindValue="id"
@@ -52,7 +52,7 @@
         </div>
       </div>
       <pt-button class="theme-toggle" (click)="toggleTheme()" [height]="UK_TYPE.BUTTON.height.H_32">
-        {{ APP_FACADE.theme() === Themes.DARK_THEME ? '☀️' : '🌙' }}
+        {{ APP_FACADE.theme() === THEMES.DARK_THEME ? '☀️' : '🌙' }}
       </pt-button>
     </div>
   </div>

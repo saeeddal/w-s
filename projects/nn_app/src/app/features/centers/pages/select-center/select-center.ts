@@ -1,5 +1,5 @@
-import { Component, inject, model } from '@angular/core';
-import { FormsModule, NgControl } from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import {
@@ -29,11 +29,11 @@ import { IMedicalCenter } from '@app/shared/models/dto/medical-center';
   styleUrl: './select-center.scss',
 })
 export class SelectCenter {
-  private readonly ROUTER = inject(Router);
   public readonly UK_TYPE = UK_TYPE;
   public selectedCenter!: number;
   public medicalCenters: IMedicalCenter[] = [
     { id: 1, title: 'شخصی' },
     { id: 2, title: 'عمومی' },
   ];
+  private readonly ROUTER = inject(Router);
 }

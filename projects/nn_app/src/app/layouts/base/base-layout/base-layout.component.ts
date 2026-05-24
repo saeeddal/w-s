@@ -8,6 +8,6 @@ import { CONST_CONFIG } from '@app/settings/const-config/const-config.setting';
   templateUrl: './base-layout.component.html',
   styleUrl: './base-layout.component.scss',
 })
-export class BmnBaseLayoutComponent {
+export class BaseLayout {
   public maxDesktopWidth = CONST_CONFIG.common.maxDesktopWidth;
 }

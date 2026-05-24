@@ -3,7 +3,6 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  HostListener,
   inject,
   signal,
 } from '@angular/core';
@@ -22,7 +21,7 @@ import { Header } from '../components/header/header.component';
   styleUrl: './main-layout.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BmnMainLayoutComponent {
+export class MainLayout {
   public readonly UK_TYPE = UK_TYPE;
   public reduceHeightForPwaIphone = signal(200);
   public isOnline = signal(true);

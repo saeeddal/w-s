@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component, HostListener, inject, OnInit, signal } fr
 
 import { CommonModule } from '@angular/common';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
-import { SidebarMenuItem } from '@app/settings/const-config/_/sidebar-menu-item.interface';
+import { ISidebarMenuItem } from '@app/settings/const-config/_/sidebar-menu-item.interface';
 import { SIDEBAR_MENU } from '@app/settings/const-config/const-config.setting';
 import {
   PtBasicCard,
@@ -15,48 +15,48 @@ import { AppFacade } from '@app/core/app.facade';
 import { filter, map } from 'rxjs';
 
 @Component({
-  selector: 'sidebar',
+  selector: 'app-sidebar',
   standalone: true,
   imports: [CommonModule, RouterModule, PtBasicCard, PtLabel, PtIcon, PtImage],
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.scss',
 })
 export class Sidebar implements OnInit {
-  menuItems: SidebarMenuItem[] = SIDEBAR_MENU;
   public readonly UK_TYPE = UK_TYPE;
-  collapsed = signal(false);
-  openMenu = signal<string | null>(null);
   public readonly APP_FACADE = inject(AppFacade);
   public readonly ROUTER = inject(Router);
+  public menuItems: ISidebarMenuItem[] = SIDEBAR_MENU;
+  public collapsed = signal(false);
+  public openMenu = signal<string | null>(null);
   public childRoute = signal('');
   private cdr = inject(ChangeDetectorRef);
 
-  constructor() {
+  public constructor() {
     this.cdr.markForCheck();
     this.checkScreenSize();
   }
 
   @HostListener('window:resize')
-  onResize(): void {
+  public onResize(): void {
     this.checkScreenSize();
   }
 
-  checkScreenSize(): void {
+  public checkScreenSize(): void {
     this.collapsed.set(window.innerWidth <= 992);
   }
 
-  toggleMenu(title: string): void {
+  public toggleMenu(title: string): void {
     this.openMenu.update((current) => (current === title ? null : title));
   }
 
-  hasChildren(item: SidebarMenuItem): boolean {
+  public hasChildren(item: ISidebarMenuItem): boolean {
     return !!item.children?.length;
   }
 
-  ngOnInit() {
+  public ngOnInit() {
     this.ROUTER.events
       .pipe(
-        filter((event: any) => event instanceof NavigationEnd),
+        filter((event: unknown) => event instanceof NavigationEnd),
         map(() => this.ROUTER.url)
       )
       .subscribe((url) => {

@@ -1,6 +1,6 @@
 <div class="comp make-prescription">
   <pt-label [padding]="UK_TYPE.LABEL.padding.P4"> پذیرش نسخه نویسی </pt-label>
-  @if(showSearch()){
+  @if(SHOW_SEARCH()){
   <pt-basic-card [bgColor]="UK_TYPE.CARD.BG_COLOR.ACTIVE">
     <div class="search-box">
       <pt-input
@@ -20,7 +20,7 @@
         [fgColor]="UK_TYPE.LABEL.FG_COLOR.WHITE"
         [height]="UK_TYPE.BUTTON.height.H_32"
         [bgColor]="UK_TYPE.BUTTON.bgColor.BUTTON_PRIMARY"
-        (click)="showSearch.set(false)"
+        (click)="SHOW_SEARCH.set(false)"
         >جستوجو</pt-button
       >
     </div>
@@ -38,19 +38,19 @@
           />
         </div>
       </div>
-      <info-patient title="هویتی" [details]="identifyInfo"></info-patient>
-      <info-patient title="بیمه ای" [details]="insuranceInfo"></info-patient>
-      @if(isDoctor()){
+      <app-info-patient title="هویتی" [details]="IDENTIFY_INFO"></app-info-patient>
+      <app-info-patient title="بیمه ای" [details]="INSURANCE_INFO"></app-info-patient>
+      @if(IS_DOCTOR()){
 
       <section class="doctor-details">
         <pt-label [weight]="UK_TYPE.LABEL.WEIGHT.BOLD" [fgColor]="UK_TYPE.LABEL.FG_COLOR.PRIMARY">
-          {{doctorInfo()}}
+          {{DOCTOR_INFO()}}
         </pt-label>
       </section>
       }
 
       <section class="doctor-patientNumber">
-        @if(!isDoctor()){
+        @if(!IS_DOCTOR()){
         <div class="doctor-part">
           <pt-label
             [horizontalAlignment]="UK_TYPE.LABEL.horizontalAlignment.START"
@@ -115,7 +115,7 @@
             [height]="UK_TYPE.BUTTON.height.H_32"
             [bgColor]="UK_TYPE.BUTTON.bgColor.TRANSPARENT"
             [borderColor]="UK_TYPE.BUTTON.borderColor.PRIMARY"
-            (click)="showSearch.set(true)"
+            (click)="SHOW_SEARCH.set(true)"
           >
             بازگشت</pt-button
           >

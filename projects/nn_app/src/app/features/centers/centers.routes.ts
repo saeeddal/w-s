@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { CenterLayout } from './centers-layout/centers-layout';
-import { BmnNotFoundComponent } from '@app/shared/components/not-found/not-found.component';
+import { NotFound } from '@app/shared/components/not-found/not-found.component';
 
 export const CENTER_ROUTES: Routes = [
   {
@@ -15,7 +15,8 @@ export const CENTER_ROUTES: Routes = [
       },
       {
         path: '**',
-        component: BmnNotFoundComponent,
+        component: NotFound,
+        title: 'ادرس اشتباه در مراحل',
       },
     ],
   },

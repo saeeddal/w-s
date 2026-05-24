@@ -1,4 +1,4 @@
-export interface BmnConfigImage {
+export interface IConfigImage {
   defaultImageUrl: string;
   noImageProfile: string;
   noImagePicture: string;

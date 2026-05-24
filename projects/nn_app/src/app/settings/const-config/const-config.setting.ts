@@ -1,7 +1,7 @@
-import { BmnConstConfig } from './_/const-config.interface';
-import { SidebarMenuItem } from './_/sidebar-menu-item.interface';
+import { IConstConfig } from './_/const-config.interface';
+import { ISidebarMenuItem } from './_/sidebar-menu-item.interface';
 
-export const CONST_CONFIG: BmnConstConfig = {
+export const CONST_CONFIG: IConstConfig = {
   image: {
     defaultImageUrl: '',
     noImageProfile: './../../../assets/images/empty/no-image.jpg',
@@ -38,7 +38,7 @@ export const CONST_CONFIG: BmnConstConfig = {
   },
 };
 
-export const SIDEBAR_MENU: SidebarMenuItem[] = [
+export const SIDEBAR_MENU: ISidebarMenuItem[] = [
   {
     title: 'خانه',
     icon: 'group',

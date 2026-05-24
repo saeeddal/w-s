@@ -1,6 +1,5 @@
 import { inject, Injectable } from '@angular/core';
 import { MAKE_PRESCRIPTION_STORE } from './make-prescription.store.ts.js';
-import { ICreateUserDto, IUpdateUserDto } from '@app/shared/models/common/mock.interface.js';
 
 @Injectable({ providedIn: 'root' })
 export class HomeFacade {

@@ -1,16 +1,11 @@
-export interface BmnAppSetting {
+export interface IAppSetting {
   // maxAppWidth: number;
-  header: BmnBamanHeader;
+  header: IHeader;
   appVersion: string;
   callCenter: string;
 }
 
-export interface BmnBamanHeader {
+export interface IHeader {
   backgroundColor: string;
   headerHeight: number;
-}
-
-export interface BmnBamanSortItems {
-  id: string;
-  title: string;
 }

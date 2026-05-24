@@ -1,7 +1,7 @@
 import { InjectionToken } from '@angular/core';
 
-export interface BmnApiConfig {
+export interface IApiConfig {
   apiBaseUrl: string;
 }
 
-export const API_CONFIG_TOKEN = new InjectionToken<BmnApiConfig>('');
+export const API_CONFIG_TOKEN = new InjectionToken<IApiConfig>('');

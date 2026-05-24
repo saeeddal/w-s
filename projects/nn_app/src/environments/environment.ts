@@ -1,7 +1,7 @@
-import { type BmnEnvironment, BmnEnvironmentName } from './_/environment.interface';
+import { type IEnvironment, IEnvironmentName } from './_/environment.interface';
 
-export const ENVIRONMENT: BmnEnvironment = {
-  name: BmnEnvironmentName.TEST,
+export const ENVIRONMENT: IEnvironment = {
+  name: IEnvironmentName.TEST,
   production: false,
   apiBaseUrl: 'https://testapi.baman.club/',
   payUrl: 'https://testpay.baman.club/pay/pay/payment?tokenId=',

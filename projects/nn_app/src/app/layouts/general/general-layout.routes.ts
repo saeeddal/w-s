@@ -1,10 +1,10 @@
 import type { Routes } from '@angular/router';
-import { BmnGeneralLayoutComponent } from './general-layout/general-layout.component';
+import { GeneralLayout } from './general-layout/general-layout.component';
 
 export const GENERAL_LAYOUT_ROUTES: Routes = [
   {
     path: '',
-    component: BmnGeneralLayoutComponent,
+    component: GeneralLayout,
     children: [
       {
         path: '',

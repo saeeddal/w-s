@@ -1,4 +1,4 @@
-export interface BmnResponsePaging<T> {
+export interface IResponsePaging<T> {
   list: T[];
   count: number;
 }

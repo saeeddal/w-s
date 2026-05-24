@@ -1,9 +1,9 @@
 <div class="comp main-layout">
-  <nn-header />
+  <app-header />
 
   <div class="content-wrapper" [class.sidebar-collapsed]="!APP_FACADE.sidebar()">
     <aside class="sidebar-content">
-      <sidebar></sidebar>
+      <app-sidebar></app-sidebar>
     </aside>
     <main class="content" (click)="closeMenuIfOpen()">
       <pt-basic-card

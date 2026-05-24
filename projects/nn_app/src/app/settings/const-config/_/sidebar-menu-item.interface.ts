@@ -1,6 +1,6 @@
-export interface SidebarMenuItem {
+export interface ISidebarMenuItem {
   title: string;
   icon: string;
   route?: string;
-  children?: SidebarMenuItem[];
+  children?: ISidebarMenuItem[];
 }

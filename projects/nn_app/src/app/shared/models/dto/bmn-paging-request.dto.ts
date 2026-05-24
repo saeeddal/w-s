@@ -1,4 +1,4 @@
-export interface BmnPagingRequest {
+export interface IPagingRequest {
   itemsPerPage: number;
   pageNumber: number;
 }

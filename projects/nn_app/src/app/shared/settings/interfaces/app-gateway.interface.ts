@@ -1,1 +1,1 @@
-export interface IBmnGateway {}
+export interface IIGateway {}

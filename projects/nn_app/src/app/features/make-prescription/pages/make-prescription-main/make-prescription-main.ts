@@ -12,10 +12,9 @@ import {
   PtImage,
   PtSelect,
 } from '../../../../../../../pars-lib/src/public-api';
+import { IIdTitle } from '@app/shared/models/common/common.interface';
+import { DOCTOR_INFO, IDENTIFY_INFO, INSURANCE_INFO } from '../../helpers/mock-data';
 import { InfoPatient } from '@app/shared/components/insurance-identify/info-patient';
-import { DoctorInfo, IdentifyInfo, InsuranceInfo } from '../../helpers/mock-data';
-import { IMedicalCenter } from '@app/shared/models/dto/medical-center';
-import { IdTitle } from '@app/shared/models/common/common.interface';
 
 @Component({
   selector: 'app-make-prescription-main',
@@ -28,29 +27,29 @@ import { IdTitle } from '@app/shared/models/common/common.interface';
     PtInput,
     PtIcon,
     PtButton,
-    InfoPatient,
     PtImage,
     PtSelect,
+    InfoPatient,
   ],
   templateUrl: './make-prescription-main.html',
   styleUrl: './make-prescription-main.scss',
 })
 export class MakePrescriptionMain {
-  private readonly ROUTER = inject(Router);
-  public readonly UK_TYPE = UK_TYPE;
   public phoneNumberBlurred = false;
-  public onInputBlur(statusOfBlur: boolean): void {
-    this.phoneNumberBlurred = statusOfBlur;
-  }
-  public readonly identifyInfo = IdentifyInfo;
-  public readonly insuranceInfo = InsuranceInfo;
+  public readonly UK_TYPE = UK_TYPE;
+  public patientPhoneNumber = '09108582385';
+  public readonly IDENTIFY_INFO = IDENTIFY_INFO;
+  public readonly INSURANCE_INFO = INSURANCE_INFO;
+  public readonly IS_DOCTOR = signal(true);
+  public readonly DOCTOR_INFO = signal(DOCTOR_INFO);
+  public readonly SHOW_SEARCH = signal(true);
   public selectedCenter!: number;
-  public medicalCenters: IdTitle[] = [
+  public medicalCenters: IIdTitle[] = [
     { id: 1, title: 'دکتر بالتازار' },
     { id: 2, title: 'دکتر معین' },
   ];
-  public patientPhoneNumber = '09108582385';
-  public readonly isDoctor = signal(true);
-  public readonly doctorInfo = signal(DoctorInfo);
-  public readonly showSearch = signal(true);
+  private readonly ROUTER = inject(Router);
+  public onInputBlur(statusOfBlur: boolean): void {
+    this.phoneNumberBlurred = statusOfBlur;
+  }
 }

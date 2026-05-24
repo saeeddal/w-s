@@ -1,10 +1,9 @@
-export interface BmnGateway {
+export interface IGateway {
   payPath: string;
-  serviceName: BmnServiceNames;
+  serviceName: IServiceNames;
 }
 
-interface BmnServiceNames {
+interface IServiceNames {
   config: string;
-
   geoLocation: string;
 }
