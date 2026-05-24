@@ -1,6 +1,8 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { inject, Injectable, signal, WritableSignal } from '@angular/core';
-import { Observable } from 'rxjs';
+import type { HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import type { WritableSignal } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
+import type { Observable } from 'rxjs';
 
 // Your existing interfaces
 export interface IApiRequest<TBody = unknown, TParams = Record<string, unknown>> {

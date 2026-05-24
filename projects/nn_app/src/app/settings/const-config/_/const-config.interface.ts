@@ -1,7 +1,7 @@
-import { IGateway } from './app-gateway.interface';
-import { IAppSetting } from './app-setting.interface';
-import { IConfigImage } from './config-image.interface';
-import { IRelevantPath } from './relevant-path.interface';
+import type { IGateway } from './app-gateway.interface';
+import type { IAppSetting } from './app-setting.interface';
+import type { IConfigImage } from './config-image.interface';
+import type { IRelevantPath } from './relevant-path.interface';
 
 export interface ICommonSettings {
   maxMobileWidth: number;

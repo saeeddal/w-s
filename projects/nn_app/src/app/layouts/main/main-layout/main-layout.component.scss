@@ -9,7 +9,6 @@
   border: pxToRem(3) solid $primary-tonal;
   border-radius: pxToRem(10);
 }
-
 .comp.main-layout {
   height: 100dvh;
   display: flex;
@@ -72,33 +71,22 @@
   .comp.main-layout {
     .content-wrapper {
       .sidebar-content {
-        // 2. Use fixed to break out of the parent's overflow: hidden
         position: absolute !important;
         top: pxToRem(10);
         right: 0;
         width: pxToRem(300);
         height: 100dvh;
         z-index: 9999;
-
-        // Force visibility
         opacity: 1 !important;
         pointer-events: auto !important;
         flex: none !important;
-
-        // Visuals
         background-color: $base-light;
         box-shadow: pxToRem(2) 0 pxToRem(10) $primary-tonal;
-
-        // Optional: Add a fade-in animation
         animation: slideIn 0.3s ease-out;
       }
-
       .content {
-        // 3. Force content to stay full width
         flex: 1 1 100% !important;
       }
-
-      // 1. Ensure the container doesn't restrict the sidebar
       &.sidebar-collapsed {
         .sidebar-content {
           width: 0;
@@ -108,7 +96,6 @@
         }
       }
       .content {
-        // 3. Force content to stay full width
         flex: 1 1 100% !important;
       }
     }

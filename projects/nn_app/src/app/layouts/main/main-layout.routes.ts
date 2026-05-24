@@ -18,7 +18,7 @@ export const MAIN_LAYOUT_ROUTES: Routes = [
         path: 'make-prescription',
         loadChildren: async () =>
           import('../../features/make-prescription/make-prescription.routes').then(
-            (s) => s.MAKE_PRESCRIPTION_ROUTES
+            (s) => s.MAKE_PRESCRIPTION_ROUTES,
           ),
       },
 

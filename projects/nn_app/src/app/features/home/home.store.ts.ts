@@ -1,9 +1,9 @@
 import { inject } from '@angular/core';
 import { ApiHttpService } from '@app/core/base-services/api-http.service';
 import { HttpMethod } from '@app/core/base-services/models/http-method.enum';
-import { ICreateUserDto, IUpdateUserDto, IUser } from '@app/shared/models/common/mock.interface';
+import type { ICreateUserDto, IUpdateUserDto, IUser } from '@app/shared/models/common/mock.interface';
 import { tapResponse } from '@ngrx/operators';
-import { signalStore, withState, withMethods, patchState } from '@ngrx/signals';
+import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
 
 import { pipe, switchMap, tap } from 'rxjs';
@@ -61,10 +61,10 @@ export const HOME_STORE = signalStore(
                   error: (err || '').toString() || 'Failed to load users',
                   isLoading: false,
                 }),
-            })
+            }),
           );
-        })
-      )
+        }),
+      ),
     ),
 
     // Load single user detail
@@ -81,10 +81,10 @@ export const HOME_STORE = signalStore(
             tapResponse({
               next: (user) => patchState(store, { selectedUser: user, isLoading: false }),
               error: (err) => patchState(store, { error: err ? err.toString() : '' }),
-            })
+            }),
           );
-        })
-      )
+        }),
+      ),
     ),
 
     // Create
@@ -105,10 +105,10 @@ export const HOME_STORE = signalStore(
                 }));
               },
               error: (err) => patchState(store, { error: err ? err.toString() : '' }),
-            })
+            }),
           );
-        })
-      )
+        }),
+      ),
     ),
 
     // Update (optimistic style possible, but simple version here)
@@ -130,10 +130,10 @@ export const HOME_STORE = signalStore(
                 }));
               },
               error: (err) => patchState(store, { error: err ? err.toString() : '' }),
-            })
+            }),
           );
-        })
-      )
+        }),
+      ),
     ),
 
     // Delete
@@ -155,13 +155,13 @@ export const HOME_STORE = signalStore(
                 }));
               },
               error: (err) => patchState(store, { error: err ? err.toString() : '' }),
-            })
+            }),
           );
-        })
-      )
+        }),
+      ),
     ),
 
     // Clear error / reset
     clearError: () => patchState(store, { error: null }),
-  }))
+  })),
 );

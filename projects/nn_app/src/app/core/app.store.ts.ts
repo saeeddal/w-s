@@ -1,6 +1,6 @@
-import { UserRule } from '@app/shared/models/common/enums';
 import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
 import { Themes } from './base-services/models/themes.enum';
+import { UserRule } from '../shared/models/common/enums';
 
 type AppState = {
   dynamicHeaderTitle: string;
@@ -45,5 +45,5 @@ export const APP_STORE = signalStore(
         sideBar: false,
       });
     },
-  }))
+  })),
 );

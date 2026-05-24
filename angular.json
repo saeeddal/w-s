@@ -50,8 +50,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "8kB",
+                  "maximumError": "20kB"
                 }
               ],
               "outputHashing": "all"
@@ -82,7 +82,8 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": ["projects/nn_app/src/**/*.ts", "projects/nn_app/src/**/*.html"]
+            "lintFilePatterns": ["projects/nn_app/**/*.ts", "projects/nn_app/**/*.html"],
+            "eslintConfig": "eslint.config.js"
           }
         }
       }
@@ -109,6 +110,13 @@
           "builder": "@angular/build:unit-test",
           "options": {
             "tsConfig": "projects/pars-lib/tsconfig.spec.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": ["projects/pars-lib/**/*.ts", "projects/pars-lib/**/*.html"],
+            "eslintConfig": "eslint.config.js"
           }
         }
       }

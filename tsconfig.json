@@ -1,5 +1,3 @@
-/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
-/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 {
   "compileOnSave": false,
   "compilerOptions": {
@@ -11,15 +9,26 @@
     "skipLibCheck": true,
     "isolatedModules": true,
     "experimentalDecorators": true,
-    "paths": {
-      "pars-lib": [
-        "./dist/pars-lib"
-      ]
-    },
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022",
     "moduleResolution": "bundler",
+    "baseUrl": ".",
+    "paths": {
+      "@environments/*": ["./src/environments/*"],
+      "@app/*": ["./src/app/*"],
+      "@layouts/*": ["./src/app/layouts/*"],
+      "@pages/*": ["./src/app/pages/*"],
+      "@settings/*": ["./src/app/settings/*"],
+      "@config/*": ["./src/app/settings/config/*"],
+      "@shared/*": ["./src/app/shared/*"],
+      "@services/*": ["./src/app/shared/services/*"],
+      "@helpers/*": ["./src/app/shared/helpers/*"],
+      "@store/*": ["./src/app/shared/store/*"],
+      "@ui-kit/*": ["./src/app/ui-kit/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@pars-lib-style/*": ["../pars-lib/styles/*"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
@@ -34,6 +43,6 @@
     },
     {
       "path": "./projects/pars-lib/tsconfig.lib.json"
-    },
+    }
   ]
 }

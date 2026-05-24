@@ -1,24 +1,20 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { CommonModule } from '@angular/common';
+import { ChangeDetectorRef } from '@angular/core';
 import {
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   DestroyRef,
   forwardRef,
   inject,
   Input,
 } from '@angular/core';
-import {
-  ControlValueAccessor,
-  FormControl,
-  FormGroup,
-  FormsModule,
-  NG_VALUE_ACCESSOR,
-} from '@angular/forms';
+import type { ControlValueAccessor, FormControl, FormGroup } from '@angular/forms';
+import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { NgSelectModule } from '@ng-select/ng-select';
 
-import {
+import type {
   SelectBgColor,
   SelectBorderColor,
   SelectBorderRadius,
@@ -27,7 +23,8 @@ import {
   SelectMarginRight,
 } from './_/select.type';
 import DEFAULT from '../../prepared-config';
-import { BooleanType, CrudMode, UkBooleanType } from '../../definitions/uk.type';
+import type { BooleanType, CrudMode } from '../../definitions/uk.type';
+import { UkBooleanType } from '../../definitions/uk.type';
 import { UK_TYPE } from '../../../uk-type';
 import {
   UIKIT_EMPTY_FUNCTION,
@@ -125,10 +122,9 @@ export class PtSelect implements ControlValueAccessor {
 
   public innerValue: any = null!;
   public destroyRef = inject(DestroyRef);
+  public changeDetectorRef = inject(ChangeDetectorRef);
   public changed = UIKIT_EMPTY_FUNCTION_UNI_ARGUMENT;
   public touched = UIKIT_EMPTY_FUNCTION;
-
-  constructor(private readonly changeDetectorRef: ChangeDetectorRef) {}
 
   public get formControl(): FormControl | null {
     return this.parentForm?.get(this.fieldName) as FormControl;

@@ -3,9 +3,9 @@
     <div>
       <pt-button
         class="theme-toggle"
-        (click)="toggleSidebar()"
         [height]="UK_TYPE.BUTTON.height.H_32"
         [bgColor]="UK_TYPE.BUTTON.bgColor.TRANSPARENT"
+        (click)="toggleSidebar()"
       >
         <pt-icon
           START
@@ -42,16 +42,16 @@
         </div>
         <div class="select-center">
           <pt-select
-            [(ngModel)]="SELECTED_CENTER"
-            [items]="MEDICAL_CENTERS"
             bindLabel="title"
             bindValue="id"
+            [items]="MEDICAL_CENTERS"
             [borderColor]="UK_TYPE.SELECT.borderColor.TRANSPARENT"
             [noBorder]="UK_TYPE.BOOLEAN_TYPE.TRUE"
+            [(ngModel)]="SELECTED_CENTER"
           />
         </div>
       </div>
-      <pt-button class="theme-toggle" (click)="toggleTheme()" [height]="UK_TYPE.BUTTON.height.H_32">
+      <pt-button class="theme-toggle" [height]="UK_TYPE.BUTTON.height.H_32" (click)="toggleTheme()">
         {{ APP_FACADE.theme() === THEMES.DARK_THEME ? '☀️' : '🌙' }}
       </pt-button>
     </div>

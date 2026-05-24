@@ -1,20 +1,20 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Router, RouterModule } from '@angular/router';
 import {
-  PtLabel,
   PtBasicCard,
-  PtInput,
-  PtIcon,
-  UK_TYPE,
   PtButton,
+  PtIcon,
   PtImage,
+  PtInput,
+  PtLabel,
   PtSelect,
+  UK_TYPE,
 } from '../../../../../../../pars-lib/src/public-api';
-import { IIdTitle } from '@app/shared/models/common/common.interface';
-import { DOCTOR_INFO, IDENTIFY_INFO, INSURANCE_INFO } from '../../helpers/mock-data';
+import type { IIdTitle } from '@app/shared/models/common/common.interface';
 import { InfoPatient } from '@app/shared/components/insurance-identify/info-patient';
+import { DOCTOR_INFO, IDENTIFY_INFO, INSURANCE_INFO } from '../../helpers/mock-data';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-make-prescription-main',

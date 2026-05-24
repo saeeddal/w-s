@@ -1,8 +1,9 @@
-import { ChangeDetectorRef, Component, HostListener, inject, OnInit, signal } from '@angular/core';
+import type { OnInit} from '@angular/core';
+import { ChangeDetectorRef, Component, HostListener, inject, signal } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
-import { ISidebarMenuItem } from '@app/settings/const-config/_/sidebar-menu-item.interface';
+import type { ISidebarMenuItem } from '@app/settings/const-config/_/sidebar-menu-item.interface';
 import { SIDEBAR_MENU } from '@app/settings/const-config/const-config.setting';
 import {
   PtBasicCard,
@@ -57,7 +58,7 @@ export class Sidebar implements OnInit {
     this.ROUTER.events
       .pipe(
         filter((event: unknown) => event instanceof NavigationEnd),
-        map(() => this.ROUTER.url)
+        map(() => this.ROUTER.url),
       )
       .subscribe((url) => {
         //const cleanedUrl = url.startsWith('/') ? url.substring(1) : url;

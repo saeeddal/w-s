@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
-import { ButtonCursor } from '../button/_/button.type';
-import { IconColor } from './_/icon-color';
+import type { ButtonCursor } from '../button/_/button.type';
+import type { IconColor } from './_/icon-color';
 import DEFAULT from '../../prepared-config';
-import { IconSize } from './_/icon-size';
+import type { IconSize } from './_/icon-size';
 @Component({
   selector: 'pt-icon',
   imports: [CommonModule],

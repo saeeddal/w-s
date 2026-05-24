@@ -1,14 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 
-import {
+import type {
   LabelFgColor,
   LabelHorizontalAlignment,
   LabelSize,
   LabelWeight,
 } from '../label/_/label.type';
 
-import {
+import type {
   ButtonBgColor,
   ButtonBorderColor,
   ButtonCursor,
@@ -16,7 +16,8 @@ import {
   ButtonHeight,
   ButtonPadding,
   ButtonType,
-  ButtonUkType,
+  ButtonUkType} from './_/button.type';
+import {
   UkButtonDisplay,
 } from './_/button.type';
 import { PtLabel } from '../label/label.component';

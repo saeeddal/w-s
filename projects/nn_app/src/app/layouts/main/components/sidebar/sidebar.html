@@ -27,8 +27,8 @@
       <div
         class="menu-item"
         [routerLink]="item.route"
-        (click)="toggleMenu(item.title)"
         [ngClass]="{active:openMenu() === item.title}"
+        (click)="toggleMenu(item.title)"
       >
         <pt-icon [src]="'assets/images/icons/hospital.svg'" [size]="UK_TYPE.ICON.SIZE.LARGEST" />
         <pt-label
@@ -54,8 +54,8 @@
         @for (child of item.children; track child.title) {
         <div
           class="submenu-item"
-          [routerLink]="child.route"
           routerLinkActive="active-child"
+          [routerLink]="child.route"
           (click)="APP_FACADE.toggleSidebar()"
         >
           <div class="menu-start">

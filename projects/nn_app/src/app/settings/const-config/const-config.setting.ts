@@ -1,5 +1,5 @@
-import { IConstConfig } from './_/const-config.interface';
-import { ISidebarMenuItem } from './_/sidebar-menu-item.interface';
+import type { IConstConfig } from './_/const-config.interface';
+import type { ISidebarMenuItem } from './_/sidebar-menu-item.interface';
 
 export const CONST_CONFIG: IConstConfig = {
   image: {

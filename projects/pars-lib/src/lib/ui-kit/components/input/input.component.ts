@@ -1,16 +1,19 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { CommonModule } from '@angular/common';
+import { ChangeDetectorRef } from '@angular/core';
 import {
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   EventEmitter,
   forwardRef,
+  inject,
   Input,
   Output,
 } from '@angular/core';
-import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
+import type { ControlValueAccessor } from '@angular/forms';
+import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 
-import { InputBorderColor, InputType } from './_/input.type';
+import type { InputBorderColor, InputType } from './_/input.type';
 import { BmnConvertPersianDigitsDirective } from '../../directives/persian-number.directive';
 import DEFAULT from '../../prepared-config';
 import { UK_TYPE } from '../../../uk-type';
@@ -77,12 +80,12 @@ export class PtInput implements ControlValueAccessor {
   public maxLength: number = null!;
 
   public readonly UK_TYPE = UK_TYPE;
+  public changeDetectorRef = inject(ChangeDetectorRef);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public val!: any;
   public changed = UIKIT_EMPTY_FUNCTION_UNI_ARGUMENT;
   public touched = UIKIT_EMPTY_FUNCTION;
-
-  constructor(private readonly changeDetectorRef: ChangeDetectorRef) {}
 
   public onBlur(): void {
     this.touched();

@@ -1,4 +1,4 @@
-import { IMedicalCenter } from '@app/shared/models/dto/medical-center';
+import type { IMedicalCenter } from '@app/shared/models/dto/medical-center';
 
 export const MEDICAL_CENTERS: IMedicalCenter[] = [
   { id: 1, title: 'شخصی' },

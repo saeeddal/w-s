@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
-import { CardBgColor, CardBorderColor, CardPadding, CardRadius } from './_/basic-card-type';
+import type { CardBgColor, CardBorderColor, CardPadding, CardRadius } from './_/basic-card-type';
 import { UK_TYPE } from '../../../uk-type';
 
 @Component({

@@ -3,54 +3,27 @@
   "compilerOptions": {
     "outDir": "../../out-tsc/app",
     "types": [],
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "bundler",
+    "baseUrl": ".",
     "paths": {
-      "@environments/*": [
-        "./src/environments/*"
-      ],
-      "@app/*": [
-        "./src/app/*"
-      ],
-      "@layouts/*": [
-        "./src/app/layouts/*"
-      ],
-      "@pages/*": [
-        "./src/app/pages/*"
-      ],
-      "@settings/*": [
-        "./src/app/settings/*"
-      ],
-      "@config/*": [
-        "./src/app/settings/config/*"
-      ],
-      "@shared/*": [
-        "./src/app/shared/*"
-      ],
-      "@services/*": [
-        "./src/app/shared/services/*"
-      ],
-      "@helpers/*": [
-        "./src/app/shared/helpers/*"
-      ],
-      "@store/*": [
-        "./src/app/shared/store/*"
-      ],
-      "@ui-kit/*": [
-        "./src/app/ui-kit/*"
-      ],
-      "@assets/*": [
-        "./src/assets/*"
-      ],
-      "@pars-lib-style/*": [
-        "../pars-lib/styles/*"
-      ],
-    },
-    "sourceMap": false
+      "@environments/*": ["./src/environments/*"],
+      "@app/*": ["./src/app/*"],
+      "@layouts/*": ["./src/app/layouts/*"],
+      "@pages/*": ["./src/app/pages/*"],
+      "@settings/*": ["./src/app/settings/*"],
+      "@config/*": ["./src/app/settings/config/*"],
+      "@shared/*": ["./src/app/shared/*"],
+      "@services/*": ["./src/app/shared/services/*"],
+      "@helpers/*": ["./src/app/shared/helpers/*"],
+      "@store/*": ["./src/app/shared/store/*"],
+      "@ui-kit/*": ["./src/app/ui-kit/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@pars-lib/*": ["../../pars-lib/src/lib/*"],
+      "@pars-lib-style/*": ["../../pars-lib/styles/*"]
+    }
   },
-  "include": [
-    "./src/**/*.ts",
-    "./src/**/*.d.ts"
-  ],
-  "exclude": [
-    "./src/**/*.spec.ts"
-  ],
+  "include": ["src/**/*.ts"],
+  "exclude": ["**/*.spec.ts"]
 }

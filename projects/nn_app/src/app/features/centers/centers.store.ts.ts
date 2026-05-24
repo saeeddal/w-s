@@ -1,9 +1,9 @@
 import { inject } from '@angular/core';
 import { ApiHttpService } from '@app/core/base-services/api-http.service';
 import { HttpMethod } from '@app/core/base-services/models/http-method.enum';
-import { ICenterItem } from '@app/shared/models/common/mock.interface';
+import type { ICenterItem } from '@app/shared/models/common/mock.interface';
 import { tapResponse } from '@ngrx/operators';
-import { signalStore, withState, withMethods, patchState } from '@ngrx/signals';
+import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
 
 import { pipe, switchMap, tap } from 'rxjs';
@@ -52,13 +52,13 @@ export const CENTER_STORE = signalStore(
                   error: (err || '').toString() || 'Failed to load users',
                   isLoading: false,
                 }),
-            })
+            }),
           );
-        })
-      )
+        }),
+      ),
     ),
 
     // Clear error / reset
     clearError: () => patchState(store, { error: null }),
-  }))
+  })),
 );

@@ -12,7 +12,6 @@
         <pt-icon
           END
           src="assets/images/icons/close_icon.svg"
-          [size]="UK_TYPE.ICON.SIZE.LARGER"
           [size]="UK_TYPE.ICON.SIZE.MEDIUM"
         ></pt-icon>
       </pt-input>
@@ -60,11 +59,11 @@
             انتخاب پزشک:
           </pt-label>
           <pt-select
-            [(ngModel)]="selectedCenter"
-            [items]="medicalCenters"
             bindLabel="title"
             bindValue="id"
             placeholder="انتخاب مرکز درمان"
+            [items]="medicalCenters"
+            [(ngModel)]="selectedCenter"
           />
         </div>
         }
@@ -79,16 +78,15 @@
           </pt-label>
           <div>
             <pt-input
+              placeholder="شماره تماس جدید"
               [inputType]="UK_TYPE.INPUT.TYPE.TEXT"
               [maxLength]="11"
-              (ON_BLUR)="onInputBlur($event)"
               [(ngModel)]="patientPhoneNumber"
-              placeholder="شماره تماس جدید"
+              (ON_BLUR)="onInputBlur($event)"
             >
               <pt-icon
                 END
                 src="assets/images/icons/close_icon.svg"
-                [size]="UK_TYPE.ICON.SIZE.LARGER"
                 [size]="UK_TYPE.ICON.SIZE.MEDIUM"
               ></pt-icon>
             </pt-input>

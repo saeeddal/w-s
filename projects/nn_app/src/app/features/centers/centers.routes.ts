@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import type { Routes } from '@angular/router';
 import { CenterLayout } from './centers-layout/centers-layout';
 import { NotFound } from '@app/shared/components/not-found/not-found.component';
 

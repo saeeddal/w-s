@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 
-import {
+import type {
   LabelBgColor,
   LabelBorderRadius,
   LabelDisplay,
@@ -15,7 +15,8 @@ import {
   LabelTypography,
   LabelVerticalAlignment,
   LabelWeight,
-  LineHeight,
+  LineHeight} from './_/label.type';
+import {
   UkLabelDisplay,
   UkLineHeight,
 } from './_/label.type';

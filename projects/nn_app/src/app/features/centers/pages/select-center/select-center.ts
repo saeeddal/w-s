@@ -5,13 +5,13 @@ import { Router, RouterModule } from '@angular/router';
 import {
   PtBasicCard,
   PtButton,
+  PtIcon,
   PtImage,
   PtLabel,
   PtSelect,
   UK_TYPE,
-  PtIcon,
 } from '../../../../../../../pars-lib/src/public-api';
-import { IMedicalCenter } from '@app/shared/models/dto/medical-center';
+import type { IMedicalCenter } from '@app/shared/models/dto/medical-center';
 @Component({
   selector: 'app-select-center',
   imports: [
