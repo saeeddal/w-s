@@ -1,0 +1,17 @@
+<nav aria-label="Breadcrumb">
+  <ol class="breadcrumb">
+    @for (item of breadcrumbs$ | async; track item.url; let last = $last) { @if (item?.label) {
+    <li class="breadcrumb-item">
+      @if (!last) {
+      <a [routerLink]="item.url">
+        <pt-label [fgColor]="UK_TYPE.LABEL.FG_COLOR.PRIMARY"> {{ item.label }} </pt-label>
+      </a>
+      } @else {
+
+      <pt-label [fgColor]="UK_TYPE.LABEL.FG_COLOR.BASE_TONAL"> {{ item.label }} </pt-label>
+
+      }
+    </li>
+    } }
+  </ol>
+</nav>

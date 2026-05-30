@@ -9,6 +9,12 @@ import {
   UkButtonType,
   UkButtonUkType,
 } from './components/button/_/button.type';
+import {
+  PtDividerBgColor,
+  PtDividerDisplay,
+  PtDividerMargin,
+  PtDividerSize,
+} from './components/divider/_/divider.type';
 import { UkIconColor } from './components/icon/_/icon-color';
 import { UkIconName } from './components/icon/_/icon-name';
 import { UkIconSize } from './components/icon/_/icon-size';
@@ -87,6 +93,12 @@ const SIMPLE = {
     borderColor: PtInputBorderColor.GRADE_2,
     numeric: PtInputNumeric.DEFAULT,
     crudMode: UkCrudMode.EDIT,
+  },
+  divider: {
+    bgColor: PtDividerBgColor.GRADE_2,
+    size: PtDividerSize.PX_1,
+    margin: PtDividerMargin.NONE,
+    display: PtDividerDisplay.HORIZONTAL,
   },
 };
 

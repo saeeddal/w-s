@@ -15,6 +15,12 @@ import {
   UkButtonType,
   UkButtonUkType,
 } from './ui-kit/components/button/_/button.type';
+import {
+  PtDividerBgColor,
+  PtDividerDisplay,
+  PtDividerMargin,
+  PtDividerSize,
+} from './ui-kit/components/divider/_/divider.type';
 import { UkIconColor } from './ui-kit/components/icon/_/icon-color';
 import { UkIconSize } from './ui-kit/components/icon/_/icon-size';
 import {
@@ -96,5 +102,11 @@ export const UK_TYPE = {
     TYPE: PtInputType,
     BORDER_COLOR: PtInputBorderColor,
     NUMERIC: PtInputNumeric,
+  },
+  DIVIDER: {
+    BG_COLOR: PtDividerBgColor,
+    MARGIN: PtDividerMargin,
+    SIZE: PtDividerSize,
+    DISPLAY: PtDividerDisplay,
   },
 };

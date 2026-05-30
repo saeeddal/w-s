@@ -6,3 +6,5 @@ export * from './select/select.component';
 export * from './button/button.component';
 export * from './input/input.component';
 export * from './key-val/key-val.component';
+export * from './breadcrumb/breadcrumb';
+export * from './divider/divider.component';

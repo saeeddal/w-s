@@ -13,6 +13,9 @@ export const MAKE_PRESCRIPTION_ROUTES: Routes = [
             (C) => C.MakePrescriptionMain,
           ),
         title: 'پذیرش',
+        data: {
+          breadcrumb: 'پذیرش',
+        },
       },
     ],
   },

@@ -10,13 +10,28 @@ import { RouterOutlet } from '@angular/router';
 
 import { AppFacade } from '@app/core/app.facade';
 import { FormsModule } from '@angular/forms';
-import { PtBasicCard, UK_TYPE } from '../../../../../../pars-lib/src/public-api';
+import {
+  PtBasicCard,
+  PtBreadcrumb,
+  PtDivider,
+  UK_TYPE,
+} from '../../../../../../pars-lib/src/public-api';
 import { Sidebar } from '../components/sidebar/sidebar';
 import { Header } from '../components/header/header.component';
 
 @Component({
   selector: 'app-main-layout',
-  imports: [RouterOutlet, CommonModule, FormsModule, CommonModule, PtBasicCard, Sidebar, Header],
+  imports: [
+    RouterOutlet,
+    CommonModule,
+    FormsModule,
+    CommonModule,
+    PtBasicCard,
+    Sidebar,
+    Header,
+    PtBreadcrumb,
+    PtDivider,
+  ],
   templateUrl: './main-layout.component.html',
   styleUrl: './main-layout.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

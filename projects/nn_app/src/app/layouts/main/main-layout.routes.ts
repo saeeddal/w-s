@@ -1,6 +1,7 @@
 import type { Routes } from '@angular/router';
 import { MainLayout } from './main-layout/main-layout.component';
 import { NotFound } from '@app/shared/components/not-found/not-found.component';
+import { HOME_ROUTES } from '../../features/home/home.routes';
 
 export const MAIN_LAYOUT_ROUTES: Routes = [
   {
@@ -10,9 +11,10 @@ export const MAIN_LAYOUT_ROUTES: Routes = [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       {
         path: 'home',
-        loadChildren: async () =>
-          import('../../features/home/home.routes').then((s) => s.HOME_ROUTES),
+        // loadChildren: async () =>
+        //   import('../../features/home/home.routes').then((s) => s.HOME_ROUTES),
         title: 'خانه',
+        children: HOME_ROUTES,
       },
       {
         path: 'make-prescription',
@@ -20,6 +22,9 @@ export const MAIN_LAYOUT_ROUTES: Routes = [
           import('../../features/make-prescription/make-prescription.routes').then(
             (s) => s.MAKE_PRESCRIPTION_ROUTES,
           ),
+        data: {
+          breadcrumb: 'نسخه نویسی',
+        },
       },
 
       {

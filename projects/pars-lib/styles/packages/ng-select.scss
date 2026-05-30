@@ -1,4 +1,5 @@
 @use './../colors/index' as *;
+@use './../functions/index' as *;
 @use '@ng-select/ng-select/themes/default.theme.css';
 
 .ng-select .ng-select-container .ng-value-container {
@@ -28,6 +29,7 @@
 .ng-dropdown-panel .ng-option {
   background: $select-bg !important ;
   color: $select-text !important;
+  font-size: pxToRem(12);
 }
 
 ng-option-selected ng-option-marked .dark-theme .ng-dropdown-panel .ng-option:hover {

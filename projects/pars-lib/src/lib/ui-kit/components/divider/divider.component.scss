@@ -1,0 +1,91 @@
+@use '../../../../../styles/index.scss' as *;
+
+:host {
+}
+
+.uk.divider {
+  border-radius: 8px;
+  height: 100%;
+
+  &.uk-divider {
+    &-bg-color {
+      &-GRADE-1 {
+        background-color: $base-stroke_normal;
+      }
+    }
+
+    &-display {
+      &-HORIZONTAL {
+        width: 100%;
+
+        &.uk-divider-size {
+          &-PX-1 {
+            height: 1px;
+          }
+          &-PX-2 {
+            height: 2px;
+          }
+        }
+
+        &.uk-divider-margin {
+          &-NONE {
+          }
+          &-M-4 {
+            margin: 0 4px;
+            width: calc(100% - 8px);
+          }
+          &-M-8 {
+            margin: 0 8px;
+            width: calc(100% - 16px);
+          }
+          &-M-16 {
+            margin: 0 16px;
+            width: calc(100% - 32px);
+          }
+        }
+
+        &.uk-divider-margin-y {
+          &-M-4 {
+            margin: 4px 0;
+          }
+          &-M-8 {
+            margin: 8px 0;
+          }
+          &-M-16 {
+            margin: 16px 0;
+          }
+        }
+      }
+
+      &-VERTICAL {
+        height: 100%;
+
+        &.uk-divider-size {
+          &-PX-1 {
+            width: 1px;
+          }
+          &-PX-2 {
+            width: 2px;
+          }
+        }
+
+        &.uk-divider-margin {
+          &-NONE {
+          }
+          &-M-4 {
+            margin: 4px 0;
+            height: calc(100% - 8px);
+          }
+          &-M-8 {
+            margin: 8px 0;
+            height: calc(100% - 16px);
+          }
+          &-M-16 {
+            margin: 16px 0;
+            height: calc(100% - 32px);
+          }
+        }
+      }
+    }
+  }
+}
