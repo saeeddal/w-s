@@ -6,7 +6,7 @@ type AppState = {
   dynamicHeaderTitle: string;
   isLoading: boolean;
   error: string | null;
-  userRoule: UserRule;
+  userRule: UserRule;
   theme: Themes;
   sideBar: boolean;
 };
@@ -15,7 +15,7 @@ const initialState: AppState = {
   isLoading: false,
   error: '',
   dynamicHeaderTitle: '',
-  userRoule: UserRule.MANAGER,
+  userRule: UserRule.MANAGER,
   theme: Themes.LIGHT_THEME,
   sideBar: true,
 };

@@ -1,5 +1,7 @@
 import type { Routes } from '@angular/router';
 import { GeneralLayout } from './general-layout/general-layout.component';
+import { authGuard } from '@app/core/guards/auth.guard';
+import { BASE_LAYOUT_ROUTES } from '../base/base-layout.routes';
 
 export const GENERAL_LAYOUT_ROUTES: Routes = [
   {
@@ -8,8 +10,8 @@ export const GENERAL_LAYOUT_ROUTES: Routes = [
     children: [
       {
         path: '',
-        loadChildren: async () =>
-          import('../base/base-layout.routes').then((r) => r.BASE_LAYOUT_ROUTES),
+        children: [...BASE_LAYOUT_ROUTES],
+        canActivate: [authGuard],
       },
     ],
   },
