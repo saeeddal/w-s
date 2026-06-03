@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { RouterOutlet } from '@angular/router';
 
@@ -13,5 +13,4 @@ export class App {
     const body = document.body;
     body.classList.toggle('dark-theme');
   }
-  protected readonly TITLE = signal('ng20-2');
 }

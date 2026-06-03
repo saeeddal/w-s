@@ -1,10 +1,15 @@
-// auth.guard.ts
+import { inject } from '@angular/core';
 import type { CanActivateFn } from '@angular/router';
+import { AuthFacade } from '../auth/auth.facade';
 
-/**
- * Route Guard - Protects routes from unauthenticated access
- * Automatically redirects to login if not authenticated
- */
 export const authGuard: CanActivateFn = () => {
-  return true;
+  const authFacade = inject(AuthFacade);
+
+  if (authFacade.isAuthenticated()) {
+    return true;
+  }
+
+  authFacade.login();
+
+  return false;
 };

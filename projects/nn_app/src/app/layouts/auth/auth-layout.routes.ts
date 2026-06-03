@@ -1,10 +1,10 @@
 import type { Routes } from '@angular/router';
-import { BmnStepsLayoutComponent } from './steps-layout/steps-layout.component';
+import { BmnAuthLayoutComponent } from './auth-layout/auth-layout.component';
 
-export const SIMPLE_LAYOUT_ROUTES: Routes = [
+export const AUTH_LAYOUT_ROUTES: Routes = [
   {
     path: '',
-    component: BmnStepsLayoutComponent,
+    component: BmnAuthLayoutComponent,
     children: [
       {
         path: '',

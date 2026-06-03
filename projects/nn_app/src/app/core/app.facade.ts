@@ -28,4 +28,7 @@ export class AppFacade {
   public closeSidebar() {
     this.store.closeSidebar();
   }
+  public checkLogin() {
+    this.store.checkLogin();
+  }
 }

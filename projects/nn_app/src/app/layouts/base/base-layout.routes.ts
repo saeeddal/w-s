@@ -2,6 +2,7 @@ import type { Routes } from '@angular/router';
 
 import { BaseLayout } from './base-layout/base-layout.component';
 import { NotFound } from '@app/shared/components/not-found/not-found.component';
+import { authGuard } from '@app/core/guards/auth.guard';
 
 export const BASE_LAYOUT_ROUTES: Routes = [
   {
@@ -9,19 +10,18 @@ export const BASE_LAYOUT_ROUTES: Routes = [
     component: BaseLayout,
     children: [
       {
-        path: 'steps',
-        component: BaseLayout,
+        path: 'auth',
         children: [
           {
             path: '',
             loadChildren: async () =>
-              import('../steps/steps-layout.routes').then((r) => r.SIMPLE_LAYOUT_ROUTES),
+              import('../auth/auth-layout.routes').then((r) => r.AUTH_LAYOUT_ROUTES),
           },
         ],
       },
       {
         path: '',
-        component: BaseLayout,
+        canActivate: [authGuard],
         children: [
           {
             path: '',

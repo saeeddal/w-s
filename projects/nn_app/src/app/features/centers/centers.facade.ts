@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { CENTER_STORE } from './centers.store.ts.js';
 
 @Injectable({ providedIn: 'root' })
-export class AuthFacade {
+export class CenterFacade {
   // Expose signals (readonly)
   public store = inject(CENTER_STORE);
 
