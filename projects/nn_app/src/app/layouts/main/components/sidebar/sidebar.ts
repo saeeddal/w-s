@@ -12,7 +12,7 @@ import {
   PtLabel,
   UK_TYPE,
 } from '../../../../../../../pars-lib/src/public-api';
-import { AppFacade } from '@app/core/app.facade';
+import { AppFacade } from '@app/core/app/app.facade';
 import { filter, map } from 'rxjs';
 
 @Component({

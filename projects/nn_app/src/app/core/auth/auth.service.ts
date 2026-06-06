@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import type { Observable } from 'rxjs';
 import { AUTH_CONFIG } from './auth.const';
+import { AuthRepository } from './auth.repository';
 
 type TokenResponse = {
   access_token: string;
@@ -46,7 +47,22 @@ export class AuthService {
 
   public logout() {}
 
+  public saveAccessTokenToRepo(access_token: string) {
+    this.authRepository.saveAccessToken(access_token);
+  }
+  public saveExpireTimeAccessTokenToRepo(expires_in: number) {
+    this.authRepository.saveAccessToken((Date.now() + expires_in * 1000).toString());
+  }
+
+  public getAccessTokenFromRepo(): string | null {
+    return this.authRepository.getAccessToken();
+  }
+  public getExpireTimeAccessTokenFromRepo(): string | null {
+    return this.authRepository.getExpireIn();
+  }
+
   private readonly http = inject(HttpClient);
+  private readonly authRepository = inject(AuthRepository);
 
   private getBasicToken(): string {
     return btoa(`${AUTH_CONFIG.clientId}:${AUTH_CONFIG.clientSecret}`);

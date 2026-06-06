@@ -1,8 +1,6 @@
 import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
-import { Themes } from './base-services/models/themes.enum';
-import { UserRule } from '../shared/models/common/enums';
-import { AuthService } from './auth/auth.service';
-import { inject } from '@angular/core';
+import { Themes } from '../base-services/models/themes.enum';
+import { UserRule } from '../../shared/models/common/enums';
 
 type AppState = {
   dynamicHeaderTitle: string;
@@ -27,8 +25,6 @@ export const APP_STORE = signalStore(
 
   withState(initialState),
   withMethods((store) => {
-    const authService = inject(AuthService);
-
     return {
       setDynamicHeaderTitle(dynamicHeaderTitle: string) {
         patchState(store, {
@@ -49,9 +45,6 @@ export const APP_STORE = signalStore(
         patchState(store, {
           sideBar: false,
         });
-      },
-      checkLogin() {
-        authService.login();
       },
     };
   }),

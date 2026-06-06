@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AppFacade } from '@app/core/app.facade';
+import { AppFacade } from '@app/core/app/app.facade';
 import {
   PtButton,
   PtIcon,

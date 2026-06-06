@@ -1,6 +1,6 @@
 <nav aria-label="Breadcrumb">
   <ol class="breadcrumb">
-    @for (item of breadcrumbs$ | async; track item.url; let last = $last) { @if (item?.label) {
+    @for (item of breadcrumbs$ | async; track item.label; let last = $last) { @if (item?.label) {
     <li class="breadcrumb-item">
       @if (!last) {
       <a [routerLink]="item.url">

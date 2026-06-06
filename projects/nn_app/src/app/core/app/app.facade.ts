@@ -1,5 +1,4 @@
 import { inject, Injectable } from '@angular/core';
-
 import { APP_STORE } from './app.store.ts';
 
 @Injectable({ providedIn: 'root' })
@@ -27,8 +26,5 @@ export class AppFacade {
   }
   public closeSidebar() {
     this.store.closeSidebar();
-  }
-  public checkLogin() {
-    this.store.checkLogin();
   }
 }

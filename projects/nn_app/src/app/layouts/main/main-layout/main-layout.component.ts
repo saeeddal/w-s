@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-import { AppFacade } from '@app/core/app.facade';
+import { AppFacade } from '@app/core/app/app.facade';
 import { FormsModule } from '@angular/forms';
 import {
   PtBasicCard,

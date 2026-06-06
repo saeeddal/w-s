@@ -11,8 +11,6 @@ export const MAIN_LAYOUT_ROUTES: Routes = [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       {
         path: 'home',
-        // loadChildren: async () =>
-        //   import('../../features/home/home.routes').then((s) => s.HOME_ROUTES),
         title: 'خانه',
         children: HOME_ROUTES,
       },

@@ -41,7 +41,6 @@
         </div>
         <pt-select
           bindLabel="title"
-          bindValue="id"
           placeholder="انتخاب مرکز درمان"
           [items]="medicalCenters"
           [(ngModel)]="selectedCenter"
@@ -54,6 +53,7 @@
           [labelSize]="UK_TYPE.LABEL.SIZE.SMALLER"
           [labelWeight]="UK_TYPE.LABEL.WEIGHT.BOLD"
           [borderColor]="UK_TYPE.BUTTON.borderColor.TRANSPARENT"
+          (click)="setSelectedCenter()"
         >
           ورود به سیستم
         </pt-button>

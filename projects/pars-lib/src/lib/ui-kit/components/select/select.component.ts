@@ -86,7 +86,7 @@ export class PtSelect implements ControlValueAccessor {
   public items: any = [];
 
   @Input()
-  public bindValue = 'id';
+  public bindValue: string | null = null;
 
   @Input()
   public bindLabel = 'name';
