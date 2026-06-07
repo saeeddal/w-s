@@ -1,9 +1,10 @@
-import type { HttpMethod } from './http-method.enum';
+import type { HttpHeaders, HttpParams } from '@angular/common/http';
 
-export interface IApiRequest<TBody = unknown> {
-  method: HttpMethod;
+export interface IApiRequestModel<TBody = unknown, TParams = Record<string, unknown>> {
   endpoint: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  params?: Record<string, any>;
   body?: TBody;
+  params?: TParams | HttpParams;
+  headers?: HttpHeaders | Record<string, string | string[]>;
+  reportProgress?: boolean;
+  withCredentials?: boolean;
 }

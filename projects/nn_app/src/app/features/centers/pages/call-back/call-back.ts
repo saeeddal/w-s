@@ -10,7 +10,7 @@ import { AuthFacade } from '@app/core/auth/auth.facade';
   styleUrl: './call-back.scss',
 })
 export class CallBack implements AfterViewInit {
-  public notSend = signal(false);
+  notSend = signal(false);
   ngAfterViewInit(): void {
     setTimeout(() => {
       if (this.AUTH_FACADE.isAuthenticated()) {

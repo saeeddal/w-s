@@ -13,6 +13,8 @@ import { CORE_PROVIDERS } from './core/core.providers';
 import { provideOAuthClient } from 'angular-oauth2-oidc';
 import { AuthFacade } from './core/auth/auth.facade';
 import { CenterFacade } from './features/centers/centers.facade';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { authInterceptor, getTokenInterceptor } from './core/interceptors';
 
 export const APP_CONFIG: ApplicationConfig = {
   providers: [
@@ -28,5 +30,6 @@ export const APP_CONFIG: ApplicationConfig = {
       await authFacade.restoreSession();
       await centerFacade.restoreSession();
     }),
+    provideHttpClient(withInterceptors([getTokenInterceptor, authInterceptor])),
   ],
 };

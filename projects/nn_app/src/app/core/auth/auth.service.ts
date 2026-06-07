@@ -1,8 +1,11 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import type { Observable } from 'rxjs';
 import { AUTH_CONFIG } from './auth.const';
 import { AuthRepository } from './auth.repository';
+import { ApiHttpService } from '../base-services/api-http.service';
+import { HttpMethod } from '../base-services/models/http-method.enum';
+import type { AuthTokenResponse } from '../base-services/models/token-response.interface';
+import { HttpParams } from '@angular/common/http';
 
 type TokenResponse = {
   access_token: string;
@@ -36,13 +39,13 @@ export class AuthService {
       .set('code', code)
       .set('redirect_uri', AUTH_CONFIG.redirectUri);
 
-    return this.http.post<TokenResponse>(AUTH_CONFIG.tokenUrl, body.toString(), {
-      headers: new HttpHeaders({
-        Authorization: `Basic ${this.getBasicToken()}`,
+    const request = {
+      method: HttpMethod.POST,
+      endpoint: AUTH_CONFIG.tokenUrl,
+      body: body.toString(),
+    };
 
-        'Content-Type': 'application/x-www-form-urlencoded',
-      }),
-    });
+    return this.api.post$<AuthTokenResponse>(request);
   }
 
   public logout() {}
@@ -61,10 +64,6 @@ export class AuthService {
     return this.authRepository.getExpireIn();
   }
 
-  private readonly http = inject(HttpClient);
   private readonly authRepository = inject(AuthRepository);
-
-  private getBasicToken(): string {
-    return btoa(`${AUTH_CONFIG.clientId}:${AUTH_CONFIG.clientSecret}`);
-  }
+  private readonly api = inject(ApiHttpService);
 }
