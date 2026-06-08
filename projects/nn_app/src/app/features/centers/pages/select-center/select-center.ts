@@ -1,4 +1,4 @@
-import type { OnInit } from '@angular/core';
+import type { OnInit, Signal } from '@angular/core';
 import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -12,10 +12,8 @@ import {
   PtSelect,
   UK_TYPE,
 } from '../../../../../../../pars-lib/src/public-api';
-import type { IMedicalCenter } from '@app/shared/models/dto/medical-center';
-import { MEDICAL_CENTERS } from '@app/layouts/main/helper/mock-data';
-import type { IIdTitle } from '@app/shared/models/common/common.interface';
 import { CenterFacade } from '../../centers.facade';
+import type { ICenterInfo } from '@app/shared/models/dto/center/center-info.interface';
 @Component({
   selector: 'app-select-center',
   imports: [
@@ -34,13 +32,16 @@ import { CenterFacade } from '../../centers.facade';
 })
 export class SelectCenter implements OnInit {
   public readonly UK_TYPE = UK_TYPE;
-  public selectedCenter = signal<IIdTitle | null>(null);
-  public medicalCenters: IMedicalCenter[] = MEDICAL_CENTERS;
+  public selectedCenter = signal<ICenterInfo | null>(null);
   public readonly centerFacade = inject(CenterFacade);
+  public medicalCenters: Signal<ICenterInfo[] | null> = this.centerFacade.centers;
 
   ngOnInit(): void {
     if (this.centerFacade.selectedCenter()) {
       this.ROUTER.navigate(['/']);
+    }
+    if (!this.centerFacade.centers() || !this.centerFacade.centers()?.length) {
+      this.centerFacade.getListSelectCenter();
     }
   }
   public setSelectedCenter() {
@@ -50,5 +51,6 @@ export class SelectCenter implements OnInit {
       this.ROUTER.navigate(['/']);
     }
   }
+
   private readonly ROUTER = inject(Router);
 }

@@ -1,12 +1,10 @@
 import type { HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
-import { OAuthService } from 'angular-oauth2-oidc';
+import { AuthFacade } from '../auth/auth.facade';
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
-  const oauth = inject(OAuthService);
-
-  const token = oauth.getAccessToken();
-
+  const AUTH_FACADE = inject(AuthFacade);
+  const token = AUTH_FACADE.accessToken();
   if (!token) {
     return next(req);
   }

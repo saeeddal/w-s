@@ -1,19 +1,19 @@
 import type { IIdTitle } from '@app/shared/models/common/common.interface';
-import type { ICenterItem } from '@app/shared/models/common/mock.interface';
+import type { ICenterInfo } from '@app/shared/models/dto/center/center-info.interface';
 import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
 
 type UsersState = {
-  centerItems: ICenterItem[];
   isLoading: boolean;
   error: string | null;
-  selectedCenter: IIdTitle | null;
+  selectedCenter: ICenterInfo | null;
+  centers: ICenterInfo[] | null;
 };
 
 const initialState: UsersState = {
-  centerItems: [],
   isLoading: false,
   error: null,
   selectedCenter: null,
+  centers: null,
 };
 
 export const CENTER_STORE = signalStore(
@@ -22,9 +22,14 @@ export const CENTER_STORE = signalStore(
   withState(initialState),
 
   withMethods((store) => ({
-    setSelectedCenter(selectedCenter: IIdTitle | null) {
+    setSelectedCenter(selectedCenter: ICenterInfo | null) {
       patchState(store, {
         selectedCenter: selectedCenter,
+      });
+    },
+    setCenters(centers: ICenterInfo[]) {
+      patchState(store, {
+        centers,
       });
     },
     clearError: () => patchState(store, { error: null }),

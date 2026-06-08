@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import type { IUserAuthentication } from '@app/shared/models/auth';
 
 @Injectable({
   providedIn: 'root',
@@ -17,5 +18,15 @@ export class AuthRepository {
   }
   public getExpireIn() {
     return localStorage.getItem('expire_in');
+  }
+
+  public saveUser(user: IUserAuthentication) {
+    localStorage.setItem('user', JSON.stringify(user));
+  }
+
+  public getUser(): IUserAuthentication | null {
+    const user = localStorage.getItem('user');
+
+    return user ? JSON.parse(user) : null;
   }
 }

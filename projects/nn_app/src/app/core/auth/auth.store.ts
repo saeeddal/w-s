@@ -1,16 +1,19 @@
 import { computed } from '@angular/core';
+import type { IUserAuthentication } from '@app/shared/models/auth';
 import { patchState, signalStore, withComputed, withMethods, withState } from '@ngrx/signals';
 
 type AuthState = {
   accessToken: string | null;
   isLoading: boolean;
   expiresAt: number | null;
+  user: IUserAuthentication | null;
 };
 
 const initialState: AuthState = {
   accessToken: null,
   isLoading: false,
   expiresAt: null,
+  user: null,
 };
 
 export const AUTH_STORE = signalStore(
@@ -30,10 +33,17 @@ export const AUTH_STORE = signalStore(
       });
     },
 
+    setUser(user: IUserAuthentication) {
+      patchState(store, {
+        user: user,
+      });
+    },
+
     logout() {
       patchState(store, {
         accessToken: null,
         expiresAt: null,
+        user: null,
       });
     },
     setLoading(isLoading: boolean) {

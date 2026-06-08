@@ -14,6 +14,7 @@ export class AuthFacade {
   private readonly ROUTER = inject(Router);
   public readonly isAuthenticated = this.store.isAuthenticated;
   public readonly accessToken = this.store.accessToken;
+  public readonly user = this.store.user;
 
   public login(): void {
     if (this.isAuthenticated()) {
@@ -39,22 +40,37 @@ export class AuthFacade {
     }
   }
 
+  public async getUser(): Promise<void> {
+    this.store.setLoading(true);
+    try {
+      const userResponse = await firstValueFrom(this.authService.getUser());
+      this.authService.saveUserToRepo(userResponse);
+      this.store.setUser(userResponse);
+      this.store.setLoading(false);
+    } finally {
+      this.store.setLoading(false);
+    }
+  }
+
   public logout(): void {
     localStorage.removeItem('access_token');
     localStorage.removeItem('expire_in');
     localStorage.removeItem('selectedCenter');
+    localStorage.removeItem('user');
     this.store.logout();
   }
 
   public async restoreSession() {
     const token = this.authService.getAccessTokenFromRepo();
     const expire_in = this.authService.getExpireTimeAccessTokenFromRepo();
+    const user = this.authService.getUserFromRepo();
 
-    if (!token || !expire_in) {
-      return;
+    if (token && expire_in) {
+      this.store.setToken(token);
+      this.store.setExpiresIn(Number(expire_in));
     }
-
-    this.store.setToken(token);
-    this.store.setExpiresIn(Number(expire_in));
+    if (user) {
+      this.store.setUser(user);
+    }
   }
 }

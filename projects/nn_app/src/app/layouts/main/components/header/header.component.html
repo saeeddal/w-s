@@ -42,12 +42,12 @@
         </div>
         <div class="select-center">
           <pt-select
-            bindLabel="title"
-            [items]="MEDICAL_CENTERS"
+            bindLabel="hchrDescParent"
             [borderColor]="UK_TYPE.SELECT.borderColor.TRANSPARENT"
-            [noBorder]="UK_TYPE.BOOLEAN_TYPE.TRUE"
-            [(ngModel)]="SELECTED_CENTER"
-          />
+            [items]="medicalCenters()"
+            [(ngModel)]="selectedCenter"
+            (change)="onMedicalCentersChange($event)"
+          ></pt-select>
         </div>
       </div>
       <pt-button class="theme-toggle" [height]="UK_TYPE.BUTTON.height.H_32" (click)="toggleTheme()">

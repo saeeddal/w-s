@@ -1,5 +1,5 @@
 import type { AfterViewInit } from '@angular/core';
-import { Component, inject, signal } from '@angular/core';
+import { Component, effect, inject, signal } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthFacade } from '@app/core/auth/auth.facade';
 
@@ -11,6 +11,15 @@ import { AuthFacade } from '@app/core/auth/auth.facade';
 })
 export class CallBack implements AfterViewInit {
   notSend = signal(false);
+  constructor() {
+    effect(() => {
+      const token = this.AUTH_FACADE.accessToken();
+      if (token) {
+        this.AUTH_FACADE.getUser();
+      }
+    });
+  }
+
   ngAfterViewInit(): void {
     setTimeout(() => {
       if (this.AUTH_FACADE.isAuthenticated()) {

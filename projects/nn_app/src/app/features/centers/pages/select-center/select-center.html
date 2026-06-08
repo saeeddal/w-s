@@ -40,9 +40,9 @@
           >
         </div>
         <pt-select
-          bindLabel="title"
+          bindLabel="hchrDescParent"
           placeholder="انتخاب مرکز درمان"
-          [items]="medicalCenters"
+          [items]="medicalCenters() "
           [(ngModel)]="selectedCenter"
         />
         <pt-button

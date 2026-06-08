@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import type { IIdTitle } from '@app/shared/models/common/common.interface';
+import type { ICenterInfo } from '@app/shared/models/dto/center/center-info.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CenterRepository {
-  public saveSelectedCenter(selectedCenter: IIdTitle) {
+  public saveSelectedCenter(selectedCenter: ICenterInfo) {
     localStorage.setItem('selectedCenter', JSON.stringify(selectedCenter));
   }
 

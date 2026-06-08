@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import type { OnInit, Signal } from '@angular/core';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -19,7 +20,8 @@ import {
   UK_TYPE,
 } from '../../../../../../../pars-lib/src/public-api';
 import { Themes } from '@app/core/base-services/models/themes.enum';
-import { MEDICAL_CENTERS } from '../../helper/mock-data';
+import { CenterFacade } from '@app/features/centers/centers.facade';
+import type { ICenterInfo } from '@app/shared/models/dto/center/center-info.interface';
 
 @Component({
   selector: 'app-header',
@@ -28,12 +30,11 @@ import { MEDICAL_CENTERS } from '../../helper/mock-data';
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './header.component.scss',
 })
-export class Header {
+export class Header implements OnInit {
   public readonly APP_FACADE = inject(AppFacade);
+  public readonly CENTER_FACADE = inject(CenterFacade);
   public readonly ROUTER = inject(Router);
   public readonly THEMES = Themes;
-  public readonly MEDICAL_CENTERS = MEDICAL_CENTERS;
-  public readonly SELECTED_CENTER = this.MEDICAL_CENTERS[0];
   public readonly UK_TYPE = UK_TYPE;
   public reduceHeightForPwaIphone = signal(200);
   public isOnline = signal(true);
@@ -46,6 +47,10 @@ export class Header {
   public headerTitle = signal('');
   public backAddress = signal('');
   public headerHasBackGround = signal(false);
+
+  public readonly centerFacade = inject(CenterFacade);
+  public readonly medicalCenters: Signal<ICenterInfo[] | null> = this.centerFacade.centers;
+  public readonly selectedCenter = this.centerFacade.selectedCenter;
 
   public isMobile = signal(window.innerWidth < 600);
   @HostListener('window:resize')
@@ -61,6 +66,16 @@ export class Header {
   public toggleSidebar() {
     this.APP_FACADE.toggleSidebar();
     this.cdr.markForCheck();
+  }
+
+  public onMedicalCentersChange(selectedCenter: ICenterInfo | unknown) {
+    this.centerFacade.setSelectedCenter(selectedCenter as ICenterInfo);
+  }
+
+  ngOnInit(): void {
+    if (!this.centerFacade.centers() || !this.centerFacade.centers()?.length) {
+      this.centerFacade.getListSelectCenter();
+    }
   }
   private cdr = inject(ChangeDetectorRef);
 }
