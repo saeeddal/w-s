@@ -14,6 +14,7 @@ import {
 } from '../../../../../../../pars-lib/src/public-api';
 import { AppFacade } from '@app/core/app/app.facade';
 import { filter, map } from 'rxjs';
+import { AuthFacade } from '@app/core/auth/auth.facade';
 
 @Component({
   selector: 'app-sidebar',
@@ -25,6 +26,7 @@ import { filter, map } from 'rxjs';
 export class Sidebar implements OnInit {
   public readonly UK_TYPE = UK_TYPE;
   public readonly APP_FACADE = inject(AppFacade);
+  public readonly AUTH_FACADE = inject(AuthFacade);
   public readonly ROUTER = inject(Router);
   public menuItems: ISidebarMenuItem[] = SIDEBAR_MENU;
   public collapsed = signal(false);

@@ -1,12 +1,10 @@
 import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
 import { Themes } from '../base-services/models/themes.enum';
-import { UserRule } from '../../shared/models/common/enums';
 
 type AppState = {
   dynamicHeaderTitle: string;
   isLoading: boolean;
   error: string | null;
-  userRule: UserRule;
   theme: Themes;
   sideBar: boolean;
 };
@@ -15,7 +13,6 @@ const initialState: AppState = {
   isLoading: false,
   error: '',
   dynamicHeaderTitle: '',
-  userRule: UserRule.MANAGER,
   theme: Themes.LIGHT_THEME,
   sideBar: true,
 };

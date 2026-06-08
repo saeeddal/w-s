@@ -1,7 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { CENTER_STORE } from './centers.store.ts.js';
 import { CenterRepository } from './center.repository.js';
-import type { IIdTitle } from '@app/shared/models/common/common.interface.js';
 import { AuthFacade } from '@app/core/auth/auth.facade.js';
 import { CenterService } from './center.service.js';
 import { firstValueFrom } from 'rxjs';

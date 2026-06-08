@@ -8,7 +8,6 @@ export class AppFacade {
   public isLoading = this.store.isLoading;
   public error = this.store.error;
   public dynanicHeaderTitle = this.store.dynamicHeaderTitle;
-  public userRule = this.store.userRule;
   public theme = this.store.theme;
   public sidebar = this.store.sideBar;
 

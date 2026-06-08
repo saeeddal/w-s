@@ -1,5 +1,6 @@
 import { computed } from '@angular/core';
 import type { IUserAuthentication } from '@app/shared/models/auth';
+import type { IMenu } from '@app/shared/models/auth/menu-items.interface';
 import { patchState, signalStore, withComputed, withMethods, withState } from '@ngrx/signals';
 
 type AuthState = {
@@ -7,6 +8,7 @@ type AuthState = {
   isLoading: boolean;
   expiresAt: number | null;
   user: IUserAuthentication | null;
+  menuList: IMenu[] | null;
 };
 
 const initialState: AuthState = {
@@ -14,6 +16,7 @@ const initialState: AuthState = {
   isLoading: false,
   expiresAt: null,
   user: null,
+  menuList: null,
 };
 
 export const AUTH_STORE = signalStore(
@@ -36,6 +39,12 @@ export const AUTH_STORE = signalStore(
     setUser(user: IUserAuthentication) {
       patchState(store, {
         user: user,
+      });
+    },
+
+    setMenuList(menuList: IMenu[]) {
+      patchState(store, {
+        menuList,
       });
     },
 

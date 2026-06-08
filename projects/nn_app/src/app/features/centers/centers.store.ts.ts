@@ -1,4 +1,3 @@
-import type { IIdTitle } from '@app/shared/models/common/common.interface';
 import type { ICenterInfo } from '@app/shared/models/dto/center/center-info.interface';
 import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
 

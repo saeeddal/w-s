@@ -15,6 +15,7 @@ export class AuthFacade {
   public readonly isAuthenticated = this.store.isAuthenticated;
   public readonly accessToken = this.store.accessToken;
   public readonly user = this.store.user;
+  public readonly menuList = this.store.menuList;
 
   public login(): void {
     if (this.isAuthenticated()) {
@@ -60,10 +61,24 @@ export class AuthFacade {
     this.store.logout();
   }
 
+  public async getMenuList(): Promise<void> {
+    this.store.setLoading(true);
+    try {
+      const menuListResponse = await firstValueFrom(this.authService.getMenuList());
+      this.authService.saveMenuListToRepo(menuListResponse.message.data);
+      this.store.setMenuList(menuListResponse.message.data);
+      this.store.setLoading(false);
+    } catch (e: unknown) {
+    } finally {
+      this.store.setLoading(false);
+    }
+  }
+
   public async restoreSession() {
     const token = this.authService.getAccessTokenFromRepo();
     const expire_in = this.authService.getExpireTimeAccessTokenFromRepo();
     const user = this.authService.getUserFromRepo();
+    const menuList = this.authService.getMenuListFromRepo();
 
     if (token && expire_in) {
       this.store.setToken(token);
@@ -71,6 +86,9 @@ export class AuthFacade {
     }
     if (user) {
       this.store.setUser(user);
+    }
+    if (menuList) {
+      this.store.setMenuList(menuList);
     }
   }
 }

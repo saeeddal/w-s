@@ -8,7 +8,6 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   if (!token) {
     return next(req);
   }
-
   return next(
     req.clone({
       setHeaders: {

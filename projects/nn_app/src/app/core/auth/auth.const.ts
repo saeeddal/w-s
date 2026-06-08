@@ -15,6 +15,11 @@ export const AUTH_CONFIG = {
   user: 'https://auth.esata.ir/authentication/user',
 
   getCenters2: 'https://esakhad.esata.ir:9092/presc/selectCenter/getListSelectCenter',
+
+  //getList2: 'https://auth.esata.ir/authorize/menu/getList2',
+  //getList2: 'https://auth.esata.ir/authentication/menu/getList2',
+  //getList2: 'https://auth.esata.ir/getList2',
+  getList2: 'https://authorization.esata.ir/menu/getList2',
 };
 
 export const AUTH_CONFIG_NEW = {

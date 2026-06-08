@@ -7,6 +7,8 @@ import { HttpMethod } from '../base-services/models/http-method.enum';
 import type { AuthTokenResponse } from '../../shared/models/auth/token-response.interface';
 import { HttpParams } from '@angular/common/http';
 import type { IUserAuthentication } from '@app/shared/models/auth';
+import type { IResponse } from '@app/shared/models/common';
+import type { IMenu } from '@app/shared/models/auth/menu-items.interface';
 
 type TokenResponse = {
   access_token: string;
@@ -76,9 +78,26 @@ export class AuthService {
     return this.api.post$<IUserAuthentication>(request);
   }
 
+  public getMenuList(): Observable<IResponse<IMenu[]>> {
+    const request = {
+      method: HttpMethod.POST,
+      endpoint: AUTH_CONFIG.getList2,
+    };
+    return this.api.post$<IResponse<IMenu[]>>(request);
+  }
+
+  public saveMenuListToRepo(menuList: IMenu[]) {
+    this.authRepository.saveMenuList(menuList);
+  }
+
+  public getMenuListFromRepo(): IMenu[] | null {
+    return this.authRepository.getMenuList();
+  }
+
   public saveUserToRepo(user: IUserAuthentication) {
     this.authRepository.saveUser(user);
   }
+
   public getUserFromRepo(): IUserAuthentication | null {
     return this.authRepository.getUser();
   }
