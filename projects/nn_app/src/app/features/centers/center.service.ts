@@ -2,10 +2,10 @@ import { inject, Injectable, isDevMode } from '@angular/core';
 import { of, type Observable } from 'rxjs';
 import { CenterRepository } from './center.repository';
 import { HttpParams } from '@angular/common/http';
-import { ApiHttpService } from '@app/core/base-services/api-http.service';
+import { ApiHttpService } from '@app/core/services/api-http.service';
 import type { IResponse } from '@app/shared/models/common';
 import { AUTH_CONFIG } from '@app/core/auth/auth.const';
-import { HttpMethod } from '@app/core/base-services/models';
+import { HttpMethod } from '@app/core/services/models';
 import type { ICenterInfo } from '@app/shared/models/dto/center/center-info.interface';
 import { centerList } from './helpers/mock-data';
 

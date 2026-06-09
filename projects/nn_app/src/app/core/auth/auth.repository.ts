@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import type { IUserAuthentication } from '@app/shared/models/auth';
-import type { IMenu } from '@app/shared/models/auth/menu-items.interface';
+import type { ISidebarMenuItem, IUserAuthentication } from '@app/shared/models/auth';
 
 @Injectable({
   providedIn: 'root',
@@ -31,11 +30,11 @@ export class AuthRepository {
     return user ? JSON.parse(user) : null;
   }
 
-  public saveMenuList(menuList: IMenu[]) {
+  public saveMenuList(menuList: ISidebarMenuItem[]) {
     localStorage.setItem('menuList', JSON.stringify(menuList));
   }
 
-  public getMenuList(): IMenu[] | null {
+  public getMenuList(): ISidebarMenuItem[] | null {
     const menuList = localStorage.getItem('menuList');
 
     return menuList ? JSON.parse(menuList) : null;

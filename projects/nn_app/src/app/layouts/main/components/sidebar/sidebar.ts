@@ -1,10 +1,9 @@
-import type { OnInit } from '@angular/core';
+/* eslint-disable @typescript-eslint/member-ordering */
 import { ChangeDetectorRef, Component, HostListener, inject, signal } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
-import { NavigationEnd, Router, RouterModule } from '@angular/router';
-import type { ISidebarMenuItem } from '@app/settings/const-config/_/sidebar-menu-item.interface';
-import { SIDEBAR_MENU } from '@app/settings/const-config/const-config.setting';
+import { Router, RouterModule } from '@angular/router';
+import type { ISidebarMenuItem } from '@app/shared/models/auth/sidebar-menu-item.interface';
 import {
   PtBasicCard,
   PtIcon,
@@ -13,8 +12,8 @@ import {
   UK_TYPE,
 } from '../../../../../../../pars-lib/src/public-api';
 import { AppFacade } from '@app/core/app/app.facade';
-import { filter, map } from 'rxjs';
 import { AuthFacade } from '@app/core/auth/auth.facade';
+import { RouteMapperService } from '@app/core/services/route-mapper.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -23,15 +22,16 @@ import { AuthFacade } from '@app/core/auth/auth.facade';
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.scss',
 })
-export class Sidebar implements OnInit {
+export class Sidebar {
   public readonly UK_TYPE = UK_TYPE;
   public readonly APP_FACADE = inject(AppFacade);
   public readonly AUTH_FACADE = inject(AuthFacade);
   public readonly ROUTER = inject(Router);
-  public menuItems: ISidebarMenuItem[] = SIDEBAR_MENU;
+  public menuItems: ISidebarMenuItem[] = this.AUTH_FACADE.menuList();
   public collapsed = signal(false);
   public openMenu = signal<string | null>(null);
   public childRoute = signal('');
+  public activeMenuKey = signal('');
 
   public constructor() {
     this.cdr.markForCheck();
@@ -55,16 +55,15 @@ export class Sidebar implements OnInit {
     return !!item.children?.length;
   }
 
-  public ngOnInit() {
-    this.ROUTER.events
-      .pipe(
-        filter((event: unknown) => event instanceof NavigationEnd),
-        map(() => this.ROUTER.url),
-      )
-      .subscribe((url) => {
-        //const cleanedUrl = url.startsWith('/') ? url.substring(1) : url;
-        this.childRoute.set(url);
-      });
-  }
   private cdr = inject(ChangeDetectorRef);
+
+  private routeMapper = inject(RouteMapperService);
+  expandedParents: Record<string, boolean> = {};
+
+  public onMenuItemClick(event: Event, menuKey: string): void {
+    event.stopPropagation();
+    this.activeMenuKey.set(menuKey);
+
+    this.routeMapper.navigateByMenuKey(menuKey);
+  }
 }

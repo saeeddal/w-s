@@ -10,7 +10,6 @@ import { provideRouter, withViewTransitions } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { CORE_PROVIDERS } from './core/core.providers';
 
-import { provideOAuthClient } from 'angular-oauth2-oidc';
 import { AuthFacade } from './core/auth/auth.facade';
 import { CenterFacade } from './features/centers/centers.facade';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
@@ -22,7 +21,6 @@ export const APP_CONFIG: ApplicationConfig = {
     provideZonelessChangeDetection(),
     provideRouter(ROUTES, withViewTransitions()),
     CORE_PROVIDERS,
-    provideOAuthClient(),
 
     provideAppInitializer(async () => {
       const authFacade = inject(AuthFacade);

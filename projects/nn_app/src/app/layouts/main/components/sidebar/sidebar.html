@@ -21,12 +21,11 @@
       </div>
       <pt-icon [src]="'assets/images/icons/hospital.svg'" [size]="UK_TYPE.ICON.SIZE.LARGEST" />
     </div>
-
     <div class="menu-container">
       @for (item of menuItems; track item.title) {
       <div
         class="menu-item"
-        [routerLink]="item.route"
+        (click)="!hasChildren(item) && onMenuItemClick($event,item.menu_key)"
         [ngClass]="{active:openMenu() === item.title}"
         (click)="toggleMenu(item.title)"
       >
@@ -36,7 +35,7 @@
           [fgColor]="openMenu() === item.title ? UK_TYPE.LABEL.FG_COLOR.WHITE : UK_TYPE.LABEL.FG_COLOR.TEXT_NORMAL"
           [weight]="openMenu() === item.title ? UK_TYPE.LABEL.WEIGHT.BOLD : UK_TYPE.LABEL.WEIGHT.NORMAL"
         >
-          {{ item.title }}
+          {{ item.farsi_title }}
         </pt-label>
 
         @if (hasChildren(item)) {
@@ -55,16 +54,16 @@
         <div
           class="submenu-item"
           routerLinkActive="active-child"
-          [routerLink]="child.route"
+          (click)="onMenuItemClick($event,child.menu_key)"
           (click)="APP_FACADE.toggleSidebar()"
         >
           <div class="menu-start">
             <pt-label
               [size]="UK_TYPE.LABEL.SIZE.SMALLER"
-              [weight]="childRoute() === child.route ? UK_TYPE.LABEL.WEIGHT.BOLD : UK_TYPE.LABEL.WEIGHT.NORMAL"
-              [fgColor]="childRoute() === child.route  ? UK_TYPE.LABEL.FG_COLOR.PRIMARY : UK_TYPE.LABEL.FG_COLOR.TEXT_NORMAL"
+              [weight]="activeMenuKey() === child.menu_key ? UK_TYPE.LABEL.WEIGHT.BOLD : UK_TYPE.LABEL.WEIGHT.NORMAL"
+              [fgColor]="activeMenuKey() === child.menu_key ? UK_TYPE.LABEL.FG_COLOR.PRIMARY : UK_TYPE.LABEL.FG_COLOR.TEXT_NORMAL"
             >
-              {{ child.title }}
+              {{ child.farsi_title }}
             </pt-label>
           </div>
         </div>
@@ -72,7 +71,5 @@
       </div>
       }
     </div>
-
-    {{AUTH_FACADE.menuList() | json}}
   </div>
 </pt-basic-card>

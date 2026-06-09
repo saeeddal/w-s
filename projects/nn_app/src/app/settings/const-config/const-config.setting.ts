@@ -1,5 +1,4 @@
 import type { IConstConfig } from './_/const-config.interface';
-import type { ISidebarMenuItem } from './_/sidebar-menu-item.interface';
 
 export const CONST_CONFIG: IConstConfig = {
   image: {
@@ -37,70 +36,3 @@ export const CONST_CONFIG: IConstConfig = {
     transactionList: '',
   },
 };
-
-export const SIDEBAR_MENU: ISidebarMenuItem[] = [
-  {
-    title: 'خانه',
-    icon: 'group',
-    route: '/',
-  },
-  {
-    title: 'نسخه نویسی',
-    icon: 'group',
-    children: [
-      {
-        title: 'پذیرش',
-        icon: 'list',
-        route: '/make-prescription',
-      },
-      {
-        title: 'مراجعین',
-        icon: 'person_add',
-        route: '/users/create',
-      },
-      {
-        title: 'تاریخچه تجویز',
-        icon: 'person_add',
-        route: '/users/create',
-      },
-      {
-        title: 'نسخه بیمار',
-        icon: 'person_add',
-        route: '/users/create',
-      },
-    ],
-  },
-  {
-    title: 'نسخه‌پیچی',
-    icon: 'settings',
-    children: [
-      {
-        title: 'پروفایل',
-        icon: 'account_circle',
-        route: '/settings/profile',
-      },
-    ],
-  },
-  {
-    title: 'استحقاق‌سنجی/ معرفی‌نامه',
-    icon: 'settings',
-    children: [
-      {
-        title: 'پروفایل',
-        icon: 'account_circle',
-        route: '/settings/profile',
-      },
-    ],
-  },
-  {
-    title: '2 استحقاق‌سنجی/ معرفی‌نامه',
-    icon: 'settings2',
-    children: [
-      {
-        title: 'پروفایل',
-        icon: 'account_circle2',
-        route: '/settings/profile2',
-      },
-    ],
-  },
-];

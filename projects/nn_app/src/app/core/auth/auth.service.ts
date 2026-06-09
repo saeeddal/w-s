@@ -1,14 +1,14 @@
-import { inject, Injectable } from '@angular/core';
-import type { Observable } from 'rxjs';
+import { inject, Injectable, isDevMode } from '@angular/core';
+import { of, type Observable } from 'rxjs';
 import { AUTH_CONFIG } from './auth.const';
 import { AuthRepository } from './auth.repository';
-import { ApiHttpService } from '../base-services/api-http.service';
-import { HttpMethod } from '../base-services/models/http-method.enum';
+import { ApiHttpService } from '../services/api-http.service';
+import { HttpMethod } from '../services/models/http-method.enum';
 import type { AuthTokenResponse } from '../../shared/models/auth/token-response.interface';
 import { HttpParams } from '@angular/common/http';
-import type { IUserAuthentication } from '@app/shared/models/auth';
+import type { ISidebarMenuItem, IUserAuthentication } from '@app/shared/models/auth';
 import type { IResponse } from '@app/shared/models/common';
-import type { IMenu } from '@app/shared/models/auth/menu-items.interface';
+import { menuList } from './helper/mock-data';
 
 type TokenResponse = {
   access_token: string;
@@ -78,19 +78,22 @@ export class AuthService {
     return this.api.post$<IUserAuthentication>(request);
   }
 
-  public getMenuList(): Observable<IResponse<IMenu[]>> {
+  public getMenuList(): Observable<IResponse<ISidebarMenuItem[]>> {
+    if (isDevMode()) {
+      return of(menuList);
+    }
     const request = {
       method: HttpMethod.POST,
       endpoint: AUTH_CONFIG.getList2,
     };
-    return this.api.post$<IResponse<IMenu[]>>(request);
+    return this.api.post$<IResponse<ISidebarMenuItem[]>>(request);
   }
 
-  public saveMenuListToRepo(menuList: IMenu[]) {
+  public saveMenuListToRepo(menuList: ISidebarMenuItem[]) {
     this.authRepository.saveMenuList(menuList);
   }
 
-  public getMenuListFromRepo(): IMenu[] | null {
+  public getMenuListFromRepo(): ISidebarMenuItem[] | null {
     return this.authRepository.getMenuList();
   }
 
