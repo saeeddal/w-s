@@ -8,7 +8,7 @@ import {
   inject,
   signal,
 } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AppFacade } from '@app/core/app/app.facade';
 import {
@@ -18,6 +18,7 @@ import {
   PtLabel,
   PtSelect,
   UK_TYPE,
+  PtToggleSwitch,
 } from '../../../../../../../pars-lib/src/public-api';
 import { Themes } from '@app/core/services/models/themes.enum';
 import { CenterFacade } from '@app/features/centers/centers.facade';
@@ -25,7 +26,18 @@ import type { ICenterInfo } from '@app/shared/models/dto/center/center-info.inte
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule, FormsModule, CommonModule, PtImage, PtLabel, PtSelect, PtButton, PtIcon],
+  imports: [
+    CommonModule,
+    FormsModule,
+    CommonModule,
+    PtImage,
+    PtLabel,
+    PtSelect,
+    PtButton,
+    PtIcon,
+    PtToggleSwitch,
+    ReactiveFormsModule,
+  ],
   templateUrl: './header.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './header.component.scss',
@@ -40,6 +52,7 @@ export class Header implements OnInit {
   public isOnline = signal(true);
   public showHeader = signal(true);
   public showFooter = signal(true);
+  public fixSidebar = signal(false);
 
   public hideFooter = signal(false);
   public showBack = signal(false);

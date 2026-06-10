@@ -20,7 +20,9 @@
       "@store/*": ["./src/app/shared/store/*"],
       "@ui-kit/*": ["./src/app/ui-kit/*"],
       "@assets/*": ["./src/assets/*"],
-      "@pars-lib": ["projects/pars-lib/src/public-api.ts"],
+      "@pars-lib": ["projects/pars-lib/src"],
+      "@pars-lib/*": ["projects/pars-lib/src/*"],
+
       "@pars-lib-style/*": ["projects/pars-lib/styles/*"]
     }
   },

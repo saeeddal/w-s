@@ -7,6 +7,7 @@ type AppState = {
   error: string | null;
   theme: Themes;
   sideBar: boolean;
+  fixSidBarOn: boolean;
 };
 
 const initialState: AppState = {
@@ -15,6 +16,7 @@ const initialState: AppState = {
   dynamicHeaderTitle: '',
   theme: Themes.LIGHT_THEME,
   sideBar: true,
+  fixSidBarOn: false,
 };
 
 export const APP_STORE = signalStore(
@@ -41,6 +43,11 @@ export const APP_STORE = signalStore(
       closeSidebar() {
         patchState(store, {
           sideBar: false,
+        });
+      },
+      setFixSidBarOn(value: boolean) {
+        patchState(store, {
+          fixSidBarOn: value,
         });
       },
     };
