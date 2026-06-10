@@ -27,6 +27,8 @@ export const APP_CONFIG: ApplicationConfig = {
       const centerFacade = inject(CenterFacade);
       await authFacade.restoreSession();
       await centerFacade.restoreSession();
+      const splash = document.getElementById('app-splash');
+      splash?.classList.add('hide');
     }),
     provideHttpClient(withInterceptors([getTokenInterceptor, authInterceptor])),
   ],

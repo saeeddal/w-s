@@ -50,6 +50,11 @@ export const APP_STORE = signalStore(
           fixSidBarOn: value,
         });
       },
+      setLoading(isLoading: boolean) {
+        patchState(store, {
+          isLoading,
+        });
+      },
     };
   }),
 );

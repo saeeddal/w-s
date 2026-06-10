@@ -16,6 +16,7 @@ export class AuthFacade {
   public readonly accessToken = this.store.accessToken;
   public readonly user = this.store.user;
   public readonly menuList = this.store.menuList;
+  public readonly isLoading = this.store.isLoading;
 
   public login(): void {
     if (this.isAuthenticated()) {
@@ -75,6 +76,7 @@ export class AuthFacade {
   }
 
   public async restoreSession() {
+    this.store.setLoading(true);
     const token = this.authService.getAccessTokenFromRepo();
     const expire_in = this.authService.getExpireTimeAccessTokenFromRepo();
     const user = this.authService.getUserFromRepo();
@@ -90,5 +92,6 @@ export class AuthFacade {
     if (menuList) {
       this.store.setMenuList(menuList);
     }
+    this.store.setLoading(false);
   }
 }

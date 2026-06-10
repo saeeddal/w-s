@@ -15,6 +15,12 @@ export const HOME_ROUTES: Routes = [
         data: {
           breadcrumb: 'خانه',
         },
+        resolve: {
+          delay: () => {
+            // Add artificial delay to see loading bar
+            return new Promise((resolve) => setTimeout(resolve, 1000));
+          },
+        },
       },
       {
         path: '**',

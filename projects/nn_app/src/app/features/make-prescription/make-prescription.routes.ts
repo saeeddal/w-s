@@ -16,6 +16,12 @@ export const MAKE_PRESCRIPTION_ROUTES: Routes = [
         data: {
           breadcrumb: 'پذیرش',
         },
+        resolve: {
+          delay: () => {
+            // Add artificial delay to see loading bar
+            return new Promise((resolve) => setTimeout(resolve, 5000));
+          },
+        },
       },
     ],
   },

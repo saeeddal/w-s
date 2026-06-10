@@ -2,3 +2,49 @@
 body {
   overflow: hidden;
 }
+
+// for loading
+#app-splash {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: white;
+  z-index: 9999;
+
+  opacity: 1;
+  transition: opacity 300ms ease;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+
+  border: 4px solid #e5e5e5;
+  border-top-color: #1976d2;
+
+  border-radius: 50%;
+
+  animation: spin 1s linear infinite;
+}
+
+.text {
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#app-splash.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+// for loading

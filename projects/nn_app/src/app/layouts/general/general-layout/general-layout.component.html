@@ -1,3 +1,6 @@
 <div class="comp genera-layout">
+  @if (AUTH_FACADE.isLoading() || APP_FACADE.isLoading()) {
+    <div class="route-loading-bar"></div>
+  }
   <router-outlet />
 </div>

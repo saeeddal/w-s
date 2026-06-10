@@ -14,6 +14,11 @@ export const CENTER_ROUTES: Routes = [
         loadComponent: () =>
           import('./pages/select-center/select-center').then((C) => C.SelectCenter),
         canActivate: [authGuard],
+        resolve: {
+          delay: () => {
+            return new Promise((resolver) => setTimeout(resolver, 1000));
+          },
+        },
       },
       {
         path: 'call-back',

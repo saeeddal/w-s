@@ -1,1 +1,6 @@
-<h5>در حال انتقال به صفحه لاگین..</h5>
+@if (APP_FACADE.isLoading() || AUTH_FACADE.isLoading()) {
+<div id="app-splash">
+  <div class="spinner"></div>
+  <div class="text">در حال ورود ...</div>
+</div>
+}

@@ -36,6 +36,10 @@ export class AppFacade {
     this.store.closeSidebar();
   }
 
+  public setLoading(status: boolean) {
+    this.store.setLoading(status);
+  }
+
   public setFixeSidebarOn(value: boolean) {
     this.store.setFixSidBarOn(value);
   }

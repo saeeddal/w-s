@@ -13,7 +13,7 @@ type AuthState = {
 
 const initialState: AuthState = {
   accessToken: null,
-  isLoading: false,
+  isLoading: true,
   expiresAt: null,
   user: null,
   menuList: [],
