@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import {
@@ -32,6 +32,7 @@ import { Router, RouterModule } from '@angular/router';
     InfoPatient,
   ],
   templateUrl: './make-prescription-main.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './make-prescription-main.scss',
 })
 export class MakePrescriptionMain {

@@ -12,7 +12,7 @@ import { CORE_PROVIDERS } from './core/core.providers';
 
 import { AuthFacade } from './core/auth/auth.facade';
 import { CenterFacade } from './features/centers/centers.facade';
-import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { provideHttpClient, withInterceptors, withXhr } from '@angular/common/http';
 import { authInterceptor, getTokenInterceptor } from './core/interceptors';
 
 export const APP_CONFIG: ApplicationConfig = {
@@ -30,6 +30,6 @@ export const APP_CONFIG: ApplicationConfig = {
       const splash = document.getElementById('app-splash');
       splash?.classList.add('hide');
     }),
-    provideHttpClient(withInterceptors([getTokenInterceptor, authInterceptor])),
+    provideHttpClient(withXhr(), withInterceptors([getTokenInterceptor, authInterceptor])),
   ],
 };

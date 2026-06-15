@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
@@ -8,6 +8,7 @@ import { PtLabel } from '../../../../../../../pars-lib/src/public-api';
   selector: 'app-home-main',
   imports: [FormsModule, CommonModule, RouterModule, PtLabel],
   templateUrl: './home-main.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './home-main.scss',
 })
 export class HomeMain {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CONST_CONFIG } from '@app/settings/const-config/const-config.setting';
 
@@ -6,6 +6,7 @@ import { CONST_CONFIG } from '@app/settings/const-config/const-config.setting';
   selector: 'app-narrow-layout',
   imports: [RouterOutlet],
   templateUrl: './base-layout.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './base-layout.component.scss',
 })
 export class BaseLayout {

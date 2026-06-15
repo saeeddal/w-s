@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { BreadcrumbService } from '../../services';
@@ -9,6 +9,7 @@ import { UK_TYPE } from '../../../uk-type';
   selector: 'pt-breadcrumb',
   imports: [CommonModule, RouterModule, PtLabel],
   templateUrl: './breadcrumb.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './breadcrumb.scss',
 })
 export class PtBreadcrumb {

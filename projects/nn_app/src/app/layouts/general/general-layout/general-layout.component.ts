@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import {
   NavigationCancel,
   NavigationEnd,
@@ -15,6 +15,7 @@ import { AuthFacade } from '@app/core/auth/auth.facade';
   selector: 'app-general-layout',
   templateUrl: './general-layout.component.html',
   styleUrl: './general-layout.component.scss',
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [RouterOutlet, CommonModule],
 })
 export class GeneralLayout {

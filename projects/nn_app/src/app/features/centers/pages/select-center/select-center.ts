@@ -1,5 +1,5 @@
 import type { OnInit, Signal } from '@angular/core';
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
@@ -28,6 +28,7 @@ import type { ICenterInfo } from '@app/shared/models/dto/center/center-info.inte
     PtIcon,
   ],
   templateUrl: './select-center.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './select-center.scss',
 })
 export class SelectCenter implements OnInit {

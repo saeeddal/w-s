@@ -1,5 +1,5 @@
 import type { AfterViewInit } from '@angular/core';
-import { Component, effect, inject, signal } from '@angular/core';
+import { Component, effect, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppFacade } from '@app/core/app/app.facade';
 import { AuthFacade } from '@app/core/auth/auth.facade';
@@ -8,6 +8,7 @@ import { AuthFacade } from '@app/core/auth/auth.facade';
   selector: 'app-call-back',
   imports: [],
   templateUrl: './call-back.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './call-back.scss',
 })
 export class CallBack implements AfterViewInit {

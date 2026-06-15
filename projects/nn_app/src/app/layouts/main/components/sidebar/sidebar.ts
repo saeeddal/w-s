@@ -1,5 +1,12 @@
 /* eslint-disable @typescript-eslint/member-ordering */
-import { ChangeDetectorRef, Component, HostListener, inject, signal } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  HostListener,
+  inject,
+  signal,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
@@ -20,6 +27,7 @@ import { RouteMapperService } from '@app/core/services/route-mapper.service';
   standalone: true,
   imports: [CommonModule, RouterModule, PtBasicCard, PtLabel, PtIcon, PtImage],
   templateUrl: './sidebar.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './sidebar.scss',
 })
 export class Sidebar {
