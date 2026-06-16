@@ -9,6 +9,7 @@ import { provideRouter, withViewTransitions } from '@angular/router';
 
 import { ROUTES } from './app.routes';
 import { CORE_PROVIDERS } from './core/core.providers';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 import { AuthFacade } from './core/auth/auth.facade';
 import { CenterFacade } from './features/centers/centers.facade';
@@ -30,5 +31,6 @@ export const APP_CONFIG: ApplicationConfig = {
       splash?.classList.add('hide');
     }),
     provideHttpClient(withXhr(), withInterceptors([getTokenInterceptor, authInterceptor])),
+    provideAnimationsAsync(),
   ],
 };

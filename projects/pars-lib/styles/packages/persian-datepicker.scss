@@ -1,0 +1,55 @@
+@use '../colors/index' as *;
+@use '../functions/index' as *;
+persian-date-picker .input-container {
+  min-width: 16rem;
+  ::placeholder {
+    font-size: pxToRem(12);
+  }
+}
+
+.cdk-overlay-pane {
+  overflow-y: auto !important;
+  max-height: calc(100vh - pxToRem(200)) !important;
+  .date-picker-popup {
+    // Make the content scrollable
+    .date-picker-content {
+      // Keep header sticky
+      .date-picker-header {
+        position: sticky !important;
+        top: 0 !important;
+        background: $base-background_normal !important;
+        z-index: 10 !important;
+        padding-bottom: 8px !important;
+        * {
+          color: $text-normal !important;
+        }
+      }
+
+      .main-content {
+        .calendar-section {
+          background: $base-background_normal !important;
+
+          button.ng-star-inserted {
+            color: $text-normal;
+          }
+        }
+        .time-picker-section {
+          background: $base-background_normal !important;
+          .time-picker-content {
+            background: $base-background_normal !important;
+            color: $text-normal;
+          }
+        }
+      }
+
+      // Keep action buttons sticky at bottom
+      .action-buttons {
+        position: sticky !important;
+        bottom: 0 !important;
+        background: $base-background_normal !important;
+        z-index: 10 !important;
+        padding-top: 8px !important;
+      }
+    }
+  }
+}

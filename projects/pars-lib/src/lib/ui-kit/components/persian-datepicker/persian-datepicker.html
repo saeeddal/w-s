@@ -1,2 +1,17 @@
-<persian-date-picker [(ngModel)]="selectedDate" [calendarType]="'jalali'"> </persian-date-picker>
-selectedDate=>{{selectedDate}}
+<!-- persian-datepicker.html -->
+<div class="pt persian-datepicker">
+  <persian-date-picker
+    [rtl]="rtl()"
+    [(ngModel)]="selectedDate"
+    [calendarType]="calendarType()"
+    [minDate]="minDate()"
+    [maxDate]="maxDate()"
+    [isRange]="isRange()"
+    [format]="format()"
+    [disabled]="disabled()"
+    (ngModelChange)="onDateChange($event)"
+    (onBlur)="onTouched()"
+    [format]="format()"
+  >
+  </persian-date-picker>
+</div>
