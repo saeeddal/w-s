@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
-import type { ISidebarMenuItem, IUserAuthentication } from '@app/shared/models/auth';
+import type {
+  ISidebarMenuItem,
+  IUserAuthentication,
+  IUserInfoResponse,
+} from '@app/shared/models/auth';
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +28,7 @@ export class AuthRepository {
     localStorage.setItem('user', JSON.stringify(user));
   }
 
-  public getUser(): IUserAuthentication | null {
+  public getUser(): IUserInfoResponse | null {
     const user = localStorage.getItem('user');
 
     return user ? JSON.parse(user) : null;

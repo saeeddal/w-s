@@ -6,7 +6,11 @@ import { ApiHttpService } from '../services/api-http.service';
 import { HttpMethod } from '../services/models/http-method.enum';
 import type { AuthTokenResponse } from '../../shared/models/auth/token-response.interface';
 import { HttpParams } from '@angular/common/http';
-import type { ISidebarMenuItem, IUserAuthentication } from '@app/shared/models/auth';
+import type {
+  ISidebarMenuItem,
+  IUserAuthentication,
+  IUserInfoResponse,
+} from '@app/shared/models/auth';
 import type { IResponse } from '@app/shared/models/common';
 import { menuList } from './helper/mock-data';
 
@@ -69,13 +73,13 @@ export class AuthService {
     return this.authRepository.getExpireIn();
   }
 
-  public getUser(): Observable<IUserAuthentication> {
+  public getUser(): Observable<IUserInfoResponse> {
     const request = {
       method: HttpMethod.POST,
       endpoint: AUTH_CONFIG.user,
     };
 
-    return this.api.post$<IUserAuthentication>(request);
+    return this.api.post$<IUserInfoResponse>(request);
   }
 
   public getMenuList(): Observable<IResponse<ISidebarMenuItem[]>> {
@@ -101,7 +105,7 @@ export class AuthService {
     this.authRepository.saveUser(user);
   }
 
-  public getUserFromRepo(): IUserAuthentication | null {
+  public getUserFromRepo(): IUserInfoResponse | null {
     return this.authRepository.getUser();
   }
 

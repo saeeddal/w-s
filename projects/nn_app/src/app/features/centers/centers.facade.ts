@@ -31,7 +31,7 @@ export class CenterFacade {
   }
 
   public async getListSelectCenter() {
-    const uuid = this.AUTH_FACADE.user()?.principal?.uuid;
+    const uuid = this.AUTH_FACADE.user()?.principal?.uuid || 'cbb8a1e1-b28f-4be4-9032-961d96dbcb57';
     if (!uuid) {
       return;
     }

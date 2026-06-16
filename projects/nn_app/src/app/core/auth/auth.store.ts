@@ -1,13 +1,13 @@
 import { computed } from '@angular/core';
 import type { ISidebarMenuItem } from '@app/shared/models/auth/sidebar-menu-item.interface';
-import type { IUserAuthentication } from '@app/shared/models/auth';
+import type { IUserInfoResponse } from '@app/shared/models/auth';
 import { patchState, signalStore, withComputed, withMethods, withState } from '@ngrx/signals';
 
 type AuthState = {
   accessToken: string | null;
   isLoading: boolean;
   expiresAt: number | null;
-  user: IUserAuthentication | null;
+  user: IUserInfoResponse | null;
   menuList: ISidebarMenuItem[];
 };
 
@@ -36,7 +36,7 @@ export const AUTH_STORE = signalStore(
       });
     },
 
-    setUser(user: IUserAuthentication) {
+    setUser(user: IUserInfoResponse) {
       patchState(store, {
         user: user,
       });

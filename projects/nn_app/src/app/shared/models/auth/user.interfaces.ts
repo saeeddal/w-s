@@ -1,3 +1,12 @@
+export interface IUserAuthentication {
+  authorities: IAuthority[];
+  details: unknown | null;
+  authenticated: boolean;
+  principal: IUserPrincipal;
+  credentials: unknown | null;
+  name: string;
+}
+
 export interface IAuthority {
   role: string;
   isDefault: boolean;
@@ -56,15 +65,6 @@ export interface IUserPrincipal {
   authorities: IAuthority[];
 }
 
-export interface IUserAuthentication {
-  authorities: IAuthority[];
-  details: unknown | null;
-  authenticated: boolean;
-  principal: IUserPrincipal;
-  credentials: unknown | null;
-  name: string;
-}
-
 export interface IOAuthAuthority {
   authority: string;
   role?: string;
@@ -103,6 +103,13 @@ export interface IOAuth2Request {
   grantType: string;
 
   refreshTokenRequest: unknown | null;
+}
+
+export interface IUserAuthentication {
+  authorities: IAuthority[];
+  authenticated: boolean;
+  principal: IUserPrincipal;
+  name: string;
 }
 
 export interface IUserInfoResponse {
