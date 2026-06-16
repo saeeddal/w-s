@@ -2,11 +2,11 @@ import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
-import { PtLabel } from '../../../../../../../pars-lib/src/public-api';
+import { PtLabel, PtPersianDatepicker } from '../../../../../../../pars-lib/src/public-api';
 
 @Component({
   selector: 'app-home-main',
-  imports: [FormsModule, CommonModule, RouterModule, PtLabel],
+  imports: [FormsModule, CommonModule, RouterModule, PtLabel, PtPersianDatepicker],
   templateUrl: './home-main.html',
   changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './home-main.scss',

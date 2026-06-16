@@ -9,3 +9,4 @@ export * from './key-val/key-val.component';
 export * from './breadcrumb/breadcrumb';
 export * from './divider/divider.component';
 export * from './toggle-switch/toggle-switch.component';
+export * from './persian-datepicker/persian-datepicker';
