@@ -2,16 +2,23 @@
 <div class="pt persian-datepicker">
   <persian-date-picker
     [rtl]="rtl()"
-    [(ngModel)]="selectedDate"
-    [calendarType]="calendarType()"
     [minDate]="minDate()"
     [maxDate]="maxDate()"
+    [calendarType]="calendarType()"
     [isRange]="isRange()"
     [format]="format()"
     [disabled]="disabled()"
+    [(ngModel)]="selectedDate"
     (ngModelChange)="onDateChange($event)"
     (onBlur)="onTouched()"
-    [format]="format()"
   >
   </persian-date-picker>
 </div>
+
+<!-- usages example using in parent
+ <pt-persian-datepicker
+    [calendarType]="UK_TYPE.DATE_PICKER.TYPE.JALALI"
+    [format]="UK_TYPE.DATE_PICKER.FORMAT.DATE_DASH"
+    [(ngModel)]="myDate"
+  />
+  <pt-persian-datepicker format="yyyy/MM/dd HH:mm" [formControl]="myDate2" /> -->

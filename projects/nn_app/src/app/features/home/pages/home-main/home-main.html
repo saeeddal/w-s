@@ -1,5 +1,9 @@
 <div class="comp loan-list">
   <pt-label> دکتر خوش آمدید </pt-label>
-  <pt-persian-datepicker />
-  <pt-persian-datepicker format="yyyy/MM/dd HH:mm" />
+  <pt-persian-datepicker
+    [calendarType]="UK_TYPE.DATE_PICKER.TYPE.JALALI"
+    [format]="UK_TYPE.DATE_PICKER.FORMAT.DATE_DASH"
+    [(ngModel)]="myDate"
+  />
+  <pt-persian-datepicker format="yyyy/MM/dd HH:mm" [formControl]="myDate2" />
 </div>

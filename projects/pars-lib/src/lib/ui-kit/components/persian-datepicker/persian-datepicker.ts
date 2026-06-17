@@ -1,13 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // persian-datepicker.component.ts
-import { Component, input, signal, forwardRef } from '@angular/core';
+// persian-datepicker.component.ts
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// persian-datepicker.component.ts
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Component, input, signal, forwardRef, Output, EventEmitter } from '@angular/core';
 import type { ControlValueAccessor } from '@angular/forms';
-import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { PersianDateTimePickerModule } from 'persian-date-time-picker-signal';
+import type { CalenderType, PersianDateFormat } from './_/persian-date-format';
+import { PtCalenderType, PtPersianDateFormat } from './_/persian-date-format';
 
 @Component({
   selector: 'pt-persian-datepicker',
-  imports: [PersianDateTimePickerModule, FormsModule],
+  imports: [PersianDateTimePickerModule, FormsModule, ReactiveFormsModule],
   templateUrl: './persian-datepicker.html',
   styleUrl: './persian-datepicker.scss',
   providers: [
@@ -22,11 +28,14 @@ export class PtPersianDatepicker implements ControlValueAccessor {
   // Inputs
   minDate = input<string>('');
   maxDate = input<string>('');
-  calendarType = input<'jalali' | 'gregorian'>('jalali');
+  calendarType = input<CalenderType>(PtCalenderType.JALALI);
   isRange = input<boolean>(false);
-  format = input<string>('yyyy/MM/dd');
+  format = input<PersianDateFormat>(PtPersianDateFormat.DATE_DASH);
   disabled = input<boolean>(false);
   rtl = input<boolean>(true);
+
+  // Output for two-way binding
+  @Output() selectedDateChange = new EventEmitter<any>();
 
   // Internal state
   selectedDate = signal<any>('');
@@ -48,14 +57,15 @@ export class PtPersianDatepicker implements ControlValueAccessor {
     this.onTouched = fn;
   }
 
-  setDisabledState?() // isDisabled: boolean
-  : void {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  setDisabledState(isDisabled: boolean): void {
     // Handle disabled state if needed
   }
 
   // Method to handle value changes from the date picker
   onDateChange(value: any): void {
     this.selectedDate.set(value);
+    this.selectedDateChange.emit(value);
     this.onChange(value);
     this.onTouched();
   }

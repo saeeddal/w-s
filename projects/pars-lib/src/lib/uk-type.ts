@@ -46,6 +46,10 @@ import {
   UkLabelWeight,
   UkLineHeight,
 } from './ui-kit/components/label/_/label.type';
+import {
+  PtCalenderType,
+  PtPersianDateFormat,
+} from './ui-kit/components/persian-datepicker/_/persian-date-format';
 import { UkSelectBorderColor } from './ui-kit/components/select/_/select.type';
 import { UkBooleanType } from './ui-kit/definitions/uk.type';
 
@@ -108,5 +112,9 @@ export const UK_TYPE = {
     MARGIN: PtDividerMargin,
     SIZE: PtDividerSize,
     DISPLAY: PtDividerDisplay,
+  },
+  DATE_PICKER: {
+    FORMAT: PtPersianDateFormat,
+    TYPE: PtCalenderType,
   },
 };
