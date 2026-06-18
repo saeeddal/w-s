@@ -7,7 +7,6 @@ import {
   PtPersianDatepicker,
   UK_TYPE,
 } from '../../../../../../../pars-lib/src/public-api';
-import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-home-main',
@@ -18,7 +17,6 @@ import { ButtonModule } from 'primeng/button';
     PtLabel,
     PtPersianDatepicker,
     ReactiveFormsModule,
-    ButtonModule,
   ],
   templateUrl: './home-main.html',
   changeDetection: ChangeDetectionStrategy.Eager,

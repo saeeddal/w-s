@@ -9,14 +9,12 @@ import { provideRouter, withViewTransitions } from '@angular/router';
 
 import { ROUTES } from './app.routes';
 import { CORE_PROVIDERS } from './core/core.providers';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 import { AuthFacade } from './core/auth/auth.facade';
 import { CenterFacade } from './features/centers/centers.facade';
 import { provideHttpClient, withInterceptors, withXhr } from '@angular/common/http';
 import { authInterceptor, getTokenInterceptor } from './core/interceptors';
-import { providePrimeNG } from 'primeng/config';
-import Aura from '@primeuix/themes/aura';
-
 export const APP_CONFIG: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
@@ -33,10 +31,6 @@ export const APP_CONFIG: ApplicationConfig = {
       splash?.classList.add('hide');
     }),
     provideHttpClient(withXhr(), withInterceptors([getTokenInterceptor, authInterceptor])),
-    providePrimeNG({
-      theme: {
-        preset: Aura,
-      },
-    }),
+    provideAnimationsAsync(),
   ],
 };
