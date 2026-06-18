@@ -50,8 +50,6 @@
         <div class="select-center">
           <pt-select
             bindLabel="hchrDescParent"
-            [borderColor]="UK_TYPE.SELECT.borderColor.TRANSPARENT"
-            [items]="medicalCenters()"
             [(ngModel)]="selectedCenter"
             (change)="onMedicalCentersChange($event)"
           ></pt-select>
