@@ -1,0 +1,14 @@
+<p-select
+  notFoundText="ایتمی یافت نشد"
+  class="form-element uk-single-select"
+  [optionLabel]="bindLabel"
+  [optionValue]="bindValue"
+  [disabled]="isDisabled"
+  [id]="fieldName"
+  [options]="items"
+  [name]="fieldName"
+  [placeholder]="placeholder"
+  [(ngModel)]="innerValue"
+  (ngModelChange)="onModelChange($event)"
+  (onBlur)="onTouch()"
+/>

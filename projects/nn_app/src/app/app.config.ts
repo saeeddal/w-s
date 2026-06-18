@@ -15,6 +15,9 @@ import { AuthFacade } from './core/auth/auth.facade';
 import { CenterFacade } from './features/centers/centers.facade';
 import { provideHttpClient, withInterceptors, withXhr } from '@angular/common/http';
 import { authInterceptor, getTokenInterceptor } from './core/interceptors';
+import { providePrimeNG } from 'primeng/config';
+import Aura from '@primeng/themes/aura';
+
 export const APP_CONFIG: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
@@ -32,5 +35,13 @@ export const APP_CONFIG: ApplicationConfig = {
     }),
     provideHttpClient(withXhr(), withInterceptors([getTokenInterceptor, authInterceptor])),
     provideAnimationsAsync(),
+    providePrimeNG({
+      theme: {
+        preset: Aura,
+        options: {
+          darkModeSelector: '.dark-theme', // ✅ Your custom class
+        },
+      },
+    }),
   ],
 };

@@ -50,7 +50,6 @@ import {
   PtCalenderType,
   PtPersianDateFormat,
 } from './ui-kit/components/persian-datepicker/_/persian-date-format';
-import { UkSelectBorderColor } from './ui-kit/components/select/_/select.type';
 import { UkBooleanType } from './ui-kit/definitions/uk.type';
 
 export const UK_TYPE = {
@@ -97,9 +96,6 @@ export const UK_TYPE = {
     typography: UkLabelTypography,
     fgColor: UkLabelFgColor,
     horizontalAlignment: UkLabelHorizontalAlignment,
-  },
-  SELECT: {
-    borderColor: UkSelectBorderColor,
   },
   BOOLEAN_TYPE: UkBooleanType,
   INPUT: {

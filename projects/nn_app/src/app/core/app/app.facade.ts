@@ -17,8 +17,8 @@ export class AppFacade {
     this.store.setDynamicHeaderTitle(dynamicHeaderTitle);
   }
   public toggleTheme() {
-    const body = document.body;
-    body.classList.toggle('dark-theme');
+    const htmlElement = document.documentElement;
+    htmlElement.classList.toggle('dark-theme');
     this.store.toggleTheme();
   }
 

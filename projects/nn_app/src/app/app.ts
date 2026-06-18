@@ -9,9 +9,4 @@ import { RouterOutlet } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './app.scss',
 })
-export class App {
-  public toggleTheme() {
-    const body = document.body;
-    body.classList.toggle('dark-theme');
-  }
-}
+export class App {}

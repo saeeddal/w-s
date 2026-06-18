@@ -34,15 +34,8 @@ import {
   UkLabelVerticalAlignment,
   UkLabelWeight,
 } from './components/label/_/label.type';
-import {
-  UkSelectBgColor,
-  UkSelectBorderColor,
-  UkSelectBorderRadius,
-  UkSelectFgColor,
-  UkSelectItemsAppearance,
-  UkSelectMarginRight,
-} from './components/select/_/select.type';
-import { UkBooleanType, UkCrudMode } from './definitions/uk.type';
+
+import { UkCrudMode } from './definitions/uk.type';
 
 const SIMPLE = {
   image: {
@@ -79,15 +72,7 @@ const SIMPLE = {
     size: UkLabelSize.SMALLER,
     weight: UkLabelWeight.NORMAL,
   },
-  select: {
-    bgColor: UkSelectBgColor.BACKGROUND_SURFACE_00,
-    fgColor: UkSelectFgColor.FG_MILK_800,
-    borderColor: UkSelectBorderColor.GRADE_2,
-    borderRadius: UkSelectBorderRadius.SMALL,
-    itemsAppearance: UkSelectItemsAppearance.MODAL,
-    multiSelect: UkBooleanType.FALSE,
-    marginRight: UkSelectMarginRight.M10,
-  },
+
   input: {
     type: PtInputType.TEXT,
     borderColor: PtInputBorderColor.GRADE_2,

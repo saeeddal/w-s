@@ -32,7 +32,6 @@
         />
       </div>
     </div>
-
     <div class="second-part">
       <div class="select-center-container">
         <div class="icon-label">
@@ -50,10 +49,9 @@
         <div class="select-center">
           <pt-select
             bindLabel="hchrDescParent"
-            [borderColor]="UK_TYPE.SELECT.borderColor.TRANSPARENT"
             [items]="medicalCenters()"
             [(ngModel)]="selectedCenter"
-            (change)="onMedicalCentersChange($event)"
+            (ngModelChange)="onMedicalCentersChange($event)"
           ></pt-select>
         </div>
       </div>
