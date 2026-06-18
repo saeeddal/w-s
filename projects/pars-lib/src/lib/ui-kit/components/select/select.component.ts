@@ -12,8 +12,6 @@ import {
 import type { ControlValueAccessor, FormControl, FormGroup } from '@angular/forms';
 import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 
-import { NgSelectModule } from '@ng-select/ng-select';
-
 import type {
   SelectBgColor,
   SelectBorderColor,
@@ -33,7 +31,7 @@ import {
 
 @Component({
   selector: 'pt-select',
-  imports: [CommonModule, NgSelectModule, FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
