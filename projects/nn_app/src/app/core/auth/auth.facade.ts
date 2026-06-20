@@ -36,7 +36,7 @@ export class AuthFacade {
       this.store.setToken(tokenResponse.access_token);
       this.store.setExpiresIn(Date.now() + tokenResponse.expires_in * 1000);
       this.store.setLoading(false);
-      this.ROUTER.navigate(['/']);
+      await this.ROUTER.navigateByUrl('/', { replaceUrl: true });
     } finally {
       this.store.setLoading(false);
     }

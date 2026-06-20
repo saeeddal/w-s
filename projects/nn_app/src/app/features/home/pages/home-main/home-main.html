@@ -6,4 +6,5 @@
     [(ngModel)]="myDate"
   />
   <pt-persian-datepicker format="yyyy/MM/dd HH:mm" [formControl]="myDate2" />
+  <pt-data-table (pageChanged)="pageChanged($event)" />
 </div>

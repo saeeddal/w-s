@@ -27,12 +27,8 @@
       "@helpers/*": ["./src/app/shared/helpers/*"],
       "@store/*": ["./src/app/shared/store/*"],
       "@ui-kit/*": ["./src/app/ui-kit/*"],
-      "@pars-lib-style/*": [
-        "../pars-lib/styles/*"
-      ],
-      "pars-lib2": [
-        "./dist/pars-lib2"
-      ]
+      "@pars-lib-style/*": ["../pars-lib/styles/*"],
+      "pars-lib2": ["./dist/pars-lib2"]
     }
   },
   "angularCompilerOptions": {

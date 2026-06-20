@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/member-ordering */
 import { inject, Injectable } from '@angular/core';
-import { APP_STORE } from './app.store.ts';
+import { APP_STORE } from './app.store';
 
 @Injectable({ providedIn: 'root' })
 export class AppFacade {

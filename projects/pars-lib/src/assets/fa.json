@@ -1,0 +1,13 @@
+{
+  "startsWith": "شروع با",
+  "contains": "شامل",
+  "notContains": "شامل نمی‌شود",
+  "endsWith": "پایان با",
+  "equals": "برابر",
+  "notEquals": "نابرابر",
+  "noFilter": "بدون فیلتر",
+  "clear": "پاک کردن",
+  "apply": "اعمال",
+  "matchAll": "همه",
+  "matchAny": "هرکدام"
+}
