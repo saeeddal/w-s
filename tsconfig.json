@@ -44,12 +44,6 @@
     },
     {
       "path": "./projects/pars-lib/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/pars-lib2/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/pars-lib2/tsconfig.spec.json"
     }
   ]
 }

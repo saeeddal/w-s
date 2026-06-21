@@ -13,7 +13,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 
 import { AuthFacade } from './core/auth/auth.facade';
 import { CenterFacade } from './features/centers/centers.facade';
-import { provideHttpClient, withInterceptors, withXhr } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { authInterceptor, getTokenInterceptor } from './core/interceptors';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
@@ -33,7 +33,7 @@ export const APP_CONFIG: ApplicationConfig = {
       const splash = document.getElementById('app-splash');
       splash?.classList.add('hide');
     }),
-    provideHttpClient(withXhr(), withInterceptors([getTokenInterceptor, authInterceptor])),
+    provideHttpClient(withInterceptors([getTokenInterceptor, authInterceptor])),
     provideAnimationsAsync(),
     providePrimeNG({
       theme: {
@@ -41,6 +41,16 @@ export const APP_CONFIG: ApplicationConfig = {
         options: {
           darkModeSelector: '.dark-theme', // ✅ Your custom class
         },
+      },
+      translation: {
+        // ... your Persian translations
+        startsWith: 'شروع با',
+        contains: 'شامل',
+        notContains: 'شامل نشود',
+        endsWith: 'پایان با',
+        equals: 'برابر با',
+        notEquals: 'برابر نباشد با',
+        noFilter: 'فیلتر نشود',
       },
     }),
   ],

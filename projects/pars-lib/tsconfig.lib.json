@@ -10,7 +10,7 @@
     "moduleResolution": "bundler",
     "rootDir": "."
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "../nn_app/src/app/features/home/helpers/mock-data.ts"],
   "exclude": ["**/*.spec.ts", "**/testing/*.ts"],
   "angularCompilerOptions": {
     "extendedDiagnostics": {
