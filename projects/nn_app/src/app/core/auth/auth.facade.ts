@@ -76,22 +76,21 @@ export class AuthFacade {
   }
 
   public async restoreSession() {
-    this.store.setLoading(true);
-    const token = this.authService.getAccessTokenFromRepo();
-    const expire_in = this.authService.getExpireTimeAccessTokenFromRepo();
-    const user = this.authService.getUserFromRepo();
-    const menuList = this.authService.getMenuListFromRepo();
-
-    if (token && expire_in) {
-      this.store.setToken(token);
-      this.store.setExpiresIn(Number(expire_in));
-    }
-    if (user) {
-      this.store.setUser(user);
-    }
-    if (menuList) {
-      this.store.setMenuList(menuList);
-    }
-    this.store.setLoading(false);
+    // this.store.setLoading(true);
+    // const token = this.authService.getAccessTokenFromRepo();
+    // const expire_in = this.authService.getExpireTimeAccessTokenFromRepo();
+    // const user = this.authService.getUserFromRepo();
+    // const menuList = this.authService.getMenuListFromRepo();
+    // if (token && expire_in) {
+    //   this.store.setToken(token);
+    //   this.store.setExpiresIn(Number(expire_in));
+    // }
+    // if (user) {
+    //   this.store.setUser(user);
+    // }
+    // if (menuList) {
+    //   this.store.setMenuList(menuList);
+    // }
+    // this.store.setLoading(false);
   }
 }

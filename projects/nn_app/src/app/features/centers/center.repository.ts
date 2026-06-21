@@ -5,11 +5,13 @@ import type { ICenterInfo } from '@app/shared/models/dto/center/center-info.inte
   providedIn: 'root',
 })
 export class CenterRepository {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public saveSelectedCenter(selectedCenter: ICenterInfo) {
-    localStorage.setItem('selectedCenter', JSON.stringify(selectedCenter));
+    //localStorage.setItem('selectedCenter', JSON.stringify(selectedCenter));
   }
 
   public getSelectedCenter() {
-    return localStorage.getItem('selectedCenter');
+    //return localStorage.getItem('selectedCenter');
+    return null;
   }
 }

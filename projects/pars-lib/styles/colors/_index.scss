@@ -206,6 +206,9 @@ $darkColors: (
   --border-purple-medium: #{getRootLightColor(border, purple-medium)};
 
   --primary-tonal-hover: #{getRootLightColor(primary, tonal_hover)};
+
+  --background-input: #ffffff;
+  --color-input: #334155;
 }
 .dark-theme {
   // Existing
@@ -243,6 +246,8 @@ $darkColors: (
   --border-purple-medium: #{getRootDarkColor(border, purple-medium)};
 
   --primary-tonal-hover: #{getRootDarkColor(primary, tonal_hover)};
+  --background-input: #09090b;
+  --color-input: #ffffff;
 }
 
 $primary-normal: var(--primary-normal);
@@ -279,3 +284,5 @@ $color-border-accent-medium: var(--border-accent-medium);
 $color-border-purple-medium: var(--border-purple-medium);
 
 $primary-tonal-hover: var(--primary-tonal-hover);
+$background-input: var(--background-input);
+$color-input: var(--color-input);
