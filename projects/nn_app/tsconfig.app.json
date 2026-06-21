@@ -20,10 +20,10 @@
       "@helpers/*": ["./src/app/shared/helpers/*"],
       "@store/*": ["./src/app/shared/store/*"],
       "@ui-kit/*": ["./src/app/ui-kit/*"],
-      "@pars-lib": ["./projects/pars-lib/src"],
-      "@pars-lib/*": ["./projects/pars-lib/src/*"],
+      "@pars-lib": ["./../pars-lib/src"],
+      "@pars-lib/*": ["./../pars-lib/src/*"],
 
-      "@pars-lib-style/*": ["./projects/pars-lib/styles/*"]
+      "@pars-lib-style/*": ["./../pars-lib/styles/*"]
     }
   },
   "include": ["src/**/*.ts"],

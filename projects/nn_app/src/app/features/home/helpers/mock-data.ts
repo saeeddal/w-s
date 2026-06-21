@@ -1,4 +1,4 @@
-import type { IColumn } from '../../../../../../pars-lib/src/lib/ui-kit/definitions/dataTable-models';
+import type { IColumn } from '@pars-lib/lib/ui-kit/definitions/dataTable-models';
 
 export const MockDataTable = [
   {

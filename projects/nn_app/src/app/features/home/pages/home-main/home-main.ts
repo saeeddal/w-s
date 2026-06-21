@@ -4,12 +4,7 @@ import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import {
-  PtDataTable,
-  PtLabel,
-  PtPersianDatepicker,
-  UK_TYPE,
-} from '../../../../../../../pars-lib/src/public-api';
+import { PtDataTable, PtLabel, PtPersianDatepicker, UK_TYPE } from '@pars-lib/public-api';
 import type { Product } from '../../helpers/mock-data';
 import { MockCols, MockDataTable } from '../../helpers/mock-data';
 interface IUser {
@@ -28,6 +23,7 @@ interface IUser {
 
 @Component({
   selector: 'app-home-main',
+  standalone: true,
   imports: [
     FormsModule,
     CommonModule,

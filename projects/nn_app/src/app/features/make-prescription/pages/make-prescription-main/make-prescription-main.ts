@@ -10,7 +10,7 @@ import {
   PtLabel,
   PtSelect,
   UK_TYPE,
-} from '../../../../../../../pars-lib/src/public-api';
+} from '@pars-lib/public-api';
 import type { IIdTitle } from '@app/shared/models/common/common.interface';
 import { InfoPatient } from '@app/shared/components/insurance-identify/info-patient';
 import { DOCTOR_INFO, IDENTIFY_INFO, INSURANCE_INFO } from '../../helpers/mock-data';

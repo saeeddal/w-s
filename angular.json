@@ -117,32 +117,6 @@
           }
         }
       }
-    },
-    "pars-lib2": {
-      "projectType": "library",
-      "root": "projects/pars-lib2",
-      "sourceRoot": "projects/pars-lib2/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular/build:ng-packagr",
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/pars-lib2/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/pars-lib2/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular/build:unit-test",
-          "options": {
-            "tsConfig": "projects/pars-lib2/tsconfig.spec.json"
-          }
-        }
-      }
     }
   }
 }

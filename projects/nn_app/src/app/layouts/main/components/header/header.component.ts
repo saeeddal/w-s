@@ -19,7 +19,7 @@ import {
   PtSelect,
   UK_TYPE,
   PtToggleSwitch,
-} from '../../../../../../../pars-lib/src/public-api';
+} from '@pars-lib/public-api';
 import { Themes } from '@app/core/services/models/themes.enum';
 import { CenterFacade } from '@app/features/centers/centers.facade';
 import type { ICenterInfo } from '@app/shared/models/dto/center/center-info.interface';

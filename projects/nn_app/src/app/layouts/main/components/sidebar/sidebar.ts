@@ -11,13 +11,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import type { ISidebarMenuItem } from '@app/shared/models/auth/sidebar-menu-item.interface';
-import {
-  PtBasicCard,
-  PtIcon,
-  PtImage,
-  PtLabel,
-  UK_TYPE,
-} from '../../../../../../../pars-lib/src/public-api';
+import { PtBasicCard, PtIcon, PtImage, PtLabel, UK_TYPE } from '@pars-lib/public-api';
 import { AppFacade } from '@app/core/app/app.facade';
 import { AuthFacade } from '@app/core/auth/auth.facade';
 import { RouteMapperService } from '@app/core/services/route-mapper.service';

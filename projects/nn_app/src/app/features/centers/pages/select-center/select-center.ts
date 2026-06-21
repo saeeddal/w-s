@@ -11,7 +11,7 @@ import {
   PtLabel,
   PtSelect,
   UK_TYPE,
-} from '../../../../../../../pars-lib/src/public-api';
+} from '@pars-lib/public-api';
 import { CenterFacade } from '../../centers.facade';
 import type { ICenterInfo } from '@app/shared/models/dto/center/center-info.interface';
 @Component({

@@ -14,6 +14,7 @@
     "target": "ES2022",
     "module": "ES2022",
     "moduleResolution": "bundler",
+
     "paths": {
       "@app/*": ["./src/app/*"],
       "@assets/*": ["./src/assets/*"],
@@ -27,8 +28,7 @@
       "@helpers/*": ["./src/app/shared/helpers/*"],
       "@store/*": ["./src/app/shared/store/*"],
       "@ui-kit/*": ["./src/app/ui-kit/*"],
-      "@pars-lib-style/*": ["../pars-lib/styles/*"],
-      "pars-lib2": ["./dist/pars-lib2"]
+      "@pars-lib-style/*": ["../pars-lib/styles/*"]
     }
   },
   "angularCompilerOptions": {
