@@ -1,0 +1,16 @@
+@use '../../../../../styles/index.scss' as *;
+
+.multiselect-container {
+  margin-bottom: pxToRem(8);
+  width: 100%; /* default: full width on mobile */
+  max-width: 100%;
+}
+
+/* Medium and Large screens */
+@media (min-width: 768px) {
+  .multiselect-container {
+    width: pxToRem(300); /* fixed good width on tablet/desktop */
+    min-width: pxToRem(90); /* at least 7rem */
+    max-width: pxToRem(320); /* don't get too wide */
+  }
+}

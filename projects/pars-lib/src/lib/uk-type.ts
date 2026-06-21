@@ -51,6 +51,7 @@ import {
   PtPersianDateFormat,
 } from './ui-kit/components/persian-datepicker/_/persian-date-format';
 import { UkBooleanType } from './ui-kit/definitions/uk.type';
+import { PtDataTableSelectionType } from './ui-kit/components/data-table/_/datatable.type';
 
 export const UK_TYPE = {
   IMAGE: {
@@ -112,5 +113,8 @@ export const UK_TYPE = {
   DATE_PICKER: {
     FORMAT: PtPersianDateFormat,
     TYPE: PtCalenderType,
+  },
+  DATA_TABLE: {
+    SELECTION_TYPE: PtDataTableSelectionType,
   },
 };
