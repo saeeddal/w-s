@@ -31,7 +31,7 @@ import { PtDataTableSelectionType } from './_/datatable.type';
 export class PtDataTable<T extends { id: number | string }> implements OnInit {
   // ==================== Inputs ====================
   public items = input<T[]>([]);
-  public customizeColumn = input<boolean>(true);
+  public customizeColumn = input<boolean>(false);
   public cols = model<IColumn[]>([]); // Changed to model (two-way)
   public isLoading = input<boolean>(false);
   public totalRecords = input<number>(0);
