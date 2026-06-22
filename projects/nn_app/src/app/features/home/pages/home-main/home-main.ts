@@ -4,7 +4,13 @@ import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { PtDataTable, PtLabel, PtPersianDatepicker, UK_TYPE } from '@pars-lib/public-api';
+import {
+  PtDataTable,
+  PtLabel,
+  PtPersianDatepicker,
+  PtStepper,
+  UK_TYPE,
+} from '@pars-lib/public-api';
 import type { Product } from '../../helpers/mock-data';
 import { MockCols, MockDataTable } from '../../helpers/mock-data';
 interface IUser {
@@ -32,6 +38,7 @@ interface IUser {
     PtPersianDatepicker,
     ReactiveFormsModule,
     PtDataTable,
+    PtStepper,
   ],
   templateUrl: './home-main.html',
   changeDetection: ChangeDetectionStrategy.Eager,
@@ -103,5 +110,17 @@ export class HomeMain {
   // Handle row selection
   public onSelectionChanged(data: Product | Product[] | null): void {
     console.log('Selected product:', data);
+  }
+
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  public steps = [
+    { title: 'تثبيت نهائي' },
+    { title: 'روش پرداخت' },
+    { title: 'همراهان' },
+    { title: 'انتخاب دوره 1' },
+    { title: 'انتخاب دوره 2' },
+  ];
+  public onComplete() {
+    console.log('compleate');
   }
 }

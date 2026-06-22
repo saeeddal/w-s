@@ -6,7 +6,7 @@
     [(ngModel)]="myDate"
   />
   <pt-persian-datepicker format="yyyy/MM/dd HH:mm" [formControl]="myDate2" />
-  <pt-data-table
+  <!-- <pt-data-table
     [items]="mockDataTable"
     [cols]="mockCols"
     [isLoading]="isLoading()"
@@ -19,5 +19,25 @@
     (selectionChanged)="onSelectionChanged($event)"
     [customizeColumn]="true"
   >
-  </pt-data-table>
+  </pt-data-table> -->
+
+  <pt-stepper [steps]="steps" (done)="onComplete()">
+    <ng-template #step>
+      <h2>Step 1: Final Confirmation</h2>
+      <p>Your content here...</p>
+    </ng-template>
+
+    <ng-template #step>
+      <h2>Step 2: Payment Method</h2>
+      <!-- ... -->
+    </ng-template>
+
+    <ng-template #step>
+      <h2>Step 3: Companions</h2>
+    </ng-template>
+
+    <ng-template #step>
+      <h2>Step 4: Course Selection</h2>
+    </ng-template>
+  </pt-stepper>
 </div>

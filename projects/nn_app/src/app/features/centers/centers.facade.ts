@@ -24,10 +24,10 @@ export class CenterFacade {
   }
 
   public async restoreSession() {
-    // const selectedCenter = this.centerRepository.getSelectedCenter();
-    // if (selectedCenter && this.isNotNullOrEmpty(selectedCenter)) {
-    //   this.store.setSelectedCenter(JSON.parse(selectedCenter));
-    // }
+    const selectedCenter = this.centerRepository.getSelectedCenter();
+    if (selectedCenter && this.isNotNullOrEmpty(selectedCenter)) {
+      this.store.setSelectedCenter(JSON.parse(selectedCenter));
+    }
   }
 
   public async getListSelectCenter() {

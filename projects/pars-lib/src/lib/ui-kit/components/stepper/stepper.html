@@ -1,0 +1,38 @@
+<div class="stepper-container">
+  <div class="stepper-header">
+    <div class="steps">
+      @for (step of steps(); let i = $index; track i) {
+      <div
+        class="step-item"
+        [class.completed]="isStepCompleted(i)"
+        [class.active]="isStepActive(i)"
+        (click)="goToStep(i)"
+      >
+        <div class="step-wrapper">
+          <div class="step-circle">
+            @if (isStepCompleted(i)) {
+            <span class="checkmark">✓</span>
+            } @else { {{ i+1 }} }
+          </div>
+        </div>
+
+        <div class="step-label">{{ step.title }}</div>
+
+        <!-- No .step-line needed anymore - it's handled by CSS ::after -->
+      </div>
+      }
+    </div>
+  </div>
+
+  <!-- Rest of your template remains the same -->
+  <div class="step-content">
+    <ng-container *ngTemplateOutlet="stepTemplates()[currentStepIndex()]"></ng-container>
+  </div>
+
+  <div class="stepper-actions">
+    <button class="btn btn-secondary" (click)="previous()" [disabled]="currentStep() === 0">
+      قبلی
+    </button>
+    <button class="btn btn-primary" (click)="next()">{{ isLastStep() ? 'تمام' : 'بعدی' }}</button>
+  </div>
+</div>

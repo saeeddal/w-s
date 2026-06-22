@@ -1,0 +1,227 @@
+@use '../../../../../styles/index.scss' as *;
+
+.stepper-container {
+  max-width: pxToRem(920);
+  margin: 0 auto;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+}
+
+.stepper-header {
+  background: var(--bg-normal);
+  padding: pxToRem(32) pxToRem(16) pxToRem(24);
+  border-radius: pxToRem(12) pxToRem(12) 0 0;
+  position: relative;
+}
+
+.steps {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  padding: 0 pxToRem(12);
+}
+
+.step-item {
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex: 1;
+  cursor: pointer;
+  z-index: 2;
+  padding: 0 pxToRem(6);
+
+  &:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 30%;
+    transform: translateY(-50%);
+    height: pxToRem(3.5);
+    width: calc(100%);
+    background: var(--stroke-normal);
+    z-index: 1;
+    transition: background 0.3s ease;
+    margin-left: pxToRem(18);
+  }
+
+  &.completed:not(:last-child)::after {
+    background: $primary;
+  }
+}
+
+.step-wrapper {
+  position: relative;
+  z-index: 3;
+}
+
+/* Smaller Circle */
+.step-circle {
+  width: pxToRem(36);
+  height: pxToRem(36);
+  border-radius: 50%;
+  border: pxToRem(2.5) solid var(--stroke-normal);
+  background: var(--card-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: pxToRem(15);
+  font-weight: 600;
+  color: var(--text-tonal);
+  transition: all 0.3s ease;
+  box-shadow: 0 pxToRem(2) pxToRem(4) rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 2;
+}
+
+.step-item.active .step-circle {
+  border-color: $primary;
+  color: $primary;
+  box-shadow: 0 0 0 pxToRem(5) rgba(59, 130, 246, 0.15);
+}
+
+.step-item.completed .step-circle {
+  background: $primary;
+  border-color: $primary;
+  color: var(--base-white);
+}
+
+.checkmark {
+  font-size: pxToRem(20);
+  font-weight: bold;
+}
+
+/* Labels - Slightly Smaller */
+.step-label {
+  margin-top: pxToRem(12);
+  font-size: pxToRem(14.5);
+  color: var(--text-tonal);
+  text-align: center;
+  line-height: 1.35;
+  max-width: pxToRem(105);
+}
+
+.step-item.active .step-label {
+  color: $primary;
+  font-weight: 500;
+}
+
+/* Content Area */
+.step-content {
+  padding: pxToRem(28);
+  background: var(--card-bg);
+  border: 1px solid var(--stroke-normal);
+  border-top: none;
+  border-radius: 0 0 pxToRem(12) pxToRem(12);
+  min-height: pxToRem(280);
+}
+
+/* Buttons */
+.stepper-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: pxToRem(20) 0;
+  gap: pxToRem(12);
+}
+
+.btn {
+  padding: pxToRem(11) pxToRem(24);
+  border-radius: pxToRem(8);
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex: 1;
+  max-width: pxToRem(180);
+}
+
+.btn-secondary {
+  background: var(--mute-tonal);
+  color: var(--text-normal);
+  border: 1px solid var(--stroke-normal);
+}
+
+.btn-primary {
+  background: $primary;
+  color: var(--base-white);
+  border: none;
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ===================== RESPONSIVE ===================== */
+
+@media (max-width: pxToRem(768)) {
+  .stepper-header {
+    padding: pxToRem(28) pxToRem(12) pxToRem(20);
+  }
+
+  .steps {
+    padding: 0 pxToRem(8);
+  }
+
+  .step-circle {
+    width: pxToRem(32);
+    height: pxToRem(32);
+    font-size: pxToRem(13.5);
+  }
+
+  // Update line position for smaller circles
+  .step-item:not(:last-child)::after {
+    height: pxToRem(3);
+    width: calc(100%);
+    margin-left: pxToRem(16); // Half of 32px
+  }
+
+  .checkmark {
+    font-size: pxToRem(18);
+  }
+
+  .step-label {
+    font-size: pxToRem(13.5);
+    margin-top: pxToRem(10);
+    max-width: pxToRem(90);
+  }
+
+  .step-content {
+    padding: pxToRem(20);
+  }
+
+  .btn {
+    padding: pxToRem(10) pxToRem(16);
+    font-size: pxToRem(15);
+  }
+}
+
+@media (max-width: pxToRem(480)) {
+  .step-label {
+    font-size: pxToRem(12.5);
+  }
+
+  .step-circle {
+    width: pxToRem(28);
+    height: pxToRem(28);
+    font-size: pxToRem(12);
+  }
+
+  // Update line position for even smaller circles
+  .step-item:not(:last-child)::after {
+    height: pxToRem(2.5);
+    width: calc(100%);
+    margin-left: pxToRem(14); // Half of 28px
+  }
+
+  .stepper-actions {
+    flex-direction: column;
+    gap: pxToRem(10);
+  }
+
+  .btn {
+    max-width: 100%;
+  }
+}
