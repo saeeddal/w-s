@@ -18,13 +18,14 @@
         ></pt-icon>
       </pt-button>
     </div>
-    <div class="toggle-container">
+
+    <div class="toggle-container" *appRemoveBelow="500">
       <pt-toggle-switch
         [value]="APP_FACADE.fixSidBarOn()"
         (valueChange)="APP_FACADE.setFixeSidebarOn($event)"
       ></pt-toggle-switch>
     </div>
-    <div class="image-container">
+    <div class="image-container" *appRemoveBelow="500">
       <div>
         <pt-image
           [source]="'assets/images/logo/logo_select_center.png'"
@@ -32,6 +33,7 @@
         />
       </div>
     </div>
+
     <div class="second-part">
       <div class="select-center-container">
         <div class="icon-label">

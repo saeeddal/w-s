@@ -1,0 +1,107 @@
+@use '../colors/index' as *;
+
+/* ====================== p-select / Dropdown ====================== */
+.p-select:not(.p-disabled) .p-select-trigger:hover,
+.p-dropdown:not(.p-disabled) .p-dropdown-trigger:hover {
+  background: $select-bg;
+  border-color: $border-gray-medium;
+}
+
+/* Selected item in the trigger (better selector) */
+.p-select-label.p-focus,
+.p-dropdown-label.p-focus {
+  border-color: $primary; /* usually better to use primary on focus */
+}
+
+/* Options in the dropdown panel */
+.p-select .p-select-item:hover,
+.p-dropdown .p-dropdown-item:hover {
+  background: $select-bg;
+  color: $select-text;
+}
+
+.p-select .p-select-item.p-highlight,
+.p-dropdown .p-dropdown-item.p-highlight {
+  background: $primary-tonal;
+  color: $select-text;
+}
+
+/* Selected + Hover */
+.p-select-item.p-highlight:not(.p-disabled):hover,
+.p-dropdown-item.p-highlight:not(.p-disabled):hover {
+  background: $primary-tonal; /* or a darker/lighter variant if you have one */
+  color: $select-text;
+}
+
+/* Focus state */
+.p-select-item.p-focus,
+.p-dropdown-item.p-focus {
+  box-shadow: inset 0 0 0 1px $primary;
+}
+
+/* ====================== p-multiselect ====================== */
+
+.p-multiselect:not(.p-disabled) .p-multiselect-trigger:hover {
+  background: $select-bg;
+  border-color: $border-gray-medium;
+}
+
+/* Label / Trigger focus */
+.p-multiselect-label-container.p-focus,
+.p-multiselect-label.p-focus {
+  border-color: $primary;
+}
+
+/* Chips (selected items) */
+.p-multiselect-chip {
+  background: $primary-tonal;
+  color: $select-text;
+}
+
+.p-multiselect-chip:hover {
+  background: $primary; /* stronger on hover */
+  color: white; /* adjust if needed */
+}
+
+/* Remove icon on chip */
+.p-multiselect-chip .p-multiselect-chip-icon:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Options in the panel */
+.p-multiselect .p-multiselect-item:hover,
+.p-multiselect .p-multiselect-item:not(.p-highlight):hover {
+  background: $select-bg;
+  color: $select-text;
+}
+
+.p-multiselect .p-multiselect-item.p-highlight {
+  background: $primary-tonal;
+  color: $select-text;
+}
+
+/* Selected + Hover */
+.p-multiselect-item.p-highlight:not(.p-disabled):hover {
+  background: $primary-tonal; /* adjust intensity if you want */
+  color: $select-text;
+}
+
+/* Focus ring inside the list */
+.p-multiselect-item.p-focus {
+  box-shadow: inset 0 0 0 1px $primary;
+}
+
+/* Optional: Header (Select All checkbox area) */
+.p-multiselect-header {
+  border-bottom: 1px solid $border-gray-medium;
+}
+
+/* Make sure your checkbox styles apply inside multiselect */
+.p-multiselect-item .p-checkbox {
+  /* Your existing checkbox rules should cover this */
+}
+
+.p-multiselect-option.p-multiselect-option-selected.p-focus {
+  background: $primary-tonal !important; /* adjust intensity if you want */
+  //color: $select-text !important;
+}

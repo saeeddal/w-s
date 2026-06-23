@@ -13,7 +13,7 @@ import {
 } from '@angular/core';
 import type { ControlValueAccessor } from '@angular/forms';
 import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SelectModule } from 'primeng/select';
+import { MultiSelectModule } from 'primeng/multiselect';
 import { UK_TYPE } from '../../../uk-type';
 import {
   UIKIT_EMPTY_FUNCTION,
@@ -22,21 +22,21 @@ import {
 import { NgTemplateOutlet } from '@angular/common';
 
 @Component({
-  selector: 'pt-select',
+  selector: 'pt-multi-select',
   standalone: true,
-  imports: [SelectModule, FormsModule, NgTemplateOutlet],
-  templateUrl: './select.html',
-  styleUrl: './select.scss',
+  imports: [MultiSelectModule, FormsModule, NgTemplateOutlet],
+  templateUrl: './multi-select.html',
+  styleUrl: './multi-select.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => PtSelect),
+      useExisting: forwardRef(() => PtMultiSelect),
       multi: true,
     },
   ],
 })
-export class PtSelect implements ControlValueAccessor {
+export class PtMultiSelect<T extends { id: number | string }> implements ControlValueAccessor {
   @Input()
   public placeholder = '';
 
@@ -53,7 +53,7 @@ export class PtSelect implements ControlValueAccessor {
   public hasFocus = false;
 
   @Input()
-  public items: any = [];
+  public items: T[] = [];
 
   @Input()
   public bindValue: string | undefined = undefined;
@@ -85,7 +85,7 @@ export class PtSelect implements ControlValueAccessor {
 
   public readonly UK_TYPE = UK_TYPE;
 
-  public innerValue: any = null!;
+  public innerValue: T[] = [];
   public destroyRef = inject(DestroyRef);
   public changeDetectorRef = inject(ChangeDetectorRef);
 

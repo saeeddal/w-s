@@ -2,7 +2,7 @@
 @use './colors' as *;
 @forward './mixins';
 @forward './functions';
-@forward './packages/persian-datepicker.scss';
+@forward './packages';
 @import '@angular/cdk/overlay-prebuilt.css';
 
 input {

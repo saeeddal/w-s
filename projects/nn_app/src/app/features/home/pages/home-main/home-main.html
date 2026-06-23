@@ -21,7 +21,7 @@
   >
   </pt-data-table> -->
 
-  <pt-stepper [steps]="steps" (done)="onComplete()" (stepChange)="stepChange($event)">
+  <!-- <pt-stepper [steps]="steps" (done)="onComplete()" (stepChange)="stepChange($event)">
     <ng-template #step>
       <h2>Step 1: Final Confirmation</h2>
       <p>Your content here...</p>
@@ -29,7 +29,6 @@
 
     <ng-template #step>
       <h2>Step 2: Payment Method</h2>
-      <!-- ... -->
     </ng-template>
 
     <ng-template #step>
@@ -39,5 +38,13 @@
     <ng-template #step>
       <h2>Step 4: Course Selection</h2>
     </ng-template>
-  </pt-stepper>
+  </pt-stepper> -->
+
+  <pt-multi-select
+    [items]="multiSelectItems"
+    bindLabel="title"
+    bindValue="id"
+    [(ngModel)]="selectedFromMultiSelect"
+  >
+  </pt-multi-select>
 </div>

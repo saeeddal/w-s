@@ -12,3 +12,4 @@ export * from './toggle-switch/toggle-switch.component';
 export * from './persian-datepicker/persian-datepicker';
 export * from './data-table/data-table';
 export * from './stepper/stepper';
+export * from './multi-select/multi-select';

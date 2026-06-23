@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/member-ordering */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-console */
 import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
@@ -7,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import {
   PtDataTable,
   PtLabel,
+  PtMultiSelect,
   PtPersianDatepicker,
   PtStepper,
   UK_TYPE,
@@ -39,6 +41,7 @@ interface IUser {
     ReactiveFormsModule,
     PtDataTable,
     PtStepper,
+    PtMultiSelect,
   ],
   templateUrl: './home-main.html',
   changeDetection: ChangeDetectionStrategy.Eager,
@@ -120,6 +123,18 @@ export class HomeMain {
     { title: 'انتخاب دوره 1' },
     { title: 'انتخاب دوره 2' },
   ];
+
+  public multiSelectItems = [
+    { title: 'تثبيت نهائي', id: 1 },
+    { title: 'روش پرداخت', id: 2 },
+    { title: 'همراهان', id: 3 },
+    { title: 'انتخاب دوره 1', id: 4 },
+    { title: 'انتخاب دوره 2', id: 5 },
+  ];
+
+  public selectedFromMultiSelect = [];
+  public multiSelectItems2 = [];
+
   public onComplete() {
     console.log('compleate');
   }

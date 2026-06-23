@@ -1,16 +1,16 @@
-<p-select
-  notFoundText="ایتمی یافت نشد"
-  class="form-element uk-single-select"
+<p-multiselect
+  [options]="items"
+  [(ngModel)]="innerValue"
+  [placeholder]="placeholder"
+  [name]="fieldName"
   [optionLabel]="bindLabel"
   [optionValue]="bindValue"
-  [disabled]="isDisabled"
-  [id]="fieldName"
-  [options]="items"
-  [name]="fieldName"
-  [placeholder]="placeholder"
-  [(ngModel)]="innerValue"
+  [maxSelectedLabels]="3"
+  selectedItemsLabel="{0} ایتم‌های انتخابی "
+  display="chip"
   (ngModelChange)="onModelChange($event)"
   (onBlur)="onTouch()"
+  emptyMessage="ایتمی یافت نشد"
 >
   <ng-template pTemplate="item" let-item>
     <!-- Use custom template if provided, otherwise use default -->
@@ -22,4 +22,8 @@
     </ng-container>
     } @else{ {{item[bindLabel]}} }
   </ng-template>
-</p-select>
+
+  <ng-template pTemplate="emptyfilter">
+    <div class="p-4 text-center">ایتمی وجود ندارد</div>
+  </ng-template>
+</p-multiselect>
