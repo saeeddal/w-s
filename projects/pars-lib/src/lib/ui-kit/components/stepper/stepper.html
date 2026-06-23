@@ -30,9 +30,16 @@
   </div>
 
   <div class="stepper-actions">
-    <button class="btn btn-secondary" (click)="previous()" [disabled]="currentStep() === 0">
+    <pt-button
+      (click)="previous()"
+      [isDisabled]="currentStep() === 0"
+      [fgColor]="UK_TYPE.BUTTON.fgColor.WHITE"
+    >
       قبلی
-    </button>
-    <button class="btn btn-primary" (click)="next()">{{ isLastStep() ? 'تمام' : 'بعدی' }}</button>
+    </pt-button>
+
+    <pt-button (click)="next()" [fgColor]="UK_TYPE.BUTTON.fgColor.WHITE">
+      {{ isLastStep() ? 'تمام' : 'بعدی' }}
+    </pt-button>
   </div>
 </div>

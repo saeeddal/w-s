@@ -21,7 +21,7 @@
   >
   </pt-data-table> -->
 
-  <pt-stepper [steps]="steps" (done)="onComplete()">
+  <pt-stepper [steps]="steps" (done)="onComplete()" (stepChange)="stepChange($event)">
     <ng-template #step>
       <h2>Step 1: Final Confirmation</h2>
       <p>Your content here...</p>

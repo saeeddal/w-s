@@ -123,4 +123,8 @@ export class HomeMain {
   public onComplete() {
     console.log('compleate');
   }
+
+  public stepChange(event: number) {
+    console.log('event in step Change=>', event);
+  }
 }

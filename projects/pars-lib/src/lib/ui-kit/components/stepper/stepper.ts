@@ -1,6 +1,8 @@
 import type { TemplateRef } from '@angular/core';
 import { Component, input, output, signal, contentChildren, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PtButton } from '../button/button.component';
+import { UK_TYPE } from '../../../uk-type';
 
 export interface Step {
   title: string;
@@ -9,13 +11,15 @@ export interface Step {
 @Component({
   selector: 'pt-stepper',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, PtButton],
   templateUrl: './stepper.html',
   styleUrl: './stepper.scss',
 })
 export class PtStepper {
   steps = input.required<Step[]>();
   linear = input(true);
+
+  public readonly UK_TYPE = UK_TYPE;
 
   stepChange = output<number>();
   done = output<void>();
