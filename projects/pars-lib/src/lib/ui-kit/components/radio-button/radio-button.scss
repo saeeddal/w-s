@@ -1,0 +1,106 @@
+@use '../../../../../styles/index.scss' as *;
+
+$size: pxToRem(20);
+$innerSize: pxToRem(14);
+$borderColor: $border-gray-medium;
+$borderColorDisabled: $border-gray-medium;
+$mainColor: $base-light;
+
+$checkMarkBorderWidth: 5px;
+$checkMarkHeight: 10px;
+$checkMarkWidth: 10px;
+$checkMarkBorderColor: $border-gray-medium;
+$checkMarkMultiBorderColor: $base-light;
+$checkMarkBgColor: $primary;
+
+:host {
+  display: inline-block;
+  width: $size;
+  height: $size;
+}
+
+.uk.radio-button {
+  display: inline-block;
+  width: $size;
+  height: $size;
+  position: relative;
+
+  > .check-mark {
+    background-color: $mainColor;
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: solid 2px $borderColor;
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+
+    &.isInVoucherEarn {
+      background-color: transparent;
+      border: solid 2px #d0d5dd;
+    }
+
+    &:after {
+      content: '';
+      transform: rotate(45deg);
+      height: $checkMarkHeight;
+      width: $checkMarkWidth;
+      border: $checkMarkBorderWidth solid $checkMarkBorderColor;
+      border-radius: 100%;
+      position: absolute;
+      left: 4px;
+      top: 4px;
+      display: none;
+    }
+  }
+
+  > input {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    cursor: pointer;
+
+    &:checked ~ .check-mark {
+      border-color: $checkMarkBgColor;
+      border: 6px solid $checkMarkBgColor;
+      text-align: center;
+    }
+
+    &:disabled ~ .check-mark {
+      border-color: $borderColorDisabled;
+      cursor: not-allowed;
+    }
+  }
+
+  &.multi-checked {
+    position: relative;
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      z-index: 2;
+    }
+
+    > .check-mark {
+      border-color: transparent;
+
+      &:after {
+        content: '';
+        border-bottom-color: $checkMarkMultiBorderColor;
+        border-right-color: $checkMarkMultiBorderColor;
+        display: block;
+      }
+    }
+  }
+}

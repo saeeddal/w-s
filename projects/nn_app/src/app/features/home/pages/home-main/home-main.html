@@ -47,4 +47,32 @@
     [(ngModel)]="selectedFromMultiSelect"
   >
   </pt-multi-select>
+  <!--sample checkbox group-->
+  <div class="check-box-group-container">
+    <pt-check-box-group [(ngModel)]="tempValue">
+      <div class="options">
+        @for (item of checkBoxItems; track item) {
+        <div class="option">
+          <pt-check-box [id]="item.id" [disabled]="item.disabled" />
+          <pt-label [fgColor]="UK_TYPE.LABEL.FG_COLOR.TEXT_NORMAL"> {{ item.text }} </pt-label>
+        </div>
+        }
+      </div>
+    </pt-check-box-group>
+  </div>
+  <div class="radio-box-group-container">
+    <pt-radio-button-group
+      [(ngModel)]="tempValueRadioGroup"
+      (ngModelChange)="onSelectFromRadioGroup($event)"
+    >
+      <div class="options">
+        @for (item of checkBoxItems; track item) {
+        <div class="option">
+          <pt-radio-button [disabled]="item.disabled" [id]="item.id" [name]="'singleOptions'" />
+          <pt-label [fgColor]="UK_TYPE.LABEL.FG_COLOR.BLACK"> {{ item.text }} </pt-label>
+        </div>
+        }
+      </div>
+    </pt-radio-button-group>
+  </div>
 </div>

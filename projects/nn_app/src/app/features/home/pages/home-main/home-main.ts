@@ -6,10 +6,14 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import {
+  PtCheckBox,
+  PtCheckBoxGroup,
   PtDataTable,
   PtLabel,
   PtMultiSelect,
   PtPersianDatepicker,
+  PtRadioButton,
+  PtRadioButtonGroup,
   PtStepper,
   UK_TYPE,
 } from '@pars-lib/public-api';
@@ -42,6 +46,10 @@ interface IUser {
     PtDataTable,
     PtStepper,
     PtMultiSelect,
+    PtCheckBoxGroup,
+    PtCheckBox,
+    PtRadioButtonGroup,
+    PtRadioButton,
   ],
   templateUrl: './home-main.html',
   changeDetection: ChangeDetectionStrategy.Eager,
@@ -135,11 +143,36 @@ export class HomeMain {
   public selectedFromMultiSelect = [];
   public multiSelectItems2 = [];
 
+  public tempValue: number[] = [];
+  public tempValueRadioGroup!: number;
+  public disabledLabel = 'disabled';
+  public checkBoxItems: { id: number; text: string; disabled: boolean }[] = [
+    {
+      id: 1,
+      text: 'نقد',
+      disabled: false,
+    },
+    {
+      id: 2,
+      text: 'اقساط',
+      disabled: false,
+    },
+    {
+      id: 3,
+      text: 'رایگان',
+      disabled: true,
+    },
+  ];
+
   public onComplete() {
     console.log('compleate');
   }
 
   public stepChange(event: number) {
     console.log('event in step Change=>', event);
+  }
+
+  public onSelectFromRadioGroup(event: number) {
+    console.log(event);
   }
 }

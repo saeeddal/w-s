@@ -1,0 +1,20 @@
+<div class="uk radio-button">
+  @if (internalValue !== value) {
+  <input
+    id="{{ id }}"
+    name="{{ name }}"
+    type="radio"
+    [disabled]="disabled"
+    [value]="value"
+    [(ngModel)]="internalValue"
+    (blur)="touched()"
+    (change)="onChange()"
+  />
+  } @if (internalValue !== value) {
+  <div class="check-mark" [ngClass]="{ isInVoucherEarn: isInVoucherEarn }"></div>
+  } @if (internalValue === value) {
+  <div class="image-container">
+    <pt-image [source]="'assets/images/mini/checked-radio.svg'" />
+  </div>
+  }
+</div>
