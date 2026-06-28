@@ -1,13 +1,12 @@
 <div class="uk check-box">
-    <input
-        id="{{ id }}"
-        name="{{ name }}"
-        type="checkbox"
-        [disabled]="disabled"
-        [(ngModel)]="value"
-        (blur)="touched()"
-        (change)="onChange()"
-    />
-
-    <div class="check-mark"></div>
+  <input
+    id="{{ id }}"
+    name="{{ name }}"
+    type="checkbox"
+    [disabled]="disabled"
+    [checked]="isChecked"
+    (blur)="touched()"
+    (change)="onChange()"
+  />
+  <div class="check-mark"></div>
 </div>

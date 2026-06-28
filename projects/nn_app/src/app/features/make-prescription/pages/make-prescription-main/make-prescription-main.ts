@@ -29,6 +29,7 @@ import { Router, RouterModule } from '@angular/router';
     PtButton,
     PtImage,
     PtSelect,
+    PtSelect,
     InfoPatient,
   ],
   templateUrl: './make-prescription-main.html',

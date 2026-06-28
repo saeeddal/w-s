@@ -1,3 +1,4 @@
+// check-box.ts
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/member-ordering */
 import { CommonModule } from '@angular/common';
@@ -29,33 +30,32 @@ import {
   ],
 })
 export class PtCheckBox implements ControlValueAccessor, AfterViewInit, OnDestroy {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  private _id: any = `radio-button-${String(Math.floor(Math.random() * 1000) + new Date().getTime())}`;
+  private _id: any = `checkbox-${String(Math.floor(Math.random() * 1000) + new Date().getTime())}`;
   private readonly checkboxGroup = inject(PtCheckBoxGroup, { optional: true });
-
   private subscription: Subscription = null!;
+  private readonly changeDetectorRef = inject(ChangeDetectorRef);
 
   @Input()
   public name = `check-box-group-${this.id}`;
 
   @Input()
-  public value: any;
+  public value: any; // This is the checkbox VALUE (what gets stored in the group)
 
   @Input()
   public disabled = false;
 
-  public internalValue!: any;
+  // This is the CHECKED state
+  public isChecked = false;
+
   public changed = UIKIT_EMPTY_FUNCTION_UNI_ARGUMENT;
   public touched = UIKIT_EMPTY_FUNCTION;
-
-  private readonly changeDetectorRef = inject(ChangeDetectorRef);
 
   @Input()
   public set id(v: any) {
     this._id = v;
-
+    // CRITICAL: Set the value to the id when it's provided
+    this.value = v;
     if (this.checkboxGroup) {
-      this.internalValue = v;
       this.changeDetectorRef.markForCheck();
     }
   }
@@ -65,14 +65,26 @@ export class PtCheckBox implements ControlValueAccessor, AfterViewInit, OnDestro
   }
 
   public onChange(): void {
-    const val = this.value;
+    // When checkbox is clicked, toggle the checked state
+    this.isChecked = !this.isChecked;
 
-    this.changed(val);
-    this.checkboxGroup?.update(this.id);
+    // Emit the value (not the checked state)
+    this.changed(this.value);
+    this.checkboxGroup?.update(this.value);
+
+    this.changeDetectorRef.markForCheck();
   }
 
-  public writeValue(value: boolean): void {
-    this.value = value;
+  public writeValue(value: any): void {
+    // CRITICAL FIX: Value comes from the group - this is the array of selected values
+    if (this.checkboxGroup) {
+      // Check if this checkbox's value is in the group's selected values
+      this.isChecked = Array.isArray(value) ? value.includes(this.value) : false;
+    } else {
+      // Standalone mode - value is boolean
+      this.isChecked = !!value;
+    }
+    this.changeDetectorRef.markForCheck();
   }
 
   public registerOnChange(fn: any): void {
@@ -85,16 +97,19 @@ export class PtCheckBox implements ControlValueAccessor, AfterViewInit, OnDestro
 
   public setDisabledState(disabled: boolean): void {
     this.disabled = disabled;
+    this.changeDetectorRef.markForCheck();
   }
 
   public ngAfterViewInit(): void {
     if (this.checkboxGroup) {
-      this.subscription = this.checkboxGroup.onGroupChange.subscribe((ids: any[]) => {
-        if (ids?.length >= 0) {
-          this.value = ids.includes(this.internalValue);
-          this.changeDetectorRef.markForCheck();
-        }
+      this.subscription = this.checkboxGroup.onGroupChange.subscribe((selectedValues: any[]) => {
+        // Update checked state based on group's selected values
+        this.isChecked = Array.isArray(selectedValues)
+          ? selectedValues.includes(this.value)
+          : false;
+        this.changeDetectorRef.markForCheck();
       });
+      // Initial sync
       this.checkboxGroup.emit();
     }
   }

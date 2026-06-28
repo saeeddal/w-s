@@ -1,17 +1,18 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+// check-box-group.ts
 /* eslint-disable @typescript-eslint/member-ordering */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, forwardRef } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  forwardRef,
+  ChangeDetectorRef,
+  inject,
+} from '@angular/core';
 import type { ControlValueAccessor } from '@angular/forms';
 import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Subject } from 'rxjs';
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const CHECK_BOX_GROUP_VALUE_ACCESSOR: any = {
-  provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => PtCheckBoxGroup),
-  multi: true,
-};
 
 @Component({
   selector: 'pt-check-box-group',
@@ -19,22 +20,31 @@ const CHECK_BOX_GROUP_VALUE_ACCESSOR: any = {
   templateUrl: './check-box-group.html',
   styleUrls: ['./check-box-group.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [CHECK_BOX_GROUP_VALUE_ACCESSOR],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => PtCheckBoxGroup),
+      multi: true,
+    },
+  ],
 })
 export class PtCheckBoxGroup implements ControlValueAccessor {
   private _internalValue: any[] = [];
-  private onChange!: (m: any) => void;
-  private onTouched!: (m: any) => void;
+  private onChange!: (value: any[]) => void;
+  private onTouched!: () => void;
+  private cdr = inject(ChangeDetectorRef);
 
-  public onGroupChange = new Subject<any>();
+  public onGroupChange = new Subject<any[]>();
 
   public get model(): any[] {
     return this._internalValue;
   }
 
   public writeValue(value: any[]): void {
-    this._internalValue = value;
-    this.onGroupChange.next(this._internalValue);
+    this._internalValue = Array.isArray(value) ? [...value] : [];
+    // Emit the updated values to all child checkboxes
+    this.onGroupChange.next([...this._internalValue]);
+    this.cdr.markForCheck();
   }
 
   public registerOnChange(fn: any): void {
@@ -45,14 +55,19 @@ export class PtCheckBoxGroup implements ControlValueAccessor {
     this.onTouched = fn;
   }
 
+  public setDisabledState(disabled: boolean): void {
+    // Handle disabled state if needed
+  }
+
   public set(value: any[]): void {
-    this._internalValue = value;
+    this._internalValue = Array.isArray(value) ? [...value] : [];
     this.onChange(this._internalValue);
-    this.onGroupChange.next(value);
+    this.onGroupChange.next([...this._internalValue]);
+    this.cdr.markForCheck();
   }
 
   public emit(): void {
-    this.onGroupChange.next(this._internalValue);
+    this.onGroupChange.next([...this._internalValue]);
   }
 
   public update(value: any): void {
@@ -64,6 +79,10 @@ export class PtCheckBoxGroup implements ControlValueAccessor {
       this._internalValue.splice(index, 1);
     }
 
-    this.onChange(this._internalValue);
+    // Notify Angular forms
+    this.onChange([...this._internalValue]);
+    // Notify child checkboxes
+    this.onGroupChange.next([...this._internalValue]);
+    this.cdr.markForCheck();
   }
 }

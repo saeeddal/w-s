@@ -1,7 +1,13 @@
 /* eslint-disable @typescript-eslint/member-ordering */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-console */
-import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
+import {
+  Component,
+  ChangeDetectionStrategy,
+  signal,
+  inject,
+  ChangeDetectorRef,
+} from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -57,6 +63,7 @@ interface IUser {
 })
 export class HomeMain {
   public readonly UK_TYPE = UK_TYPE;
+  private readonly changeDetectorRef = inject(ChangeDetectorRef);
   public myDate = signal(new Date());
   public myDate2 = new FormControl(new Date());
   public selectedUser: IUser | null = null;
@@ -143,10 +150,34 @@ export class HomeMain {
   public selectedFromMultiSelect = [];
   public multiSelectItems2 = [];
 
-  public tempValue: number[] = [];
+  public selectedValues = [1, 2];
+  //public tempValue: any = null!;
   public tempValueRadioGroup!: number;
   public disabledLabel = 'disabled';
-  public checkBoxItems: { id: number; text: string; disabled: boolean }[] = [
+  public checkBoxItems: { value: number; label: string; disabled: boolean }[] = [
+    {
+      value: 1,
+      label: 'نقد',
+      disabled: false,
+    },
+    {
+      value: 2,
+      label: 'اقساط',
+      disabled: false,
+    },
+    {
+      value: 3,
+      label: 'رایگان',
+      disabled: false,
+    },
+    {
+      value: 4,
+      label: 'جدید و دیزیبل',
+      disabled: true,
+    },
+  ];
+
+  public radioBoxItems: { id: number; text: string; disabled: boolean }[] = [
     {
       id: 1,
       text: 'نقد',
@@ -160,6 +191,11 @@ export class HomeMain {
     {
       id: 3,
       text: 'رایگان',
+      disabled: false,
+    },
+    {
+      id: 4,
+      text: 'جدید و دیزیبل',
       disabled: true,
     },
   ];
@@ -170,9 +206,5 @@ export class HomeMain {
 
   public stepChange(event: number) {
     console.log('event in step Change=>', event);
-  }
-
-  public onSelectFromRadioGroup(event: number) {
-    console.log(event);
   }
 }
