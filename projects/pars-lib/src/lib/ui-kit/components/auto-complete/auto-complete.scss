@@ -1,0 +1,46 @@
+@use '../../../../../styles/index.scss' as *;
+// auto-complete.scss
+.pt-auto-complete {
+  width: 100%;
+
+  :host ::ng-deep {
+    .p-autocomplete {
+      width: 100%;
+    }
+
+    .p-autocomplete-input {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid $border-gray-medium;
+      border-radius: 4px;
+      transition: border-color 0.2s;
+
+      &:focus {
+        border-color: $primary-tonal-hover;
+        outline: none;
+        box-shadow: 0 0 0 2px $color-border-accent-medium;
+      }
+    }
+
+    .p-autocomplete-dropdown {
+      background: #f8f9fa;
+      border: 1px solid #ced4da;
+      border-left: none;
+      border-radius: 0 4px 4px 0;
+
+      &:hover {
+        background: #e9ecef;
+      }
+    }
+
+    .autocomplete-item {
+      padding: 8px 12px;
+      cursor: pointer;
+      transition: background 0.2s;
+
+      &:hover {
+        background: #f0f0f0;
+      }
+    }
+  }
+}

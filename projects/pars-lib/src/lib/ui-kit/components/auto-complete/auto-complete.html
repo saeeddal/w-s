@@ -1,0 +1,24 @@
+<!-- auto-complete.html -->
+<div class="pt-auto-complete">
+  <!-- [loading]="isLoading()" -->
+  <p-autocomplete
+    [(ngModel)]="value"
+    [suggestions]="items()"
+    [placeholder]="placeholder()"
+    [minLength]="minLength()"
+    [delay]="delay()"
+    (completeMethod)="onSearch($event)"
+    (onSelect)="onSelect($event)"
+    (onClear)="onClear()"
+    [dropdown]="true"
+    [showClear]="true"
+    [emptyMessage]="'نتیجه‌ای یافت نشد'"
+    [forceSelection]="false"
+  >
+    <!-- قالبی برای نمایش آیتم‌ها (اختیاری) -->
+    <ng-template pTemplate="item" let-item>
+      <div class="autocomplete-item">{{ item }}</div>
+    </ng-template>
+  </p-autocomplete>
+</div>
+items()=>{{items()}}

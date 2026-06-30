@@ -17,3 +17,4 @@ export * from './check-box/check-box';
 export * from './check-box-group/check-box-group';
 export * from './radio-button/radio-button';
 export * from './radio-button-group/radio-button-group';
+export * from './auto-complete/auto-complete';

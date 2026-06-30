@@ -13,7 +13,7 @@
     [totalRecords]="totalItems()"
     [rows]="pageSize()"
     [rowsPerPageOptions]="[5, 10, 20, 50, 100]"
-    [selectionMode]="UK_TYPE.DATA_TABLE.SELECTION_TYPE.SINGLE"
+    [selectionMode]="UK_TYPE.DATA_TABLE.SELECTION_TYPE.NONE"
     [dataKey]="'id'"
     (pageChanged)="onPageChanged($event)"
     (selectionChanged)="onSelectionChanged($event)"
@@ -73,4 +73,16 @@
     </pt-radio-button-group>
     tempValueRadioGroup=> {{tempValueRadioGroup}}
   </div>
+  <article class="autocompleate-container">
+    <pt-auto-complete
+      [items]="suggestionAutoCompletes()"
+      [loading]="isLoading()"
+      [placeholder]="'شروع به تایپ کنید...'"
+      [minLength]="1"
+      (searchEvent)="search($event)"
+      (changeValue)="onValueChange($event)"
+    />
+    <hr />
+    suggestionAutoCompletes()=>{{suggestionAutoCompletes()}}
+  </article>
 </div>
