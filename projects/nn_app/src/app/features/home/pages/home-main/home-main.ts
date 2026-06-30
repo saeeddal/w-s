@@ -1,13 +1,7 @@
 /* eslint-disable @typescript-eslint/member-ordering */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-console */
-import {
-  Component,
-  ChangeDetectionStrategy,
-  signal,
-  inject,
-  ChangeDetectorRef,
-} from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal, inject } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -23,9 +17,12 @@ import {
   PtStepper,
   UK_TYPE,
   PtAutoComplete,
+  PtButton,
 } from '@pars-lib/public-api';
 import type { Product } from '../../helpers/mock-data';
 import { MockCols, MockDataTable } from '../../helpers/mock-data';
+import { SampleComponent } from '../../components/sample-component/sample-component';
+import { AppDialogService } from '@app/shared/services/dialog.service';
 interface IUser {
   id: number;
   firstName: string;
@@ -58,6 +55,7 @@ interface IUser {
     PtRadioButtonGroup,
     PtRadioButton,
     PtAutoComplete,
+    PtButton,
   ],
   templateUrl: './home-main.html',
   changeDetection: ChangeDetectionStrategy.Eager,
@@ -65,7 +63,6 @@ interface IUser {
 })
 export class HomeMain {
   public readonly UK_TYPE = UK_TYPE;
-  private readonly changeDetectorRef = inject(ChangeDetectorRef);
   public myDate = signal(new Date());
   public myDate2 = new FormControl(new Date());
   public selectedUser: IUser | null = null;
@@ -209,6 +206,7 @@ export class HomeMain {
   public stepChange(event: number) {
     console.log('event in step Change=>', event);
   }
+
   private allItems = signal<string[]>(['1', '11', '12', '2', '22', '3', '33', '4', '44', '5']);
   public suggestionAutoCompletes = signal<string[]>([]);
   public selectedValue = signal<string | null>(null);
@@ -246,5 +244,171 @@ export class HomeMain {
     if (value) {
       // مثلاً ذخیره در دیتابیس
     }
+  }
+
+  //for dialog
+  //private dialogService = inject(DialogService);
+
+  private appDialogService = inject(AppDialogService);
+  // Signal for storing results
+  lastResult = signal<any>(null);
+  /**
+   * Open basic dialog with component
+   */
+  public openBasicDialog() {
+    const ref = this.appDialogService.open(SampleComponent, {
+      header: 'View User',
+      width: '500px',
+      showHeader: true,
+      showFooter: false,
+      data: {
+        mode: 'view from openBasicDialog',
+      },
+    });
+
+    ref?.onClose.subscribe((result) => {
+      console.log('Dialog closed:', result);
+      this.lastResult.set(result);
+    });
+  }
+
+  /**
+   * Open dialog with footer actions
+   */
+  openDialogWithFooter() {
+    const ref = this.appDialogService.open(SampleComponent, {
+      header: 'Edit User',
+      width: '600px',
+      showHeader: true,
+      showFooter: true,
+      data: {
+        mode: 'edit',
+      },
+    });
+
+    ref?.onClose.subscribe((result) => {
+      this.lastResult.set(result);
+
+      // Check close state
+      if (result?.action === 'save') {
+        console.log('✅ Data saved:', result.data);
+        // Show success message
+      } else if (result?.action === 'cancel') {
+        console.log('❌ Operation cancelled');
+      } else if (result?.action === 'close') {
+        console.log('❌ Dialog closed');
+      }
+    });
+  }
+
+  /**
+   * Open dialog with save (component internal buttons)
+   */
+  openDialogWithSave() {
+    const ref = this.appDialogService.open(SampleComponent, {
+      header: 'Create User',
+      width: '600px',
+      showHeader: true,
+      showFooter: false,
+      data: {
+        mode: 'create',
+      },
+    });
+
+    ref?.onClose.subscribe((result) => {
+      this.lastResult.set(result);
+
+      // Check close state from component
+      if (result?.action === 'save') {
+        console.log('✅ User created:', result.data);
+        // Handle user creation
+      } else if (result?.action === 'cancel') {
+        console.log('❌ Creation cancelled');
+      }
+    });
+  }
+
+  /**
+   * NEW: Open text-only dialog
+   */
+  openTextDialog() {
+    const ref = this.appDialogService.openText(
+      'This is a simple text dialog. You can pass any text content here.\n\n' +
+        'It supports multi-line text and can be used for notifications, confirmations, or info messages.',
+      {
+        header: 'Information',
+        width: '500px',
+        showHeader: true,
+        showFooter: false,
+      },
+    );
+
+    ref?.onClose.subscribe((result) => {
+      console.log('Text dialog closed:', result);
+      this.lastResult.set(result);
+    });
+  }
+
+  /**
+   * NEW: Open text dialog with footer actions
+   */
+  openTextDialogWithFooter() {
+    const ref = this.appDialogService.openText(
+      'Are you sure you want to proceed with this action?\n\n' + 'This operation cannot be undone.',
+      {
+        header: 'Confirm Action',
+        width: '500px',
+        showHeader: true,
+        showFooter: true,
+      },
+    );
+
+    ref?.onClose.subscribe((result) => {
+      this.lastResult.set(result);
+
+      if (result?.action === 'save') {
+        console.log('✅ User confirmed action');
+        // Proceed with action
+      } else if (result?.action === 'cancel') {
+        console.log('❌ User cancelled action');
+      }
+    });
+  }
+
+  /**
+   * Open with custom close state from component
+   */
+  openDialogWithCustomState() {
+    const ref = this.appDialogService.open(SampleComponent, {
+      header: 'Custom State Demo',
+      width: '600px',
+      showHeader: true,
+      showFooter: false,
+      data: {
+        mode: 'edit',
+      },
+    });
+
+    ref?.onClose.subscribe((result) => {
+      this.lastResult.set(result);
+
+      // Handle different close states
+      switch (result?.action) {
+        case 'save':
+          console.log('✅ Saved:', result.data);
+          break;
+        case 'cancel':
+          console.log('❌ Cancelled');
+          break;
+        case 'close':
+          console.log('❌ Closed');
+          break;
+        case 'dismiss':
+          console.log('❌ Dismissed (clicked outside)');
+          break;
+        default:
+          console.log('❌ Unknown action:', result);
+      }
+    });
   }
 }

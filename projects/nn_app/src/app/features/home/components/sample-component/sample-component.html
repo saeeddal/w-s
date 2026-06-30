@@ -1,0 +1,20 @@
+<div class="sample-content">
+  <p>Mode: <strong>{{ mode() }}</strong></p>
+
+  <!-- Internal action buttons -->
+  <div class="action-buttons">
+    <p-button
+      label="Cancel"
+      severity="secondary"
+      (onClick)="onCancel()"
+      styleClass="p-button-sm"
+    ></p-button>
+    <p-button
+      label="Save"
+      severity="primary"
+      icon="pi pi-check"
+      (onClick)="onSave()"
+      styleClass="p-button-sm"
+    ></p-button>
+  </div>
+</div>

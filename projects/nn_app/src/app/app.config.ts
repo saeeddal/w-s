@@ -17,6 +17,7 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { authInterceptor, getTokenInterceptor } from './core/interceptors';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
+import { DialogService } from 'primeng/dynamicdialog';
 
 export const APP_CONFIG: ApplicationConfig = {
   providers: [
@@ -53,5 +54,6 @@ export const APP_CONFIG: ApplicationConfig = {
         noFilter: 'فیلتر نشود',
       },
     }),
+    DialogService,
   ],
 };

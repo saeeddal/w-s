@@ -1,0 +1,68 @@
+.dynamic-dialog-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: 90vh;
+}
+
+.header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--p-gray-200);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--p-gray-800);
+}
+
+.content {
+  flex: 1;
+  overflow: auto;
+  padding: 24px;
+}
+
+.text-content {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--p-gray-700);
+  white-space: pre-wrap;
+}
+
+.footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--p-gray-200);
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  flex-shrink: 0;
+  background: var(--p-gray-50);
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: var(--p-gray-500);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover {
+  background-color: var(--p-gray-200);
+}
+
+::ng-deep .p-button.p-button-sm {
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+}

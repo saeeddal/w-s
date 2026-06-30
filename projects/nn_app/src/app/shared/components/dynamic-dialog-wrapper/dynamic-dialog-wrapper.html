@@ -1,0 +1,38 @@
+<div class="dynamic-dialog-wrapper">
+  <!-- Header -->
+  @if (showHeader()) {
+    <div class="header">
+      <h3>{{ header() }}</h3>
+      <button
+        (click)="close({ action: 'close' })"
+        class="close-btn"
+        type="button"
+        aria-label="Close dialog"
+      >
+        <i class="pi pi-times"></i>
+      </button>
+    </div>
+  }
+
+  <!-- Dynamic Content -->
+  <div #componentHost class="content">
+    <!-- For text content -->
+    @if (isTextContent()) {
+      <div class="text-content">
+        {{ textContent() }}
+      </div>
+    }
+  </div>
+
+  <!-- Footer -->
+  @if (showFooter()) {
+    <div class="footer">
+      <p-button styleClass="p-button-sm" severity="secondary" (onClick)="cancel()">
+        Cancel
+      </p-button>
+      <p-button styleClass="p-button-sm" severity="primary" icon="pi pi-check" (onClick)="save()">
+        Save
+      </p-button>
+    </div>
+  }
+</div>
