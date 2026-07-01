@@ -1,10 +1,20 @@
 /* eslint-disable @typescript-eslint/member-ordering */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { OnInit, ComponentRef, Type } from '@angular/core';
-import { Component, ViewChild, ViewContainerRef, signal, inject } from '@angular/core';
+import type { OnInit, ComponentRef, Type, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  ViewChild,
+  ViewContainerRef,
+  signal,
+  inject,
+  ChangeDetectorRef,
+  ElementRef,
+  Renderer2,
+} from '@angular/core';
 import { DynamicDialogRef, DynamicDialogConfig } from 'primeng/dynamicdialog';
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
+import { PtButton, PtIcon, PtLabel, UK_TYPE } from '@pars-lib/public-api';
 
 export type DialogContent = Type<any> | string;
 
@@ -25,13 +35,18 @@ export interface DialogWrapperConfig {
 @Component({
   selector: 'app-dynamic-dialog-wrapper',
   standalone: true,
-  imports: [CommonModule, ButtonModule],
+  imports: [CommonModule, ButtonModule, PtLabel, PtIcon, PtButton],
   templateUrl: './dynamic-dialog-wrapper.html',
   styleUrl: './dynamic-dialog-wrapper.scss',
 })
-export class DynamicDialogWrapperComponent implements OnInit {
+export class DynamicDialogWrapperComponent implements OnInit, AfterViewInit {
+  // ⭐ IMPORTANT: ViewChild for the container
   @ViewChild('componentHost', { read: ViewContainerRef, static: true })
   container!: ViewContainerRef;
+
+  // ⭐ NEW: Reference to the host element
+  @ViewChild('componentHost', { read: ElementRef, static: true })
+  hostElement!: ElementRef;
 
   // Signals for internal state
   header = signal<string>('Dialog');
@@ -39,21 +54,27 @@ export class DynamicDialogWrapperComponent implements OnInit {
   showFooter = signal<boolean>(false);
   isTextContent = signal<boolean>(false);
   textContent = signal<string>('');
+  cancelTitle = signal<string>('انصراف');
+  saveTitle = signal<string>('ذخیره');
 
   private ref = inject(DynamicDialogRef);
   private config = inject(DynamicDialogConfig);
+  private cdr = inject(ChangeDetectorRef);
+  private renderer = inject(Renderer2);
+
+  public readonly UK_TYPE = UK_TYPE;
 
   private componentRef?: ComponentRef<any>;
   private componentInstance?: any;
 
   ngOnInit() {
     const data = this.config.data || {};
-
     // Set header
-    this.header.set(data.header || 'Dialog');
+    this.header.set(data.header || '');
     this.showHeader.set(data.showHeader ?? true);
     this.showFooter.set(data.showFooter ?? data.showFooterAction ?? false);
-
+    this.cancelTitle.set(data.cancelTitle || 'انصراف');
+    this.saveTitle.set(data.saveTitle || 'ذخیره');
     // Handle content
     const content = data.content;
 
@@ -61,33 +82,77 @@ export class DynamicDialogWrapperComponent implements OnInit {
       // Text content
       this.isTextContent.set(true);
       this.textContent.set(content);
-    } else if (content && this.container) {
-      // Component content
+    } else if (content) {
+      // Component content - will be created in ngAfterViewInit
       this.isTextContent.set(false);
+      // ⭐ Store the component to create it after view init
       this.createComponent(content, data.componentData || {});
     } else if (data.component) {
-      // Backward compatibility: component in componentData
+      // Backward compatibility
       this.isTextContent.set(false);
       this.createComponent(data.component, data.componentData || {});
     }
   }
 
-  /**
-   * Create dynamic component
-   */
+  ngAfterViewInit() {
+    this.cdr.detectChanges();
+  }
+
   private createComponent(component: Type<any>, componentData: any) {
     if (!this.container) {
       return;
     }
 
-    this.componentRef = this.container.createComponent(component);
-    this.componentInstance = this.componentRef.instance;
+    try {
+      // ⭐ Clear any existing content
+      this.container.clear();
 
-    // ✅ Use setInput - clean and works with all input types
-    if (componentData) {
-      for (const [key, value] of Object.entries(componentData)) {
-        this.componentRef.setInput(key, value);
+      // ⭐ Create component in the container
+      this.componentRef = this.container.createComponent(component);
+      this.componentInstance = this.componentRef.instance;
+
+      // Set inputs
+      if (componentData) {
+        for (const [key, value] of Object.entries(componentData)) {
+          if (this.componentRef) {
+            this.componentRef.setInput(key, value);
+          }
+        }
       }
+
+      // ⭐ CRITICAL: Get the native element and move it into the host
+      const componentElement = this.componentRef.location.nativeElement;
+      const hostElement = this.hostElement.nativeElement;
+
+      // ⭐ Ensure the component is inside the host element
+      if (componentElement.parentElement !== hostElement) {
+        // If the component is not inside the host, move it there
+        this.renderer.appendChild(hostElement, componentElement);
+      }
+
+      // ⭐ Apply styles to ensure it takes full space
+      this.renderer.setStyle(componentElement, 'display', 'block');
+      this.renderer.setStyle(componentElement, 'width', '100%');
+      this.renderer.setStyle(componentElement, 'height', '100%');
+      this.renderer.setStyle(componentElement, 'min-height', '100px');
+
+      // Setup event listeners
+      this.setupComponentCommunication();
+
+      this.cdr.detectChanges();
+    } catch (error) {
+      this.isTextContent.set(true);
+      this.textContent.set('Error loading component');
+      this.cdr.detectChanges();
+    }
+  }
+
+  /**
+   * Setup communication with the dynamic component
+   */
+  private setupComponentCommunication() {
+    if (!this.componentInstance) {
+      return;
     }
 
     // Listen for close/save/cancel events from component
@@ -97,15 +162,15 @@ export class DynamicDialogWrapperComponent implements OnInit {
       });
     }
 
-    if (this.componentInstance.saveDialog) {
-      this.componentInstance.saveDialog.subscribe((data: any) => {
-        this.save(data);
-      });
-    }
-
     if (this.componentInstance.cancelDialog) {
       this.componentInstance.cancelDialog.subscribe(() => {
         this.cancel();
+      });
+    }
+
+    if (this.componentInstance.saveDialog) {
+      this.componentInstance.saveDialog.subscribe((data?: any) => {
+        this.save(data);
       });
     }
 
@@ -113,21 +178,18 @@ export class DynamicDialogWrapperComponent implements OnInit {
     if (this.componentInstance.setDialogWrapper) {
       this.componentInstance.setDialogWrapper(this);
     }
+
+    // ⭐ Provide dialog actions to component
+    if (this.componentInstance.getDialogActions) {
+      this.componentInstance.getDialogActions({
+        save: this.save.bind(this),
+        cancel: this.cancel.bind(this),
+        close: this.close.bind(this),
+      });
+    }
   }
 
-  /**
-   * Save - validates and closes with save state
-   */
   save(data?: any) {
-    // If component has validation, check it
-    if (this.componentInstance?.validateData) {
-      const validation = this.componentInstance.validateData();
-      if (!validation.valid) {
-        return;
-      }
-    }
-
-    // Get data from component if not provided
     const dialogData = data || this.componentInstance?.getDialogData?.() || null;
     this.close({
       action: 'save',
@@ -136,9 +198,6 @@ export class DynamicDialogWrapperComponent implements OnInit {
     });
   }
 
-  /**
-   * Cancel - closes with cancel state
-   */
   cancel() {
     this.close({
       action: 'cancel',
@@ -146,11 +205,7 @@ export class DynamicDialogWrapperComponent implements OnInit {
     });
   }
 
-  /**
-   * Close dialog with result
-   */
   close(result?: DialogResult | any) {
-    // Ensure result has action if not provided
     if (result && typeof result === 'object' && !result.action) {
       result = { action: 'close', data: result };
     }
@@ -158,24 +213,29 @@ export class DynamicDialogWrapperComponent implements OnInit {
     // Clean up component
     if (this.componentRef) {
       this.componentRef.destroy();
+      this.componentRef = undefined;
+      this.componentInstance = undefined;
     }
-    this.ref.close(result);
+
+    this.ref.close(result || { action: 'close' });
   }
 
   /**
-   * Get component instance
+   * ⭐ NEW: Get the component instance
    */
   getComponentInstance() {
     return this.componentInstance;
   }
 
   /**
-   * Call a method on the component
+   * ⭐ NEW: Update component data dynamically
    */
-  callComponentMethod(methodName: string, ...args: any[]) {
-    if (this.componentInstance && typeof this.componentInstance[methodName] === 'function') {
-      return this.componentInstance[methodName](...args);
+  updateComponentData(data: any) {
+    if (this.componentRef && data) {
+      for (const [key, value] of Object.entries(data)) {
+        this.componentRef.setInput(key, value);
+      }
+      this.cdr.detectChanges();
     }
-    return null;
   }
 }

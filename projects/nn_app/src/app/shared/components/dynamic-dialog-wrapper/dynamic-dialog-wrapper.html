@@ -1,38 +1,47 @@
 <div class="dynamic-dialog-wrapper">
   <!-- Header -->
   @if (showHeader()) {
-    <div class="header">
-      <h3>{{ header() }}</h3>
-      <button
-        (click)="close({ action: 'close' })"
-        class="close-btn"
-        type="button"
-        aria-label="Close dialog"
-      >
-        <i class="pi pi-times"></i>
-      </button>
-    </div>
+  <div class="header">
+    <pt-label
+      [size]="UK_TYPE.LABEL.SIZE.MEDIUM"
+      [fgColor]="UK_TYPE.LABEL.FG_COLOR.PRIMARY"
+      [weight]="UK_TYPE.LABEL.WEIGHT.BOLD"
+      >{{ header() }}</pt-label
+    >
+    <pt-icon
+      (click)="close({ action: 'close' })"
+      src="assets/images/icons/close_icon.svg"
+      [size]="UK_TYPE.ICON.SIZE.LARGER"
+    ></pt-icon>
+  </div>
   }
 
   <!-- Dynamic Content -->
   <div #componentHost class="content">
     <!-- For text content -->
     @if (isTextContent()) {
-      <div class="text-content">
-        {{ textContent() }}
-      </div>
+    <div class="text-content">{{ textContent() }}</div>
     }
   </div>
 
   <!-- Footer -->
   @if (showFooter()) {
-    <div class="footer">
-      <p-button styleClass="p-button-sm" severity="secondary" (onClick)="cancel()">
-        Cancel
-      </p-button>
-      <p-button styleClass="p-button-sm" severity="primary" icon="pi pi-check" (onClick)="save()">
-        Save
-      </p-button>
-    </div>
+  <div class="footer">
+    <pt-button
+      (click)="cancel()"
+      [bgColor]="UK_TYPE.BUTTON.bgColor.TRANSPARENT"
+      [borderColor]="UK_TYPE.BUTTON.borderColor.COLOR_BUTTON_BORDER_GRAY_MEDIUM"
+      [fgColor]="UK_TYPE.LABEL.FG_COLOR.TEXT_NORMAL"
+    >
+      {{cancelTitle()}}
+    </pt-button>
+    <pt-button
+      (click)="save()"
+      [bgColor]="UK_TYPE.BUTTON.bgColor.BUTTON_PRIMARY"
+      [fgColor]="UK_TYPE.LABEL.FG_COLOR.WHITE"
+    >
+      {{saveTitle()}}
+    </pt-button>
+  </div>
   }
 </div>

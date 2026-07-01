@@ -16,8 +16,12 @@ export interface DialogConfig {
   closable?: boolean;
   showHeader?: boolean;
   showFooter?: boolean;
+  draggable?: boolean;
+
   // New: content can be component or text
   content?: DialogContent;
+  saveTitle?: string;
+  cancelTitle?: string;
 }
 
 @Injectable({ providedIn: 'root' })
@@ -35,12 +39,15 @@ export class AppDialogService {
       dismissableMask: config.dismissableMask !== undefined ? config.dismissableMask : true,
       closable: config.closable !== undefined ? config.closable : true,
       contentStyle: { padding: '0', 'border-radius': '8px' },
+      draggable: true,
       data: {
         header: config.header || 'Dialog',
         content: content, // Pass content (component or string)
         componentData: config.data || {},
         showFooterAction: config.showFooter ?? config.data?.showFooterAction,
         showHeader: config.showHeader ?? config.data?.showHeader,
+        cancelTitle: config.cancelTitle,
+        saveTitle: config.saveTitle,
       },
     });
 

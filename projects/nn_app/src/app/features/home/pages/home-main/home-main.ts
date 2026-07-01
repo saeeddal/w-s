@@ -77,12 +77,12 @@ export class HomeMain {
 
   // Event handlers
   onRowSelect(event: any) {
-    console.log('Row selected:', event);
+    console.warn('Row selected:', event);
   }
 
   onRowSelected(event: any) {
     this.selectedUser = event.data;
-    console.log('User selected:', this.selectedUser);
+    console.warn('User selected:', this.selectedUser);
   }
 
   // Handle page changes from the table
@@ -108,25 +108,25 @@ export class HomeMain {
   }
 
   onFilterChange(event: any) {
-    console.log('Filter changed:', event);
+    console.warn('Filter changed:', event);
   }
 
   onSortChange(event: any) {
-    console.log('Sort changed:', event);
+    console.warn('Sort changed:', event);
   }
 
   onColumnResize(event: any) {
-    console.log('Column resized:', event);
+    console.warn('Column resized:', event);
   }
 
   onExportData() {
-    console.log('Exporting data...');
+    console.warn('Exporting data...');
     alert('Data exported successfully! (Mock)');
   }
 
   // Handle row selection
   public onSelectionChanged(data: Product | Product[] | null): void {
-    console.log('Selected product:', data);
+    console.warn('Selected product:', data);
   }
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
@@ -200,18 +200,18 @@ export class HomeMain {
   ];
 
   public onComplete() {
-    console.log('compleate');
+    console.warn('compleate');
   }
 
   public stepChange(event: number) {
-    console.log('event in step Change=>', event);
+    console.warn('event in step Change=>', event);
   }
 
   private allItems = signal<string[]>(['1', '11', '12', '2', '22', '3', '33', '4', '44', '5']);
   public suggestionAutoCompletes = signal<string[]>([]);
   public selectedValue = signal<string | null>(null);
   public search(query: string | null): void {
-    console.log('جستجو:', query);
+    console.warn('جستجو:', query);
 
     if (!query || query.trim().length === 0) {
       // اگر جستجو خالی بود، هیچ چیزی نشون نده
@@ -232,12 +232,12 @@ export class HomeMain {
     setTimeout(() => {
       this.suggestionAutoCompletes.set(filtered);
       this.isLoading.set(false);
-      console.log('نتایج:', filtered);
+      console.warn('نتایج:', filtered);
     }, 300);
   }
   // وقتی مقدار انتخاب شد
   public onValueChange(value: string | null): void {
-    console.log('مقدار انتخاب شده:', value);
+    console.warn('مقدار انتخاب شده:', value);
     this.selectedValue.set(value);
 
     // می‌تونی کاری که میخوای انجام بدی
@@ -258,16 +258,20 @@ export class HomeMain {
   public openBasicDialog() {
     const ref = this.appDialogService.open(SampleComponent, {
       header: 'View User',
-      width: '500px',
       showHeader: true,
       showFooter: false,
+      draggable: true,
+      dismissableMask: true,
+      saveTitle: 'ذخیره سفارشی',
+      cancelTitle: 'کنسل سفارشی',
+
       data: {
         mode: 'view from openBasicDialog',
       },
     });
 
     ref?.onClose.subscribe((result) => {
-      console.log('Dialog closed:', result);
+      console.warn('Dialog closed:', result);
       this.lastResult.set(result);
     });
   }
@@ -291,39 +295,12 @@ export class HomeMain {
 
       // Check close state
       if (result?.action === 'save') {
-        console.log('✅ Data saved:', result.data);
+        console.warn('✅ Data saved:', result.data);
         // Show success message
       } else if (result?.action === 'cancel') {
-        console.log('❌ Operation cancelled');
+        console.warn('❌ Operation cancelled');
       } else if (result?.action === 'close') {
-        console.log('❌ Dialog closed');
-      }
-    });
-  }
-
-  /**
-   * Open dialog with save (component internal buttons)
-   */
-  openDialogWithSave() {
-    const ref = this.appDialogService.open(SampleComponent, {
-      header: 'Create User',
-      width: '600px',
-      showHeader: true,
-      showFooter: false,
-      data: {
-        mode: 'create',
-      },
-    });
-
-    ref?.onClose.subscribe((result) => {
-      this.lastResult.set(result);
-
-      // Check close state from component
-      if (result?.action === 'save') {
-        console.log('✅ User created:', result.data);
-        // Handle user creation
-      } else if (result?.action === 'cancel') {
-        console.log('❌ Creation cancelled');
+        console.warn('❌ Dialog closed');
       }
     });
   }
@@ -344,7 +321,7 @@ export class HomeMain {
     );
 
     ref?.onClose.subscribe((result) => {
-      console.log('Text dialog closed:', result);
+      console.warn('Text dialog closed:', result);
       this.lastResult.set(result);
     });
   }
@@ -360,6 +337,8 @@ export class HomeMain {
         width: '500px',
         showHeader: true,
         showFooter: true,
+        cancelTitle: 'انصراف سفارشی',
+        saveTitle: 'ثبت سفارشی',
       },
     );
 
@@ -367,10 +346,10 @@ export class HomeMain {
       this.lastResult.set(result);
 
       if (result?.action === 'save') {
-        console.log('✅ User confirmed action');
+        console.warn('✅ User confirmed action');
         // Proceed with action
       } else if (result?.action === 'cancel') {
-        console.log('❌ User cancelled action');
+        console.warn('❌ User cancelled action');
       }
     });
   }
@@ -395,19 +374,19 @@ export class HomeMain {
       // Handle different close states
       switch (result?.action) {
         case 'save':
-          console.log('✅ Saved:', result.data);
+          console.warn('✅ Saved:', result.data);
           break;
         case 'cancel':
-          console.log('❌ Cancelled');
+          console.warn('❌ Cancelled');
           break;
         case 'close':
-          console.log('❌ Closed');
+          console.warn('❌ Closed');
           break;
         case 'dismiss':
-          console.log('❌ Dismissed (clicked outside)');
+          console.warn('❌ Dismissed (clicked outside)');
           break;
         default:
-          console.log('❌ Unknown action:', result);
+          console.warn('❌ Unknown action:', result);
       }
     });
   }

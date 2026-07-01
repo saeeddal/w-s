@@ -19,38 +19,17 @@ export interface DialogResult {
   styleUrl: './sample-component.scss',
 })
 export class SampleComponent {
-  // Signal inputs
   mode = input<string>('mode');
-
-  // Signal outputs with DialogResult
   closeDialog = output<DialogResult>();
-  saveDialog = output<any>();
-  cancelDialog = output<void>();
-
-  /**
-   * Handle Save - closes with save state
-   */
   onSave() {
-    this.saveDialog.emit(true);
+    // do internal task finally call closeWithState
+    this.closeWithState('save');
   }
 
-  /**
-   * Handle Cancel - closes with cancel state
-   */
   onCancel() {
-    // Emit cancel event
-    this.cancelDialog.emit();
-
-    // Alternative: Close directly with state
-    // this.closeDialog.emit({
-    //   action: 'cancel',
-    //   message: 'Operation cancelled'
-    // });
+    this.closeWithState('close');
   }
 
-  /**
-   * Direct close with custom state
-   */
   closeWithState(action: 'save' | 'cancel' | 'close', data?: any, message?: string) {
     this.closeDialog.emit({
       action,

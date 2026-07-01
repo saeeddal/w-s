@@ -13,15 +13,15 @@
     [totalRecords]="totalItems()"
     [rows]="pageSize()"
     [rowsPerPageOptions]="[5, 10, 20, 50, 100]"
-    [selectionMode]="UK_TYPE.DATA_TABLE.SELECTION_TYPE.NONE"
+    [selectionMode]="UK_TYPE.DATA_TABLE.SELECTION_TYPE.MULTIPLE"
     [dataKey]="'id'"
     (pageChanged)="onPageChanged($event)"
     (selectionChanged)="onSelectionChanged($event)"
     [customizeColumn]="true"
   >
-  </pt-data-table>
+  </pt-data-table> -->
 
-  <pt-stepper [steps]="steps" (done)="onComplete()" (stepChange)="stepChange($event)">
+  <!-- <pt-stepper [steps]="steps" (done)="onComplete()" (stepChange)="stepChange($event)">
     <ng-template #step>
       <h2>Step 1: Final Confirmation</h2>
       <p>Your content here...</p>
@@ -90,8 +90,6 @@
       <!-- Component dialogs -->
       <button (click)="openBasicDialog()">Open Basic Dialog</button>
       <button (click)="openDialogWithFooter()">Open Dialog With Footer</button>
-      <button (click)="openDialogWithSave()">Open Dialog With Save</button>
-
       <!-- Text dialogs (NEW) -->
       <button (click)="openTextDialog()">Open Text Dialog</button>
       <button (click)="openTextDialogWithFooter()">Open Text Dialog With Footer</button>
