@@ -6,6 +6,5 @@ export interface IColumn {
   filterType?: 'text' | 'boolean' | 'select' | 'multiselect';
   matchMode?: string;
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  options?: any[]; // for select/multiselect
+  options?: unknown[]; // for select/multiselect
 }

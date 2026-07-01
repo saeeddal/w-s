@@ -14,32 +14,17 @@ import {
 import { DynamicDialogRef, DynamicDialogConfig } from 'primeng/dynamicdialog';
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
-import { PtButton, PtIcon, PtLabel, UK_TYPE } from '@pars-lib/public-api';
-
-export type DialogContent = Type<any> | string;
-
-export interface DialogResult {
-  action: 'save' | 'cancel' | 'close' | 'dismiss';
-  data?: any;
-  message?: string;
-}
-
-export interface DialogWrapperConfig {
-  header?: string;
-  showHeader?: boolean;
-  showFooter?: boolean;
-  content?: DialogContent;
-  componentData?: any;
-}
+import type { IDialogResult } from '../../../../public-api';
+import { PtButton, PtIcon, PtLabel, UK_TYPE } from '../../../../public-api';
 
 @Component({
-  selector: 'app-dynamic-dialog-wrapper',
+  selector: 'pt-dynamic-dialog-wrapper',
   standalone: true,
   imports: [CommonModule, ButtonModule, PtLabel, PtIcon, PtButton],
   templateUrl: './dynamic-dialog-wrapper.html',
   styleUrl: './dynamic-dialog-wrapper.scss',
 })
-export class DynamicDialogWrapperComponent implements OnInit, AfterViewInit {
+export class PtDynamicDialogWrapper implements OnInit, AfterViewInit {
   // ⭐ IMPORTANT: ViewChild for the container
   @ViewChild('componentHost', { read: ViewContainerRef, static: true })
   container!: ViewContainerRef;
@@ -157,7 +142,7 @@ export class DynamicDialogWrapperComponent implements OnInit, AfterViewInit {
 
     // Listen for close/save/cancel events from component
     if (this.componentInstance.closeDialog) {
-      this.componentInstance.closeDialog.subscribe((result: DialogResult | any) => {
+      this.componentInstance.closeDialog.subscribe((result: IDialogResult | any) => {
         this.close(result);
       });
     }
@@ -205,7 +190,7 @@ export class DynamicDialogWrapperComponent implements OnInit, AfterViewInit {
     });
   }
 
-  close(result?: DialogResult | any) {
+  close(result?: IDialogResult | any) {
     if (result && typeof result === 'object' && !result.action) {
       result = { action: 'close', data: result };
     }

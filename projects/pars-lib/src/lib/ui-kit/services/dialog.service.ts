@@ -3,7 +3,7 @@
 import type { Type } from '@angular/core';
 import { Injectable, inject } from '@angular/core';
 import { DialogService } from 'primeng/dynamicdialog';
-import { DynamicDialogWrapperComponent } from '../components/dynamic-dialog-wrapper/dynamic-dialog-wrapper';
+import { PtDynamicDialogWrapper } from '../components';
 
 export type DialogContent = Type<any> | string;
 
@@ -25,14 +25,14 @@ export interface DialogConfig {
 }
 
 @Injectable({ providedIn: 'root' })
-export class AppDialogService {
+export class PtDialogService {
   private dialogService = inject(DialogService);
 
   /**
    * Open a dialog with dynamic content (component or text)
    */
   open(content: DialogContent, config: DialogConfig = {}) {
-    const ref = this.dialogService.open(DynamicDialogWrapperComponent, {
+    const ref = this.dialogService.open(PtDynamicDialogWrapper, {
       showHeader: false,
       width: config.width || '720px',
       styleClass: config.styleClass || 'app-custom-dialog',

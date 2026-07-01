@@ -18,11 +18,12 @@ import {
   UK_TYPE,
   PtAutoComplete,
   PtButton,
+  PtDialogService,
 } from '@pars-lib/public-api';
 import type { Product } from '../../helpers/mock-data';
 import { MockCols, MockDataTable } from '../../helpers/mock-data';
 import { SampleComponent } from '../../components/sample-component/sample-component';
-import { AppDialogService } from '@app/shared/services/dialog.service';
+
 interface IUser {
   id: number;
   firstName: string;
@@ -249,7 +250,7 @@ export class HomeMain {
   //for dialog
   //private dialogService = inject(DialogService);
 
-  private appDialogService = inject(AppDialogService);
+  private appDialogService = inject(PtDialogService);
   // Signal for storing results
   lastResult = signal<any>(null);
   /**
@@ -282,7 +283,7 @@ export class HomeMain {
   openDialogWithFooter() {
     const ref = this.appDialogService.open(SampleComponent, {
       header: 'Edit User',
-      width: '600px',
+      // width: '600px',
       showHeader: true,
       showFooter: true,
       data: {

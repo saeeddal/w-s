@@ -18,3 +18,4 @@ export * from './check-box-group/check-box-group';
 export * from './radio-button/radio-button';
 export * from './radio-button-group/radio-button-group';
 export * from './auto-complete/auto-complete';
+export * from './dynamic-dialog-wrapper/dynamic-dialog-wrapper';
