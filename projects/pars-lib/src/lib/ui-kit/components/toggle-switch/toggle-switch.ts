@@ -13,8 +13,8 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 @Component({
   selector: 'pt-toggle-switch',
   standalone: true,
-  templateUrl: './toggle-switch.component.html',
-  styleUrl: './toggle-switch.component.scss',
+  templateUrl: './toggle-switch.html',
+  styleUrl: './toggle-switch.scss',
   changeDetection: ChangeDetectionStrategy.Eager,
   providers: [
     {

@@ -16,11 +16,10 @@ import type {
   ButtonHeight,
   ButtonPadding,
   ButtonType,
-  ButtonUkType} from './_/button.type';
-import {
-  UkButtonDisplay,
+  ButtonUkType,
 } from './_/button.type';
-import { PtLabel } from '../label/label.component';
+import { UkButtonDisplay } from './_/button.type';
+import { PtLabel } from '../label/label';
 import DEFAULT from '../../prepared-config';
 import { UK_TYPE } from '../../../uk-type';
 

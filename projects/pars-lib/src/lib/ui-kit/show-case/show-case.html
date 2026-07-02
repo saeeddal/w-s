@@ -1,0 +1,20 @@
+<div class="pt-buttons">
+  <pt-button (click)="loadComponent(1)">label</pt-button>
+  <pt-button (click)="loadComponent(2)">pt-buttons</pt-button>
+  <pt-button (click)="loadComponent(3)">input</pt-button>
+  <pt-button (click)="loadComponent(4)"
+    >radio and radio group checkbox and checkbox group</pt-button
+  >
+  <pt-button (click)="loadComponent(5)">dataGride</pt-button>
+  <pt-button (click)="loadComponent(6)">dateTime picker</pt-button>
+  <pt-button (click)="loadComponent(7)">stepper</pt-button>
+  <pt-button (click)="loadComponent(8)">auto Complete</pt-button>
+  <pt-button (click)="loadComponent(9)">single select</pt-button>
+  <pt-button (click)="loadComponent(10)">multi select</pt-button>
+  <pt-button (click)="loadComponent(11)">image</pt-button>
+  <pt-button (click)="loadComponent(12)">icon</pt-button>
+  <pt-button (click)="loadComponent(13)">divider</pt-button>
+  <pt-button (click)="loadComponent(14)">toggle switch</pt-button>
+</div>
+<!-- Dynamic Component -->
+<ng-container *ngComponentOutlet="currentComponent()" />

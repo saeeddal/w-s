@@ -15,19 +15,17 @@ import type {
   LabelTypography,
   LabelVerticalAlignment,
   LabelWeight,
-  LineHeight} from './_/label.type';
-import {
-  UkLabelDisplay,
-  UkLineHeight,
+  LineHeight,
 } from './_/label.type';
+import { UkLabelDisplay, UkLineHeight } from './_/label.type';
 import DEFAULT from '../../prepared-config';
 
 @Component({
   selector: 'pt-label',
   imports: [CommonModule],
-  templateUrl: './label.component.html',
+  templateUrl: './label.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  styleUrl: './label.component.scss',
+  styleUrl: './label.scss',
 })
 export class PtLabel {
   @Input()

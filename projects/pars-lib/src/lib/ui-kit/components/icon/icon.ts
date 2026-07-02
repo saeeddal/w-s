@@ -8,9 +8,9 @@ import type { IconSize } from './_/icon-size';
 @Component({
   selector: 'pt-icon',
   imports: [CommonModule],
-  templateUrl: './icon.component.html',
+  templateUrl: './icon.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  styleUrl: './icon.component.scss',
+  styleUrl: './icon.scss',
 })
 export class PtIcon {
   @Input()

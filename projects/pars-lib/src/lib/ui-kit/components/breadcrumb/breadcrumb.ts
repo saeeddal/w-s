@@ -2,7 +2,7 @@ import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { BreadcrumbService } from '../../services';
-import { PtLabel } from '../label/label.component';
+import { PtLabel } from '../label/label';
 import { UK_TYPE } from '../../../uk-type';
 
 @Component({

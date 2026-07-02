@@ -19,6 +19,7 @@ import {
   PtAutoComplete,
   PtButton,
   PtDialogService,
+  PtShowCase,
 } from '@pars-lib/public-api';
 import type { Product } from '../../helpers/mock-data';
 import { MockCols, MockDataTable } from '../../helpers/mock-data';
@@ -57,6 +58,7 @@ interface IUser {
     PtRadioButton,
     PtAutoComplete,
     PtButton,
+    PtShowCase,
   ],
   templateUrl: './home-main.html',
   changeDetection: ChangeDetectionStrategy.Eager,

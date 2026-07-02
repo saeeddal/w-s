@@ -1,5 +1,7 @@
 <div class="comp loan-list">
   <pt-label> دکتر خوش آمدید </pt-label>
+
+  <pt-show-case></pt-show-case>
   <!-- <pt-persian-datepicker
     [calendarType]="UK_TYPE.DATE_PICKER.TYPE.JALALI"
     [format]="UK_TYPE.DATE_PICKER.FORMAT.DATE_DASH"
@@ -85,21 +87,20 @@
     <hr />
     suggestionAutoCompletes()=>{{suggestionAutoCompletes()}}
   </article> -->
-  <article>
+  <!-- <article>
     <div class="dialog-buttons">
-      <!-- Component dialogs -->
+
       <button (click)="openBasicDialog()">Open Basic Dialog</button>
       <button (click)="openDialogWithFooter()">Open Dialog With Footer</button>
-      <!-- Text dialogs (NEW) -->
       <button (click)="openTextDialog()">Open Text Dialog</button>
       <button (click)="openTextDialogWithFooter()">Open Text Dialog With Footer</button>
     </div>
-    <!-- Display results -->
+
     @if (lastResult()) {
     <div class="result">
       <h4>Last Result:</h4>
       <pre>{{ lastResult() | json }}</pre>
     </div>
     }
-  </article>
+  </article> -->
 </div>

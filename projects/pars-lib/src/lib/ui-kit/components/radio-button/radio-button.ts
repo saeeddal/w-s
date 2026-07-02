@@ -16,7 +16,7 @@ import type { ControlValueAccessor } from '@angular/forms';
 import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import type { Subscription } from 'rxjs';
 
-import { PtImage } from '../image/image.component';
+import { PtImage } from '../image/image';
 import { PtRadioButtonGroup } from '../radio-button-group/radio-button-group';
 import {
   UIKIT_EMPTY_FUNCTION,

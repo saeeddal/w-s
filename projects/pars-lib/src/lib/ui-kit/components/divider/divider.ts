@@ -7,9 +7,9 @@ import DEFAULT from '../../prepared-config';
 @Component({
   selector: 'pt-divider',
   imports: [CommonModule],
-  templateUrl: './divider.component.html',
+  templateUrl: './divider.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  styleUrl: './divider.component.scss',
+  styleUrl: './divider.scss',
 })
 export class PtDivider {
   @Input()

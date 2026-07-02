@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-import { PtLabel } from '../label/label.component';
+import { PtLabel } from '../label/label';
 import { UK_TYPE } from '../../../uk-type';
 
 @Component({

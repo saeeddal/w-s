@@ -2,23 +2,16 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import type {
-  ImageBgColor,
-  ImageObjectFit,
-  ImagePadding} from './_/image.type';
-import {
-  UkImageBgColor,
-  UkImageObjectFit,
-  UkImagePadding,
-} from './_/image.type';
+import type { ImageBgColor, ImageObjectFit, ImagePadding } from './_/image.type';
+import { UkImageBgColor, UkImageObjectFit, UkImagePadding } from './_/image.type';
 import DEFAULT from '../../prepared-config';
 
 @Component({
   selector: 'pt-image',
   imports: [CommonModule, FormsModule],
-  templateUrl: './image.component.html',
+  templateUrl: './image.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  styleUrl: './image.component.scss',
+  styleUrl: './image.scss',
 })
 export class PtImage {
   @Input()

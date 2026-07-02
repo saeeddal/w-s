@@ -22,7 +22,7 @@ export const BASE_LAYOUT_ROUTES: Routes = [
       },
       {
         path: '',
-        canActivate: [authGuard, selectCenterGuard],
+        // canActivate: [authGuard, selectCenterGuard],
         children: [
           {
             path: '',
