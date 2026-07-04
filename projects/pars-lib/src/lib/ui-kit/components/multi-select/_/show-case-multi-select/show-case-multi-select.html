@@ -1,0 +1,26 @@
+<div class="select-showcase" dir="ltr">
+  <h3>pt-multi-select Component Examples</h3>
+  <section>
+    <pre><code>
+
+    &lt;pt-multi-select
+      [items]="multiSelectItems"
+      bindLabel="title"
+      bindValue="id"
+      [(ngModel)]="selectedFromMultiSelect"
+    &gt;
+    &lt;/pt-multi-select&gt;
+
+    </code></pre>
+
+    <pt-multi-select
+      [items]="multiSelectItems"
+      bindLabel="title"
+      bindValue="id"
+      [(ngModel)]="selectedFromMultiSelect"
+    >
+    </pt-multi-select>
+    <br />
+    selectedFromMultiSelect => {{selectedFromMultiSelect}}
+  </section>
+</div>

@@ -1,0 +1,52 @@
+<div class="select-showcase" dir="ltr">
+  <h3>pt-select Component Examples</h3>
+
+  <section>
+    <pre><code>
+    &lt;pt-select
+      bindLabel="hchrDescParent"
+      placeholder="انتخاب مرکز درمان"
+      [items]="medicalCenters "
+      [(ngModel)]="selectedCenter"
+    / &gt;
+      
+  
+    </code></pre>
+    <p>sample pt-select it gets full available width which get whole object</p>
+    <pt-select
+      bindLabel="hchrDescParent"
+      placeholder="انتخاب مرکز درمان"
+      [items]="medicalCenters "
+      [(ngModel)]="selectedCenter"
+    />
+    <br />
+    selectedCenter=>{{selectedCenter() | json}}
+  </section>
+
+  <section>
+    <pre><code>
+    &lt;pt-select
+      bindLabel="hchrDescParent"
+      placeholder="انتخاب مرکز درمان"
+      [items]="medicalCenters "
+      [(ngModel)]="selectedCenter"
+      bindLabel="mcntTitle"
+      bindValue="mcntCnt"
+    / &gt;
+      
+  
+    </code></pre>
+    <p>sample pt-select it gets full available width with bind value</p>
+    <pt-select
+      bindLabel="hchrDescParent"
+      placeholder="انتخاب مرکز درمان"
+      [items]="medicalCenters "
+      [(ngModel)]="selectedCenter2"
+      bindLabel="mcntTitle"
+      bindValue="mcntCnt"
+    />
+    <br />
+
+    selectedCenter2 which bind to mcntCnt =>{{selectedCenter2() }}
+  </section>
+</div>

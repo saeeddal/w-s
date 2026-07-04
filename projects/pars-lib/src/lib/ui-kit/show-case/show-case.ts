@@ -60,16 +60,21 @@ export class PtShowCase {
         ).PtShowCaseAutoComplete;
         break;
       case 10:
-        component = (await import('../components/auto-complete/auto-complete')).PtAutoComplete;
+        component = (await import('../components/select/_/show-case-select/show-case-select'))
+          .PtShowCaseSelect;
         break;
       case 11:
-        component = (await import('../components/select/select')).PtSelect;
+        component = (
+          await import('../components/multi-select/_/show-case-multi-select/show-case-multi-select')
+        ).PtShowCaseMultiSelect;
         break;
       case 12:
-        component = (await import('../components/multi-select/multi-select')).PtMultiSelect;
+        component = (await import('../components/image/_/show-case-image/show-case-image'))
+          .PtShowCaseImage;
         break;
       case 13:
-        component = (await import('../components/image/image')).PtImage;
+        component = (await import('../components/icon/_/show-case-icon/show-case-icon'))
+          .PtShowCaseIcon;
         break;
       case 14:
         component = (await import('../components/select/select')).PtSelect;

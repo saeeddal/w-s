@@ -1,0 +1,23 @@
+@use '../../../../../../../styles/index.scss' as *;
+
+.select-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 8px;
+}
+.select-showcase section {
+  background-color: $base-background_normal;
+  padding: 2px;
+  border-radius: 8px;
+  overflow-y: visible;
+  border: 1px solid #e0e0e0;
+  font-size: 14px;
+  margin: 8px;
+  padding: 8px;
+}
+
+.select-showcase code {
+  font-family: ui-monospace, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', monospace;
+  white-space: pre;
+}

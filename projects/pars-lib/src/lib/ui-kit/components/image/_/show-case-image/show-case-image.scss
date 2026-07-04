@@ -1,0 +1,31 @@
+@use '../../../../../../../styles/index.scss' as *;
+
+.pt-image-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 8px;
+}
+.image-showcase section {
+  background-color: $base-background_normal;
+  padding: 2px;
+  border-radius: 8px;
+  overflow-y: visible;
+  border: 1px solid #e0e0e0;
+  font-size: 14px;
+  margin: 8px;
+  padding: 8px;
+}
+
+.image-showcase code {
+  font-family: ui-monospace, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', monospace;
+  white-space: pre;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: pxToRem(300);
+  height: pxToRem(300);
+}
