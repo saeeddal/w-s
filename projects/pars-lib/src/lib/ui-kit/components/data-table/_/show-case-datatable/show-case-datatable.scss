@@ -1,12 +1,12 @@
 @use '../../../../../../../styles/index.scss' as *;
 
-.label-container {
+.datatable-container {
   display: flex;
   flex-direction: column;
   justify-content: start;
   gap: 8px;
 }
-.label-showcase section {
+.datatable-showcase section {
   background-color: $base-background_normal;
   padding: 2px;
   border-radius: 8px;
@@ -15,7 +15,7 @@
   font-size: 14px;
 }
 
-.label-showcase code {
+.datatable-showcase code {
   font-family: ui-monospace, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', monospace;
   white-space: pre;
 }

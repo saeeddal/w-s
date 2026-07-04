@@ -1,0 +1,30 @@
+<div class="autocomplete-showcase" dir="ltr">
+  <h3>pt-autocomplete Component Examples</h3>
+  <pre><code>
+    &lt;pt-auto-complete
+      [items]="suggestionAutoCompletes()"
+      [loading]="isLoading()"
+      [placeholder]="'شروع به تایپ کنید...'"
+      [minLength]="1"
+      (searchEvent)="search($event)"
+      (changeValue)="onValueChange($event)"
+  /&gt;
+  
+  </code></pre>
+  <p>
+    sample pt-autocomplete which allItems are ['1', '11', '12', '2', '22', '3', '33', '4', '44',
+    '5']
+  </p>
+  <article class="autocompleate-container">
+    <pt-auto-complete
+      [items]="suggestionAutoCompletes()"
+      [loading]="isLoading()"
+      [placeholder]="'شروع به تایپ کنید...'"
+      [minLength]="1"
+      (searchEvent)="search($event)"
+      (changeValue)="onValueChange($event)"
+    />
+
+    suggestionAutoCompletes()=>{{suggestionAutoCompletes()}}
+  </article>
+</div>

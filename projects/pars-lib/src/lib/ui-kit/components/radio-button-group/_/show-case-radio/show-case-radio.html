@@ -1,0 +1,35 @@
+<div class="radio-showcase" dir="ltr">
+  <h3>pt-radio Component Examples</h3>
+
+  <section>
+    <pre><code>
+  
+        &lt;pt-radio-button-group [(ngModel)]="tempValueRadioGroup"&gt;
+        &lt;div class="options"&gt;
+          @for (item of radioBoxItems; track item) {
+          &lt;div class="option"&gt;
+            &lt;pt-radio-button [disabled]="item.disabled" [id]="item.id" [name]="'singleOptions'" /&gt;
+            &lt;pt-label [fgColor]="UK_TYPE.LABEL.FG_COLOR.BLACK"> {{ item.text }} &lt;/pt-label&gt;
+          &lt;/div&gt;
+          }
+        &lt;/div&gt;
+      &lt;/pt-radio-button-group&gt;
+  
+    </code></pre>
+    <p>sample inout which includes icon, consider default it gets full available width</p>
+
+    <div class="radio-box-group-container">
+      <pt-radio-button-group [(ngModel)]="tempValueRadioGroup">
+        <div class="options">
+          @for (item of radioBoxItems; track item) {
+          <div class="option">
+            <pt-radio-button [disabled]="item.disabled" [id]="item.id" [name]="'singleOptions'" />
+            <pt-label [fgColor]="UK_TYPE.LABEL.FG_COLOR.BLACK"> {{ item.text }} </pt-label>
+          </div>
+          }
+        </div>
+      </pt-radio-button-group>
+      tempValueRadioGroup=> {{tempValueRadioGroup}}
+    </div>
+  </section>
+</div>

@@ -1,0 +1,31 @@
+<div class="input-showcase" dir="ltr">
+  <h3>pt-input Component Examples</h3>
+
+  <section>
+    <pre><code>
+  
+       &lt;pt-input
+        placeholder="کدملی"
+        [inputType]="UK_TYPE.INPUT.TYPE.TEXT"
+        [maxLength]="11"
+        (ON_BLUR)="onInputBlur($event)"
+      &gt;
+        &lt;pt-icon
+          END
+          src="assets/images/icons/close_icon.svg"
+          [size]="UK_TYPE.ICON.SIZE.MEDIUM"
+        &gt;&lt;/pt-icon&gt;
+      &lt;/pt-input&gt;
+  
+    </code></pre>
+    <p>sample inout which includes icon, consider default it gets full available width</p>
+
+    <pt-input placeholder="کدملی" [inputType]="UK_TYPE.INPUT.TYPE.TEXT" [maxLength]="11">
+      <pt-icon
+        END
+        src="assets/images/icons/close_icon.svg"
+        [size]="UK_TYPE.ICON.SIZE.MEDIUM"
+      ></pt-icon>
+    </pt-input>
+  </section>
+</div>

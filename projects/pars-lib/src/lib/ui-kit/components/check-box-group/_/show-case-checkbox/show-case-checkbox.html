@@ -1,0 +1,37 @@
+<div class="checkbox-showcase" dir="ltr">
+  <h3>pt-checkbox Component Examples</h3>
+
+  <section>
+    <pre><code>
+ 
+   &lt;div class="check-box-group-container"&gt;
+    &lt;pt-check-box-group [(ngModel)]="selectedValues"&gt;
+      &lt;div class="options"&gt;
+        @for (item of checkBoxItems; track item) {
+       &lt;div class="option"&gt;
+          &lt;pt-check-box [id]="item.value" [disabled]="item.disabled" /&gt;
+          &lt;pt-label [fgColor]="UK_TYPE.LABEL.FG_COLOR.TEXT_NORMAL"&gt; {{ item.label }} &lt;/pt-label&gt;
+        &lt;/div&gt;
+        }
+      &lt;/div&gt;
+    &lt;/pt-check-box-group&gt;
+  &lt;/div&gt; 
+  
+    </code></pre>
+    <p>sample inout which includes icon, consider default it gets full available width</p>
+
+    <div class="check-box-group-container">
+      <pt-check-box-group [(ngModel)]="selectedValues">
+        <div class="options">
+          @for (item of checkBoxItems; track item) {
+          <div class="option">
+            <pt-check-box [id]="item.value" [disabled]="item.disabled" />
+            <pt-label [fgColor]="UK_TYPE.LABEL.FG_COLOR.TEXT_NORMAL"> {{ item.label }} </pt-label>
+          </div>
+          }
+        </div>
+      </pt-check-box-group>
+      selectedValues=> {{selectedValues}}
+    </div>
+  </section>
+</div>

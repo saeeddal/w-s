@@ -1,0 +1,45 @@
+@use '../../../../../../../styles/index.scss' as *;
+
+.checkbox-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 8px;
+}
+.checkbox-showcase section {
+  background-color: $base-background_normal;
+  padding: 2px;
+  border-radius: 8px;
+  overflow-x: auto;
+  border: 1px solid #e0e0e0;
+  font-size: 14px;
+}
+
+.checkbox-showcase code {
+  font-family: ui-monospace, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', monospace;
+  white-space: pre;
+}
+
+.checkbox-box-group-container {
+  margin: pxToRem(16);
+  width: pxToRem(200);
+  .options {
+    display: flex;
+    flex-direction: row;
+    .option {
+      width: 100%;
+    }
+  }
+}
+
+.check-box-group-container {
+  margin: pxToRem(16);
+  width: pxToRem(200);
+  .options {
+    display: flex;
+    flex-direction: row;
+    .option {
+      width: 100%;
+    }
+  }
+}

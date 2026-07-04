@@ -1,0 +1,79 @@
+<div class="datatable-showcase" dir="ltr">
+  <h3>pt-datatable Component Examples</h3>
+
+  <section>
+    <pre><code>
+ 
+      &lt;pt-data-table
+      [items]="mockData"
+      [cols]="mockCols"
+      [isLoading]="isLoading()"
+      [totalRecords]="totalItems()"
+      [rows]="pageSize()"
+      [rowsPerPageOptions]="[5, 10, 20, 50, 100]"
+      [selectionMode]="UK_TYPE.DATA_TABLE.SELECTION_TYPE.MULTIPLE"
+      [dataKey]="'id'"
+      (pageChanged)="onPageChanged($event)"
+      (selectionChanged)="onSelectionChanged($event)"
+      [customizeColumn]="true"
+    &gt;
+    &lt;/pt-data-table&gt;
+    </code></pre>
+    <p>sample data table with [selectionMode]="UK_TYPE.DATA_TABLE.SELECTION_TYPE.MULTIPLE"</p>
+    <pt-data-table
+      [items]="mockData"
+      [cols]="mockCols"
+      [isLoading]="isLoading()"
+      [totalRecords]="totalItems()"
+      [rows]="pageSize()"
+      [rowsPerPageOptions]="[5, 10, 20, 50, 100]"
+      [selectionMode]="UK_TYPE.DATA_TABLE.SELECTION_TYPE.MULTIPLE"
+      [dataKey]="'id'"
+      (pageChanged)="onPageChanged($event)"
+      (selectionChanged)="onSelectionChanged($event)"
+      [customizeColumn]="true"
+    >
+    </pt-data-table>
+  </section>
+
+  <section>
+    <pre><code>
+ 
+      &lt;pt-data-table
+      [items]="mockData"
+      [cols]="mockColsWithoutFilterAndSort"
+      [isLoading]="true"
+      [totalRecords]="totalItems()"
+      [rows]="pageSize()"
+      [rowsPerPageOptions]="[5, 10, 20, 50, 100]"
+      [selectionMode]="UK_TYPE.DATA_TABLE.SELECTION_TYPE.NONE"
+      [dataKey]="'id'"
+      (pageChanged)="onPageChanged($event)"
+      (selectionChanged)="onSelectionChanged($event)"
+      [customizeColumn]="false"
+      [showPaginator]="false"
+    &gt;
+    &lt;/pt-data-table&gt;
+    </code></pre>
+    <p>
+      sample data table with [selectionMode]="UK_TYPE.DATA_TABLE.SELECTION_TYPE.NONE" and loading
+      and [customizeColumn]="false" besides without sort and filterable columns plus
+      showPaginator=false
+    </p>
+    <pt-data-table
+      [items]="mockData"
+      [cols]="mockColsWithoutFilterAndSort"
+      [isLoading]="true"
+      [totalRecords]="totalItems()"
+      [rows]="pageSize()"
+      [rowsPerPageOptions]="[5, 10, 20, 50, 100]"
+      [selectionMode]="UK_TYPE.DATA_TABLE.SELECTION_TYPE.NONE"
+      [dataKey]="'id'"
+      (pageChanged)="onPageChanged($event)"
+      (selectionChanged)="onSelectionChanged($event)"
+      [customizeColumn]="false"
+      [showPaginator]="false"
+    >
+    </pt-data-table>
+  </section>
+</div>

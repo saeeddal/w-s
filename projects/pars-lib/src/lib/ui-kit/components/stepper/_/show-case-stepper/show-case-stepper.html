@@ -1,0 +1,43 @@
+<div class="datepicker-showcase" dir="ltr">
+  <h3>pt-checkbox Component Examples</h3>
+  <section>
+    <pre><code>
+       &lt;pt-stepper [steps]="steps" (done)="onComplete()" (stepChange)="stepChange($event)"&gt;
+         &lt;ng-template #step&gt;
+          &lt;h2>Step 1 :first &lt;/h2&gt;
+           &lt;p>step 1 container &lt;/p&gt;
+         &lt;/ng-template&gt;
+
+         &lt;ng-template #step&gt;
+           &lt;h2&gt;Step 2: Payment Method &lt;/h2&gt;
+           &lt;p&gt;step 2 container &lt;/p&gt;
+         &lt;/ng-template&gt;
+
+         &lt;ng-template #step&gt;
+           &lt;h2&gt;Step 3: Companions &lt;/h2&gt;
+           &lt;p&gt;step 3 container &lt;/p&gt;
+         &lt;/ng-template&gt;
+       &lt;/pt-stepper&gt;
+  
+    </code></pre>
+    <p>sample pt-persian-datepicker without time</p>
+    <div dir="rtl">
+      <pt-stepper [steps]="steps" (done)="onComplete()" (stepChange)="stepChange($event)">
+        <ng-template #step>
+          <h2>Step 1 :first</h2>
+          <p>step 1 container</p>
+        </ng-template>
+
+        <ng-template #step>
+          <h2>Step 2: Payment Method</h2>
+          <p>step 2 container</p>
+        </ng-template>
+
+        <ng-template #step>
+          <h2>Step 3: Companions</h2>
+          <p>step 3 container</p>
+        </ng-template>
+      </pt-stepper>
+    </div>
+  </section>
+</div>

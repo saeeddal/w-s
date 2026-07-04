@@ -1,0 +1,37 @@
+<div class="datepicker-showcase" dir="ltr">
+  <h3>pt-checkbox Component Examples</h3>
+  <section>
+    <pre><code>
+ 
+      &lt;pt-persian-datepicker
+      [calendarType]="UK_TYPE.DATE_PICKER.TYPE.JALALI"
+      [format]="UK_TYPE.DATE_PICKER.FORMAT.DATE_DASH"
+      [(ngModel)]="myDate"
+    /&gt;
+ 
+  
+    </code></pre>
+    <p>sample pt-persian-datepicker without time</p>
+
+    <pt-persian-datepicker
+      [calendarType]="UK_TYPE.DATE_PICKER.TYPE.JALALI"
+      [format]="UK_TYPE.DATE_PICKER.FORMAT.DATE_DASH"
+      [(ngModel)]="myDate"
+    />
+    selected date=>{{myDate()}}
+  </section>
+
+  <section>
+    <pre><code>
+    &lt;pt-persian-datepicker 
+       format="yyyy/MM/dd HH:mm"
+       [formControl]="myDate2"
+    /&gt;
+ 
+    </code></pre>
+    <p>sample pt-persian-datepicker with time</p>
+
+    <pt-persian-datepicker format="yyyy/MM/dd HH:mm" [formControl]="myDate2" />
+    selected date=>{{myDate2.value}}
+  </section>
+</div>

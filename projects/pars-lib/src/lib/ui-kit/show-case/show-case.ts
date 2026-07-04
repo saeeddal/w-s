@@ -1,6 +1,7 @@
 import { NgComponentOutlet } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { PtButton } from '../components';
+import { UK_TYPE } from '../../../public-api';
 
 @Component({
   selector: 'pt-show-case',
@@ -11,6 +12,7 @@ import { PtButton } from '../components';
 export class PtShowCase {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   currentComponent = signal<any>(null);
+  public readonly UK_TYPE = UK_TYPE;
 
   async loadComponent(compNumber: number) {
     let component: unknown;
@@ -25,27 +27,37 @@ export class PtShowCase {
           .ShowCaseButton;
         break;
       case 3:
-        component = (await import('../components/radio-button/radio-button')).PtRadioButton;
+        component = (await import('../components/input/_/show-case-input/show-case-input'))
+          .PtShowCaseInput;
         break;
       case 4:
-        component = (await import('../components/radio-button-group/radio-button-group'))
-          .PtRadioButtonGroup;
+        component = (
+          await import('../components/radio-button-group/_/show-case-radio/show-case-radio')
+        ).PtShowCaseRadio;
         break;
       case 5:
-        component = (await import('../components/check-box/check-box')).PtCheckBox;
+        component = (
+          await import('../components/check-box-group/_/show-case-checkbox/show-case-checkbox')
+        ).PtShowCaseCheckbox;
         break;
       case 6:
-        component = (await import('../components/check-box-group/check-box-group')).PtCheckBoxGroup;
+        component = (
+          await import('../components/data-table/_/show-case-datatable/show-case-datatable')
+        ).PtShowCaseDatatable;
         break;
       case 7:
-        component = (await import('../components/data-table/data-table')).PtDataTable;
+        component = (
+          await import('../components/persian-datepicker/_/show-case-persian-datepicker/show-case-persian-datepicker')
+        ).PtShowCasePersianDatepicker;
         break;
       case 8:
-        component = (await import('../components/persian-datepicker/persian-datepicker'))
-          .PtPersianDatepicker;
+        component = (await import('../components/stepper/_/show-case-stepper/show-case-stepper'))
+          .PtShowCaseStepper;
         break;
       case 9:
-        component = (await import('../components/stepper/stepper')).PtStepper;
+        component = (
+          await import('../components/auto-complete/_/show-case-auto-complete/show-case-auto-complete')
+        ).PtShowCaseAutoComplete;
         break;
       case 10:
         component = (await import('../components/auto-complete/auto-complete')).PtAutoComplete;

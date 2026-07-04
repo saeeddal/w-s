@@ -21,8 +21,6 @@ import {
   PtDialogService,
   PtShowCase,
 } from '@pars-lib/public-api';
-import type { Product } from '../../helpers/mock-data';
-import { MockCols, MockDataTable } from '../../helpers/mock-data';
 import { SampleComponent } from '../../components/sample-component/sample-component';
 
 interface IUser {
@@ -69,68 +67,10 @@ export class HomeMain {
   public myDate = signal(new Date());
   public myDate2 = new FormControl(new Date());
   public selectedUser: IUser | null = null;
-  public mockCols = MockCols;
-  public mockDataTable = MockDataTable.slice(0, 5);
-
-  public totalItems = signal<number>(6);
   public isLoading = signal<boolean>(false);
   public currentPage = signal<number>(0);
   public pageSize = signal<number>(5);
   public firstIndex = signal<number>(0);
-
-  // Event handlers
-  onRowSelect(event: any) {
-    console.warn('Row selected:', event);
-  }
-
-  onRowSelected(event: any) {
-    this.selectedUser = event.data;
-    console.warn('User selected:', this.selectedUser);
-  }
-
-  // Handle page changes from the table
-  public onPageChanged(event: { page: number; rows: number; first: number }) {
-    if (event.page === undefined || event.rows === undefined || event.first === undefined) {
-      return;
-    }
-    this.isLoading.set(true);
-
-    if (!event) {
-      this.isLoading.set(false);
-      return;
-    }
-
-    const sorted = [...MockDataTable].sort((a, b) => a.id - b.id);
-
-    const start = event.page * event.rows;
-    const end = start + event.rows;
-
-    this.mockDataTable = sorted.slice(start, end);
-
-    this.isLoading.set(false);
-  }
-
-  onFilterChange(event: any) {
-    console.warn('Filter changed:', event);
-  }
-
-  onSortChange(event: any) {
-    console.warn('Sort changed:', event);
-  }
-
-  onColumnResize(event: any) {
-    console.warn('Column resized:', event);
-  }
-
-  onExportData() {
-    console.warn('Exporting data...');
-    alert('Data exported successfully! (Mock)');
-  }
-
-  // Handle row selection
-  public onSelectionChanged(data: Product | Product[] | null): void {
-    console.warn('Selected product:', data);
-  }
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
   public steps = [
@@ -153,54 +93,8 @@ export class HomeMain {
   public multiSelectItems2 = [];
 
   public selectedValues = [1, 2];
-  //public tempValue: any = null!;
-  public tempValueRadioGroup!: number;
-  public disabledLabel = 'disabled';
-  public checkBoxItems: { value: number; label: string; disabled: boolean }[] = [
-    {
-      value: 1,
-      label: 'نقد',
-      disabled: false,
-    },
-    {
-      value: 2,
-      label: 'اقساط',
-      disabled: false,
-    },
-    {
-      value: 3,
-      label: 'رایگان',
-      disabled: false,
-    },
-    {
-      value: 4,
-      label: 'جدید و دیزیبل',
-      disabled: true,
-    },
-  ];
 
-  public radioBoxItems: { id: number; text: string; disabled: boolean }[] = [
-    {
-      id: 1,
-      text: 'نقد',
-      disabled: false,
-    },
-    {
-      id: 2,
-      text: 'اقساط',
-      disabled: false,
-    },
-    {
-      id: 3,
-      text: 'رایگان',
-      disabled: false,
-    },
-    {
-      id: 4,
-      text: 'جدید و دیزیبل',
-      disabled: true,
-    },
-  ];
+  public disabledLabel = 'disabled';
 
   public onComplete() {
     console.warn('compleate');
