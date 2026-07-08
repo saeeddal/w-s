@@ -11,5 +11,7 @@
   "files.eol": "\n",
   "js/ts.tsdk.path": "./node_modules/typescript/lib",
   "js/ts.tsdk.promptToUseWorkspaceVersion": true,
-  "cSpell.words": ["datatable", "primeng"]
+  "cSpell.words": ["datatable", "primeng"],
+  "workbench.externalBrowser": "chrome",
+  "workbench.browser.openLocalhostLinks": false
 }

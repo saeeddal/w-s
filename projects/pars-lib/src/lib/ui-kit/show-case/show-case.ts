@@ -77,22 +77,13 @@ export class PtShowCase {
           .PtShowCaseIcon;
         break;
       case 14:
-        component = (await import('../components/select/select')).PtSelect;
+        component = (await import('../components/divider/_/show-case-checkbox/show-case-divider'))
+          .PtShowCaseDivider;
         break;
       case 15:
-        component = (await import('../components/multi-select/multi-select')).PtMultiSelect;
-        break;
-      case 16:
-        component = (await import('../components/image/image')).PtImage;
-        break;
-      case 17:
-        component = (await import('../components/icon/icon')).PtIcon;
-        break;
-      case 18:
-        component = (await import('../components/divider/divider')).PtDivider;
-        break;
-      case 19:
-        component = (await import('../components/toggle-switch/toggle-switch')).PtToggleSwitch;
+        component = (
+          await import('../components/toggle-switch/_/show-case-toggle-switch/show-case-toggle-switch')
+        ).PtShowCaseToggleSwitch;
         break;
     }
 

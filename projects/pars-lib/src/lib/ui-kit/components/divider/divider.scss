@@ -1,91 +1,76 @@
 @use '../../../../../styles/index.scss' as *;
 
-:host {
-}
-
 .uk.divider {
   border-radius: 8px;
-  height: 100%;
 
-  &.uk-divider {
-    &-bg-color {
-      &-GRADE-1 {
-        background-color: $base-stroke_normal;
-      }
+  /* Base */
+  height: 100%; // good for vertical
+  width: auto;
+
+  /* Background */
+  &.uk-divider-bg-color-GRADE-1 {
+    background-color: $base-stroke_normal;
+  }
+
+  /* === HORIZONTAL === */
+  &.uk-divider-display-HORIZONTAL {
+    width: 100%;
+    height: auto;
+
+    &.uk-divider-size-PX-1 {
+      height: 1px;
+    }
+    &.uk-divider-size-PX-2 {
+      height: 2px;
     }
 
-    &-display {
-      &-HORIZONTAL {
-        width: 100%;
+    &.uk-divider-margin-M-4 {
+      margin: 0 4px;
+      width: calc(100% - 8px);
+    }
+    &.uk-divider-margin-M-8 {
+      margin: 0 8px;
+      width: calc(100% - 16px);
+    }
+    &.uk-divider-margin-M-16 {
+      margin: 0 16px;
+      width: calc(100% - 32px);
+    }
 
-        &.uk-divider-size {
-          &-PX-1 {
-            height: 1px;
-          }
-          &-PX-2 {
-            height: 2px;
-          }
-        }
+    &.uk-divider-margin-y-M-4 {
+      margin: 4px 0;
+    }
+    &.uk-divider-margin-y-M-8 {
+      margin: 8px 0;
+    }
+    &.uk-divider-margin-y-M-16 {
+      margin: 16px 0;
+    }
+  }
 
-        &.uk-divider-margin {
-          &-NONE {
-          }
-          &-M-4 {
-            margin: 0 4px;
-            width: calc(100% - 8px);
-          }
-          &-M-8 {
-            margin: 0 8px;
-            width: calc(100% - 16px);
-          }
-          &-M-16 {
-            margin: 0 16px;
-            width: calc(100% - 32px);
-          }
-        }
+  /* === VERTICAL === */
+  &.uk-divider-display-VERTICAL {
+    height: 100%; // most important
+    width: auto;
 
-        &.uk-divider-margin-y {
-          &-M-4 {
-            margin: 4px 0;
-          }
-          &-M-8 {
-            margin: 8px 0;
-          }
-          &-M-16 {
-            margin: 16px 0;
-          }
-        }
-      }
+    &.uk-divider-size-PX-1 {
+      width: 1px;
+    }
+    &.uk-divider-size-PX-2 {
+      width: 2px;
+    }
 
-      &-VERTICAL {
-        height: 100%;
-
-        &.uk-divider-size {
-          &-PX-1 {
-            width: 1px;
-          }
-          &-PX-2 {
-            width: 2px;
-          }
-        }
-
-        &.uk-divider-margin {
-          &-NONE {
-          }
-          &-M-4 {
-            margin: 4px 0;
-            height: calc(100% - 8px);
-          }
-          &-M-8 {
-            margin: 8px 0;
-            height: calc(100% - 16px);
-          }
-          &-M-16 {
-            margin: 16px 0;
-            height: calc(100% - 32px);
-          }
-        }
-      }
+    &.uk-divider-margin-M-4 {
+      margin: 4px 0;
+      height: calc(100% - 8px);
+    }
+    &.uk-divider-margin-M-8 {
+      margin: 8px 0;
+      height: calc(100% - 16px);
+    }
+    &.uk-divider-margin-M-16 {
+      margin: 16px 0;
+      height: calc(100% - 32px);
     }
   }
 }

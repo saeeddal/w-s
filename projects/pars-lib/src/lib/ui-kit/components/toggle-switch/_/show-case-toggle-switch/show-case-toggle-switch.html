@@ -1,0 +1,21 @@
+<div class="toggle-switch-showcase" dir="ltr">
+  <h3>pt-toggle-switch Component Examples</h3>
+
+  <section>
+    <pre><code>
+      &lt;pt-toggle-switch
+       [value]="toggleValue()"
+       (valueChange)="toggleValueChange($event)"
+       >
+      &lt;/pt-toggle-switch>
+
+    </code></pre>
+    <p>toggle-switch,</p>
+
+    <pt-toggle-switch
+      [value]="toggleValue()"
+      (valueChange)="toggleValueChange($event)"
+    ></pt-toggle-switch>
+    toggleValue=>{{toggleValue()}}
+  </section>
+</div>

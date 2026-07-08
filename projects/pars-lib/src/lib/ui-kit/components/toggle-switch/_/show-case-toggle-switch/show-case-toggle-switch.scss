@@ -1,0 +1,20 @@
+@use '../../../../../../../styles/index.scss' as *;
+
+.toggle-switch-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 8px;
+}
+.toggle-switch-showcase section {
+  background-color: $base-background_normal;
+  padding: 2px;
+  border-radius: 8px;
+  overflow-x: auto;
+  border: 1px solid #e0e0e0;
+  font-size: 14px;
+}
+
+.toggle-switch-showcase code {
+  white-space: pre;
+}

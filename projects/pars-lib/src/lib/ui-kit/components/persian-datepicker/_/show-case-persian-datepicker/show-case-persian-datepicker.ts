@@ -3,11 +3,10 @@ import { Component, signal } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UK_TYPE } from '../../../../../uk-type';
 import { PtPersianDatepicker } from '../../persian-datepicker';
-import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'pt-show-case-persian-datepicker',
-  imports: [ReactiveFormsModule, FormsModule, PtPersianDatepicker, JsonPipe],
+  imports: [ReactiveFormsModule, FormsModule, PtPersianDatepicker],
   templateUrl: './show-case-persian-datepicker.html',
   styleUrl: './show-case-persian-datepicker.scss',
 })

@@ -1,0 +1,56 @@
+<div class="divider-showcase" dir="ltr">
+  <h3>pt-divider Component Examples</h3>
+
+  <section>
+    <pre><code>
+        &lt;pt-divider
+          [bgColor]="UK_TYPE.DIVIDER.BG_COLOR.GRADE_1"
+          [marginY]="UK_TYPE.DIVIDER.MARGIN.M_8"
+          [size]="UK_TYPE.DIVIDER.SIZE.PX_2"
+          [display]="UK_TYPE.DIVIDER.DISPLAY.HORIZONTAL"
+        />
+
+    </code></pre>
+    <p>divider, consider default it gets full available width</p>
+
+    <div class="HORIZONTAL-divider-container">
+      <pt-divider
+        [bgColor]="UK_TYPE.DIVIDER.BG_COLOR.GRADE_1"
+        [marginY]="UK_TYPE.DIVIDER.MARGIN.M_16"
+        [size]="UK_TYPE.DIVIDER.SIZE.PX_2"
+        [display]="UK_TYPE.DIVIDER.DISPLAY.HORIZONTAL"
+      />
+    </div>
+  </section>
+
+  <section>
+    <pre><code>
+
+        &lt;pt-divider
+          [bgColor]="UK_TYPE.DIVIDER.BG_COLOR.GRADE_1"
+          [marginY]="UK_TYPE.DIVIDER.MARGIN.M_8"
+          [size]="UK_TYPE.DIVIDER.SIZE.PX_2"
+          [display]="UK_TYPE.DIVIDER.DISPLAY.VERTICAL"
+        />
+
+    </code></pre>
+    <p>divider, consider default it gets full available height- the parent should have heigh</p>
+
+    <div class="VERTICAL-divider-container">
+      <pt-divider
+        [bgColor]="UK_TYPE.DIVIDER.BG_COLOR.GRADE_1"
+        [marginY]="UK_TYPE.DIVIDER.MARGIN.M_16"
+        [size]="UK_TYPE.DIVIDER.SIZE.PX_2"
+        [display]="UK_TYPE.DIVIDER.DISPLAY.VERTICAL"
+      />
+    </div>
+    <div class="VERTICAL-divider-container-very-height">
+      <pt-divider
+        [bgColor]="UK_TYPE.DIVIDER.BG_COLOR.GRADE_1"
+        [marginY]="UK_TYPE.DIVIDER.MARGIN.M_16"
+        [size]="UK_TYPE.DIVIDER.SIZE.PX_2"
+        [display]="UK_TYPE.DIVIDER.DISPLAY.VERTICAL"
+      />
+    </div>
+  </section>
+</div>

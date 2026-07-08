@@ -1,12 +1,12 @@
 import { Component, signal } from '@angular/core';
 
-import { PtIcon, PtInput, PtSelect, UK_TYPE } from '../../../../../../public-api';
+import { PtSelect, UK_TYPE } from '../../../../../../public-api';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'pt-show-case-select',
-  imports: [PtInput, PtIcon, PtSelect, ReactiveFormsModule, CommonModule, FormsModule],
+  imports: [PtSelect, ReactiveFormsModule, CommonModule, FormsModule],
   templateUrl: './show-case-select.html',
   styleUrl: './show-case-select.scss',
 })
