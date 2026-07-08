@@ -85,6 +85,12 @@ export class PtShowCase {
           await import('../components/toggle-switch/_/show-case-toggle-switch/show-case-toggle-switch')
         ).PtShowCaseToggleSwitch;
         break;
+
+      case 16:
+        component = (
+          await import('../components/dynamic-dialog-wrapper/_/show-case-dialog/show-case-dialog')
+        ).PtShowCaseDialog;
+        break;
     }
 
     this.currentComponent.set(component);

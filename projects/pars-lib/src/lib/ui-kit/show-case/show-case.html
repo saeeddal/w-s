@@ -106,6 +106,14 @@
     (click)="loadComponent(15)"
     >toggle switch</pt-button
   >
+
+  <pt-button
+    [fgColor]="UK_TYPE.LABEL.FG_COLOR.WHITE"
+    [labelWeight]="UK_TYPE.LABEL.WEIGHT.BOLD"
+    [bgColor]="UK_TYPE.BUTTON.bgColor.BUTTON_PRIMARY"
+    (click)="loadComponent(16)"
+    >dialog samples</pt-button
+  >
 </div>
 <!-- Dynamic Component -->
 <ng-container *ngComponentOutlet="currentComponent()" />

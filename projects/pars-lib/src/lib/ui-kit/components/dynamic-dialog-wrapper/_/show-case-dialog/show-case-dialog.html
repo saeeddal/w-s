@@ -1,0 +1,57 @@
+<div class="divider-showcase" dir="ltr">
+  <h3>all kinds of dialog</h3>
+
+  <section>
+    <div class="HORIZONTAL-divider-container">
+      <div class="dialog-buttons">
+        <pt-button
+          [fgColor]="UK_TYPE.LABEL.FG_COLOR.WHITE"
+          [labelWeight]="UK_TYPE.LABEL.WEIGHT.BOLD"
+          [bgColor]="UK_TYPE.BUTTON.bgColor.BUTTON_PRIMARY"
+          (click)="openBasicDialog()"
+          >Open Basic Dialog</pt-button
+        >
+        <pt-button
+          [fgColor]="UK_TYPE.LABEL.FG_COLOR.WHITE"
+          [labelWeight]="UK_TYPE.LABEL.WEIGHT.BOLD"
+          [bgColor]="UK_TYPE.BUTTON.bgColor.BUTTON_PRIMARY"
+          (click)="openDialogWithFooter()"
+          >Open Dialog With Footer</pt-button
+        >
+        <pt-button
+          [fgColor]="UK_TYPE.LABEL.FG_COLOR.WHITE"
+          [labelWeight]="UK_TYPE.LABEL.WEIGHT.BOLD"
+          [bgColor]="UK_TYPE.BUTTON.bgColor.BUTTON_PRIMARY"
+          (click)="openTextDialog()"
+          >Open Text Dialog</pt-button
+        >
+        <pt-button
+          [fgColor]="UK_TYPE.LABEL.FG_COLOR.WHITE"
+          [labelWeight]="UK_TYPE.LABEL.WEIGHT.BOLD"
+          [bgColor]="UK_TYPE.BUTTON.bgColor.BUTTON_PRIMARY"
+          (click)="openTextDialogWithFooter()"
+          >Open Text Dialog With Footer</pt-button
+        >
+      </div>
+    </div>
+    @if (lastResult()) {
+    <div class="result">
+      <h4>Last Result:</h4>
+      <pre>{{ lastResult() | json }}</pre>
+    </div>
+    }
+  </section>
+  <section>
+    <p>
+      برای تبدیل یه کامپوننت به مودال چند مرحله وجود دارد.
+      <br />
+      1- appDialogService = inject(PtDialogService);
+      <br />
+      2-call method open from that service then send our component ans input parameter
+      <br />
+
+      3- each component which need to be open in dialog should be like sample component and extend
+      BaseDialog
+    </p>
+  </section>
+</div>
