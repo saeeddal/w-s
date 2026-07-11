@@ -1,0 +1,37 @@
+@use 'core' as *;
+h1 {
+  color: $text-normal;
+}
+
+.check-box-group-container,
+.radio-box-group-container {
+  margin: pxToRem(16);
+  width: pxToRem(200);
+  .options {
+    display: flex;
+    flex-direction: row;
+    .option {
+      width: 100%;
+    }
+  }
+}
+
+.dialog-buttons {
+  display: flex;
+  gap: 1rem;
+  padding: 2rem;
+  flex-wrap: wrap;
+}
+.result {
+  margin: 1rem 2rem;
+  padding: 1rem;
+  background: #f3f4f6;
+  border-radius: 6px;
+}
+.result pre {
+  margin: 0;
+  padding: 0.5rem;
+  background: white;
+  border-radius: 4px;
+  overflow: auto;
+}

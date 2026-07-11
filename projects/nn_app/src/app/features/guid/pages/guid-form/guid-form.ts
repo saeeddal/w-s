@@ -5,13 +5,12 @@ import { RouterModule } from '@angular/router';
 import { PtLabel, UK_TYPE } from '@pars-lib/public-api';
 
 @Component({
-  selector: 'app-home-main',
-  standalone: true,
+  selector: 'app-guid-form',
   imports: [FormsModule, CommonModule, RouterModule, PtLabel, ReactiveFormsModule],
-  templateUrl: './home-main.html',
+  templateUrl: './guid-form.html',
   changeDetection: ChangeDetectionStrategy.Eager,
-  styleUrl: './home-main.scss',
+  styleUrl: './guid-form.scss',
 })
-export class HomeMain {
+export class GuidForm {
   public readonly UK_TYPE = UK_TYPE;
 }

@@ -20,7 +20,6 @@ export class CallBack implements AfterViewInit {
       const token = this.AUTH_FACADE.accessToken();
       if (token) {
         this.AUTH_FACADE.getUser();
-        this.AUTH_FACADE.getMenuList();
       }
     });
   }

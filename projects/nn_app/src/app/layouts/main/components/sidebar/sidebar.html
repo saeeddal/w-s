@@ -22,7 +22,7 @@
       <pt-icon [src]="'assets/images/icons/hospital.svg'" [size]="UK_TYPE.ICON.SIZE.LARGEST" />
     </div>
     <div class="menu-container">
-      @for (item of menuItems; track item.title) {
+      @for (item of menuItems(); track item.title) {
       <div
         class="menu-item"
         (click)="!hasChildren(item) && onMenuItemClick($event,item.menu_key)"

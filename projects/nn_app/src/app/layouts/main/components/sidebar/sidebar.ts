@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/member-ordering */
+import type { OnInit } from '@angular/core';
 import {
   ChangeDetectorRef,
   Component,
@@ -24,20 +25,22 @@ import { RouteMapperService } from '@app/core/services/route-mapper.service';
   changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './sidebar.scss',
 })
-export class Sidebar {
+export class Sidebar implements OnInit {
   public readonly UK_TYPE = UK_TYPE;
   public readonly APP_FACADE = inject(AppFacade);
   public readonly AUTH_FACADE = inject(AuthFacade);
   public readonly ROUTER = inject(Router);
-  public menuItems: ISidebarMenuItem[] = this.AUTH_FACADE.menuList();
+  public menuItems = this.AUTH_FACADE.menuList;
   public collapsed = signal(false);
   public openMenu = signal<string | null>(null);
   public childRoute = signal('');
   public activeMenuKey = signal('');
 
   public constructor() {
-    this.cdr.markForCheck();
     this.checkScreenSize();
+  }
+  ngOnInit(): void {
+    this.AUTH_FACADE.getMenuList();
   }
 
   @HostListener('window:resize')

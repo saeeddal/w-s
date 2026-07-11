@@ -13,6 +13,8 @@ const ROUTE_MAP: Record<string, string> = {
   epHistory: '/prescription/ep-history',
   preHistory: '/prescription/pre-history',
   usedPr: '/prescription/used-pr',
+  sampleReactiveForm: '/guid/sampleReactiveForm',
+  sampleComponentUsage: '/guid/sampleComponentUsage',
 };
 
 @Injectable({ providedIn: 'root' })

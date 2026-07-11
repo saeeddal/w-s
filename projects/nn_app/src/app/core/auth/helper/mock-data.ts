@@ -1,19 +1,13 @@
 import type { ISidebarMenuItem } from '@app/shared/models/auth';
 import type { IResponse } from '@app/shared/models/common';
+import { StaticDevelopMenuItems } from './static-sidebar-menu';
 
 export const menuList: IResponse<ISidebarMenuItem[]> = {
   developMode: true,
   Status: 0,
   message: {
     data: [
-      {
-        menu_key: 'home',
-        title: 'home',
-        farsi_title: 'خانه',
-        priority: 0,
-        children: [],
-      },
-
+      ...StaticDevelopMenuItems,
       {
         menu_key: 'Bill',
         title: 'Bill',

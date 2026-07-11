@@ -46,7 +46,6 @@ export class AuthFacade {
     this.store.setLoading(true);
     try {
       const userResponse = await firstValueFrom(this.authService.getUser());
-      this.authService.saveUserToRepo(userResponse);
       this.store.setUser(userResponse);
       this.store.setLoading(false);
     } finally {
@@ -55,10 +54,7 @@ export class AuthFacade {
   }
 
   public logout(): void {
-    localStorage.removeItem('access_token');
-    localStorage.removeItem('expire_in');
     localStorage.removeItem('selectedCenter');
-    localStorage.removeItem('user');
     this.store.logout();
   }
 
@@ -66,7 +62,6 @@ export class AuthFacade {
     this.store.setLoading(true);
     try {
       const menuListResponse = await firstValueFrom(this.authService.getMenuList());
-      this.authService.saveMenuListToRepo(menuListResponse.message.data);
       this.store.setMenuList(menuListResponse.message.data);
       this.store.setLoading(false);
     } catch (e: unknown) {
