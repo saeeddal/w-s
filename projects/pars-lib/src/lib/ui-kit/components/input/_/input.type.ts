@@ -1,6 +1,7 @@
 export enum PtInputType {
   NUMBER = 'NUMBER',
   TEXT = 'TEXT',
+  PASSWORD = 'PASSWORD',
 }
 export type InputType = `${PtInputType}`;
 

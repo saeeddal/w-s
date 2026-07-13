@@ -1,9 +1,10 @@
+<!-- input.component.html -->
 <div
   class="uk input"
   [ngClass]="[
     'uk-input-border-color-' + borderColor,
     'hasRedBorderWhenActive-' + hasRedBorderWhenActive,
-    'isDisabled-' + isDisabled,
+    'isDisabled-' + disabled,
   ]"
 >
   <div class="icon-wrapper">
@@ -13,16 +14,17 @@
     appConvertPersianDigits
     [attr.maxlength]="maxLength !== null ? maxLength : null"
     [placeholder]="placeholder"
-    [type]="inputType === 'NUMBER' ? 'number' : 'text'"
-    [value]="value"
-    [(ngModel)]="val"
+    [type]="inputType | lowercase"
+    [value]="inputValue()"
+    [disabled]="disabled"
     (blur)="onBlur()"
     (focus)="onFocus()"
-    (input)="onChange()"
+    (input)="onChange($event)"
+    #inputElement
   />
 
   <ng-content select="[END-TEXT]" />
-  @if (val) {
+  @if (inputValue()) {
     <div (click)="clearValue()">
       <ng-content select="[END]" />
     </div>

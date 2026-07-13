@@ -205,3 +205,13 @@
     min-width: 100dvw;
   }
 }
+
+@mixin form-validation {
+  &.is-invalid {
+    border: 2px solid $color-error;
+  }
+
+  &.is-valid {
+    border: 2px solid $color-success;
+  }
+}

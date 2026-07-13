@@ -1,3 +1,47 @@
-<div class="comp loan-list">
-  <pt-label> نمونه فرم </pt-label>
+<div class="input-container">
+  <p-card header="Starter Plan" subheader="For personal projects">
+    <section>
+      <form [formRoot]="contactForm" novalidate>
+        <div>
+          <label> Name </label>
+          <input
+            pInputText
+            type="text"
+            [formField]="contactForm.name"
+            placeholder="form formField"
+          />
+          @if (contactForm.name().touched() && contactForm.name().invalid()) {
+          <div class="error-container">
+            @for (error of contactForm.name().errors(); track $index) {
+            <p-message severity="error" size="small" variant="simple"
+              >{{ error.message }}</p-message
+            >
+            }
+          </div>
+          }
+        </div>
+        <div>
+          <label> Email </label>
+          <input
+            pInputText
+            type="email"
+            [formField]="contactForm.email"
+            placeholder="email formField"
+          />
+          @if (contactForm.email().touched() && contactForm.email().invalid()) {
+          <div class="error-container">
+            @for (error of contactForm.email().errors(); track $index) {
+            <p-message severity="error" size="small" variant="simple"
+              >{{ error.message }}</p-message
+            >
+            }
+          </div>
+          }
+        </div>
+        <button type="submit">
+          @if (contactForm().submitting()) { Sending... } @else { Send }
+        </button>
+      </form>
+    </section>
+  </p-card>
 </div>

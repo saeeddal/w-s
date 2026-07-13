@@ -4,9 +4,3 @@
 @forward './functions';
 @forward './packages';
 @import '@angular/cdk/overlay-prebuilt.css';
-
-input {
-  border-color: $border-gray-medium !important;
-  background-color: transparent !important;
-  color: $color-input !important;
-}
