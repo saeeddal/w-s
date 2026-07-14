@@ -17,7 +17,7 @@ import {
   minLength,
   maxLength,
 } from '@angular/forms/signals';
-import { PtButton, UK_TYPE } from '@pars-lib/public-api';
+import { PtButton, PtLabel, UK_TYPE } from '@pars-lib/public-api';
 import { MessageModule } from 'primeng/message';
 @Component({
   selector: 'app-signal-form-simple',
@@ -34,12 +34,12 @@ import { MessageModule } from 'primeng/message';
     CardModule,
     PtButton,
     MessageModule,
+    PtLabel,
   ],
   templateUrl: './guid-form.html',
   styleUrl: './guid-form.scss',
 })
 export class GuidForm {
-  // with work with form
   public readonly UK_TYPE = UK_TYPE;
 
   contactModel = signal({
@@ -77,59 +77,14 @@ export class GuidForm {
       submission: {
         action: async (f) => {
           try {
-            debugger;
             await new Promise((resolve) => setTimeout(resolve, 200));
-            console.log('submit is done');
+
             f().reset({ ...this.INITIAL_MODEL });
-          } catch (error) {
-            console.error('Submission error:', error);
-          }
+          } catch (error) {}
         },
       },
     },
   );
 
   private readonly INITIAL_MODEL = { name: '', email: '' };
-
-  getErrorMessage(field: any): string {
-    const errors = field.errors();
-    if (!errors) {
-      return '';
-    }
-
-    // Check for specific error types
-    if (errors.required) {
-      return `${field.name} is required`;
-    }
-    if (errors.email) {
-      return 'Please enter a valid email address';
-    }
-    if (errors.minLength) {
-      return `Minimum length is ${errors.minLength.requiredLength} characters`;
-    }
-    if (errors.maxLength) {
-      return `Maximum length is ${errors.maxLength.requiredLength} characters`;
-    }
-    if (errors.pattern) {
-      return 'Invalid format';
-    }
-
-    // Fallback for custom error messages
-    if (errors.message) {
-      return errors.message;
-    }
-
-    // If errors is an array
-    if (Array.isArray(errors)) {
-      return errors.map((e) => e.message || e).join(', ');
-    }
-
-    return 'Invalid field';
-  }
-
-  // Method to check if field has specific error
-  hasError(field: any, errorType: string): boolean {
-    const errors = field.errors();
-    return errors && errors[errorType];
-  }
 }

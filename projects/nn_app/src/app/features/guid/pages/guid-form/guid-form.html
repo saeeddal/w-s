@@ -1,15 +1,12 @@
 <div class="input-container">
-  <p-card header="Starter Plan" subheader="For personal projects">
+  <p-card header="نمونه سیگنال فرم" subheader="فرم لاگین نمونه">
     <section>
-      <form [formRoot]="contactForm" novalidate>
+      <form [formRoot]="contactForm" novalidate (ngSubmit)="contactForm().submitting()">
         <div>
-          <label> Name </label>
-          <input
-            pInputText
-            type="text"
-            [formField]="contactForm.name"
-            placeholder="form formField"
-          />
+          <pt-label [size]="UK_TYPE.LABEL.SIZE.SMALL" [weight]="UK_TYPE.LABEL.WEIGHT.BOLD">
+            نام کاربری:
+          </pt-label>
+          <input pInputText type="text" [formField]="contactForm.name" />
           @if (contactForm.name().touched() && contactForm.name().invalid()) {
           <div class="error-container">
             @for (error of contactForm.name().errors(); track $index) {
@@ -21,13 +18,10 @@
           }
         </div>
         <div>
-          <label> Email </label>
-          <input
-            pInputText
-            type="email"
-            [formField]="contactForm.email"
-            placeholder="email formField"
-          />
+          <pt-label [size]="UK_TYPE.LABEL.SIZE.SMALL" [weight]="UK_TYPE.LABEL.WEIGHT.BOLD">
+            ایمیل:
+          </pt-label>
+          <input pInputText type="email" [formField]="contactForm.email" />
           @if (contactForm.email().touched() && contactForm.email().invalid()) {
           <div class="error-container">
             @for (error of contactForm.email().errors(); track $index) {
@@ -38,9 +32,9 @@
           </div>
           }
         </div>
-        <button type="submit">
-          @if (contactForm().submitting()) { Sending... } @else { Send }
-        </button>
+        <pt-button [buttonType]="'submit'" [fgColor]="UK_TYPE.LABEL.FG_COLOR.WHITE">
+          @if (contactForm().submitting()) { در حال ثبت... } @else { ثبت }
+        </pt-button>
       </form>
     </section>
   </p-card>
