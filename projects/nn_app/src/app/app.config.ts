@@ -14,10 +14,11 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { AuthFacade } from './core/auth/auth.facade';
 import { CenterFacade } from './features/centers/centers.facade';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
-import { authInterceptor, getTokenInterceptor } from './core/interceptors';
+import { authInterceptor, getTokenInterceptor, responseInterceptor } from './core/interceptors';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
 import { DialogService } from 'primeng/dynamicdialog';
+import { MessageService } from 'primeng/api';
 
 export const APP_CONFIG: ApplicationConfig = {
   providers: [
@@ -34,7 +35,9 @@ export const APP_CONFIG: ApplicationConfig = {
       const splash = document.getElementById('app-splash');
       splash?.classList.add('hide');
     }),
-    provideHttpClient(withInterceptors([getTokenInterceptor, authInterceptor])),
+    provideHttpClient(
+      withInterceptors([getTokenInterceptor, authInterceptor, responseInterceptor]),
+    ),
     provideAnimationsAsync(),
     providePrimeNG({
       theme: {
@@ -55,5 +58,6 @@ export const APP_CONFIG: ApplicationConfig = {
       },
     }),
     DialogService,
+    MessageService,
   ],
 };

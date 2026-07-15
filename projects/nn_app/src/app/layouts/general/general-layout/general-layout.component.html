@@ -2,5 +2,7 @@
   @if (AUTH_FACADE.isLoading() || APP_FACADE.isLoading()) {
     <div class="route-loading-bar"></div>
   }
+
+  <p-toast position="top-center" [baseZIndex]="10000"></p-toast>
   <router-outlet />
 </div>

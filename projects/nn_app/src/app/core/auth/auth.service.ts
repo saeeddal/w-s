@@ -1,16 +1,11 @@
 import { inject, Injectable, isDevMode } from '@angular/core';
 import { of, type Observable } from 'rxjs';
 import { AUTH_CONFIG } from './auth.const';
-import { AuthRepository } from './auth.repository';
 import { ApiHttpService } from '../services/api-http.service';
 import { HttpMethod } from '../services/models/http-method.enum';
 import type { AuthTokenResponse } from '../../shared/models/auth/token-response.interface';
 import { HttpParams } from '@angular/common/http';
-import type {
-  ISidebarMenuItem,
-  IUserAuthentication,
-  IUserInfoResponse,
-} from '@app/shared/models/auth';
+import type { ISidebarMenuItem, IUserInfoResponse } from '@app/shared/models/auth';
 import type { IResponse } from '@app/shared/models/common';
 import { menuList } from './helper/mock-data';
 
@@ -52,63 +47,32 @@ export class AuthService {
       body: body.toString(),
     };
 
-    return this.api.post$<AuthTokenResponse>(request);
+    return this.api.post$<AuthTokenResponse>(request, { showSuccess: false });
   }
 
   public logout() {}
 
-  public saveAccessTokenToRepo(access_token: string) {
-    this.authRepository.saveAccessToken(access_token);
-  }
-
-  public saveExpireTimeAccessTokenToRepo(expires_in: number) {
-    this.authRepository.saveAccessToken((Date.now() + expires_in * 1000).toString());
-  }
-
-  public getAccessTokenFromRepo(): string | null {
-    return this.authRepository.getAccessToken();
-  }
-
-  public getExpireTimeAccessTokenFromRepo(): string | null {
-    return this.authRepository.getExpireIn();
-  }
-
   public getUser(): Observable<IUserInfoResponse> {
     const request = {
-      method: HttpMethod.POST,
       endpoint: AUTH_CONFIG.user,
+      body: {},
     };
 
     return this.api.post$<IUserInfoResponse>(request);
   }
+
+  /**
+   * Get menu list - Shows error messages, NO success message
+   */
 
   public getMenuList(): Observable<IResponse<ISidebarMenuItem[]>> {
     if (isDevMode()) {
       return of(menuList);
     }
     const request = {
-      method: HttpMethod.POST,
       endpoint: AUTH_CONFIG.getList2,
     };
     return this.api.post$<IResponse<ISidebarMenuItem[]>>(request);
   }
-
-  public saveMenuListToRepo(menuList: ISidebarMenuItem[]) {
-    this.authRepository.saveMenuList(menuList);
-  }
-
-  public getMenuListFromRepo(): ISidebarMenuItem[] | null {
-    return this.authRepository.getMenuList();
-  }
-
-  public saveUserToRepo(user: IUserAuthentication) {
-    this.authRepository.saveUser(user);
-  }
-
-  public getUserFromRepo(): IUserInfoResponse | null {
-    return this.authRepository.getUser();
-  }
-
-  private readonly authRepository = inject(AuthRepository);
   private readonly api = inject(ApiHttpService);
 }

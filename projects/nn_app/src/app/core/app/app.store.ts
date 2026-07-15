@@ -1,5 +1,5 @@
 import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
-import { Themes } from '../services/models/themes.enum';
+import { Themes } from '../../shared/models/common/themes.enum';
 
 type AppState = {
   dynamicHeaderTitle: string;

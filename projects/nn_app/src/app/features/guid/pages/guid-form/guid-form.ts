@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/member-ordering */
 // app-signal-form-simple.component.ts
-import { Component, signal } from '@angular/core';
+import type { OnInit } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
@@ -19,6 +20,7 @@ import {
 } from '@angular/forms/signals';
 import { PtButton, PtLabel, UK_TYPE } from '@pars-lib/public-api';
 import { MessageModule } from 'primeng/message';
+import { GuidFacade } from '../../guid.facade';
 @Component({
   selector: 'app-signal-form-simple',
   standalone: true,
@@ -39,7 +41,10 @@ import { MessageModule } from 'primeng/message';
   templateUrl: './guid-form.html',
   styleUrl: './guid-form.scss',
 })
-export class GuidForm {
+export class GuidForm implements OnInit {
+  ngOnInit(): void {
+    this.GUID_FACADE.getPost1();
+  }
   public readonly UK_TYPE = UK_TYPE;
 
   contactModel = signal({
@@ -87,4 +92,5 @@ export class GuidForm {
   );
 
   private readonly INITIAL_MODEL = { name: '', email: '' };
+  public readonly GUID_FACADE = inject(GuidFacade);
 }

@@ -31,8 +31,6 @@ export class AuthFacade {
 
     try {
       const tokenResponse = await firstValueFrom(this.authService.exchangeCodeForToken(code));
-      this.authService.saveAccessTokenToRepo(tokenResponse.access_token);
-      this.authService.saveExpireTimeAccessTokenToRepo(tokenResponse.expires_in);
       this.store.setToken(tokenResponse.access_token);
       this.store.setExpiresIn(Date.now() + tokenResponse.expires_in * 1000);
       this.store.setLoading(false);
