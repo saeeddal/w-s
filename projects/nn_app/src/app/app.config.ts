@@ -16,7 +16,7 @@ import { CenterFacade } from './features/centers/centers.facade';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { authInterceptor, getTokenInterceptor, responseInterceptor } from './core/interceptors';
 import { providePrimeNG } from 'primeng/config';
-import Aura from '@primeng/themes/aura';
+import Aura from '@primeuix/themes/aura';
 import { DialogService } from 'primeng/dynamicdialog';
 import { MessageService } from 'primeng/api';
 
